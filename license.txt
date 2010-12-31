@@ -1,35 +1,5 @@
-Obullo: PHP5 Framework
-=========================
 
-The goal of Obullo is keep the Core minimal via less coding. 
-
-## Features
-
-- Global Controllers (Obullo GC)
-- Advanced Directory Structure
-- PDO with Active Record Class
-- Orginally based CodeIgniter
-- Lightweight and Easy to Use.
-
-
-## Installation
-
-- Open archive to your `/htdocs` folder.
-- Check your php.ini, `short_open_tag = ` should be `On`.
-- Check your phpinfo(); `PDO` and `Pdo_yourdriver` (pdo_mysql, pdo_pgsql etc..) must be installed on your host.
-- Open your browser and run Obullo e.g. `http://localhost/obullo`
-- You can change configuration from `application/config/config.php file`.
-  
-  
-## Quick Start
-
-  
-## Credits
-
-- Ersin Guvenc &lt;eguvenc at gmail.com&gt;
-- CJ Lazell &lt;cjlazell at googlemail.com&gt;
-
-## License 
+Obullo License Agreement
 
 Copyright (c) 2009 - 2010 Ersin Guvenc, http://obullo.com
 All rights reserved.
@@ -86,4 +56,3 @@ DATA OR SOFTWARE PROGRAMS, OR UNAVAILABILITY OR INTERRUPTION OF OPERATIONS.
 
 ---------------------------------------------------------------------------
 Note: This Product Derived From CodeIgniter Software.
-
