@@ -1,0 +1,6 @@
+[submodule "application"]
+	path = application
+	url = git@github.com:obullo/application.git
+[submodule "obullo"]
+	path = obullo
+	url = git@github.com:obullo/obullo.git
