@@ -31,4 +31,4 @@ Class doly implements PHP5_Library
 } 
 
 /* End of file doly.php */
-/* Location: ./application/libraries/php5/doly.php */
+/* Location: .modules/libraries/php5/doly.php */

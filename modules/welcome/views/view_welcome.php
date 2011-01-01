@@ -1,18 +1,17 @@
 <?php
 
 // view_var('head', js(array('../welcome/welcome', '../welcome/test')));
-// view_var('head', link_tag('', 'pingback'));
+view_var('head', link_tag('../welcome/xmlrpc.rss', 'pingback'));
 view_var('head', css('../welcome/welcome.css'));
+view_var('head', js('../welcome/welcome.js'));
+view_var('head', script('welcome'));    
 view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set head tags // in view files. 
-view_var('head', script('welcome'));        
 ?>
 <!-- body content -->
 
 <h1>Welcome to Obullo Framework !</h1> 
 
-<p><?php echo $var; ?></p><br />
-
-<p></p>
+<p></p><br />
 
 <p>If you would like to edit this page you'll find <b>View</b> located at:</p>
 <code>modules/welcome/views/view_welcome.php</code>
@@ -33,12 +32,12 @@ view_var('head', script('welcome'));
 <code>application/layouts/layout_base.php</code>
 
 <p><b>Note:</b> If you are new to Obullo Framework, you should start by 
-reading the <a href="http://obullo.com/user_guide/<?php echo OBULLO_VERSION; ?>/index.html">User Guide</a>.</p>
+reading the <a href="http://obullo.com/user_guide/<?php echo OBULLO_VERSION; ?>/index.html">User Guide</a>. <?php echo $var; ?> <?php echo img('obullo.gif', ' border="0" '); ?> </p>
 
 <p>
 <br />Page rendered in {elapsed_time} seconds 
-<?php if(function_exists('memory_get_usage')) {?> using {memory_usage} of memory <?php } ?> 
-(Used Head_tag helper, Url helper, Script file and Global Controller).
+<?php if(function_exists('memory_get_usage')) {?> using {memory_usage} of memory <?php } ?>
 </p>
+
 
 <!-- body content -->

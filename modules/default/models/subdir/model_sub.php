@@ -2,8 +2,6 @@
 
 /**
 * Your copy paste Sub Model load it as
-*  
-* loader::model('subdir/model_sub').
 */
 Class Model_sub extends Model {
     
@@ -24,4 +22,4 @@ Class Model_sub extends Model {
 } 
 
 /* End of file model_doly.php */
-/* Location: ./application/default/models/subdir/model_sub.php */
+/* Location: ./modules/default/models/subdir/model_sub.php */

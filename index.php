@@ -54,7 +54,6 @@ define('APP',  'application'. DS);
 */
 define('EXT',  '.php'); 
 define('FCPATH', __FILE__);
-define('FPATH', dirname(__FILE__));
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 define('DIR',  'modules'. DS);
 

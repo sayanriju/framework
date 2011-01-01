@@ -106,7 +106,8 @@ works automatically from now on.
     
 
 - added public_folder item to config.php
-    
+- added _get_public_path() function to common.php file, updated head_tag and body_tag helper.  
+- updated Config.php and url helper public_url() function.
     
 //-----------------------------------------------------------------------------
 

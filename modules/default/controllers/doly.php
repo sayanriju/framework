@@ -15,10 +15,10 @@ Class Doly extends Controller {
         view_var('title', '');
 
         view_var('body', view(''));
-        view_app('');
+        view_temp('layout_');
     }
     
 }
 
-/* End of file start.php */
-/* Location: .application/default/controllers/start.php */
+/* End of file doly.php */
+/* Location: .modules/default/controllers/doly.php */

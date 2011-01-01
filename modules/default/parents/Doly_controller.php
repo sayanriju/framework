@@ -19,4 +19,4 @@ Class Doly_controller extends Controller
 }
 
 /* End of file Doly_controller.php */
-/* Location: ./application/parents/Doly_controller.php */
+/* Location: .modules/parents/Doly_controller.php */
