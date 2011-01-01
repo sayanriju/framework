@@ -1,7 +1,8 @@
 <?php
 
 // view_var('head', js(array('../welcome/welcome', '../welcome/test')));
-view_var('head', link_tag('../welcome/feed.rss', 'alternate', 'application/rss+xml', 'My RSS Feed'));
+// view_var('head', link_tag('', 'pingback'));
+view_var('head', css('../welcome/welcome.css'));
 view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set head tags // in view files. 
 view_var('head', script('welcome'));        
 ?>

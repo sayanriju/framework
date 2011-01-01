@@ -105,6 +105,9 @@ works automatically from now on.
     - fixed auto_source_url variable bug in Config.php
     
 
+- added public_folder item to config.php
+    
+    
 //-----------------------------------------------------------------------------
 
 
