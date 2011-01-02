@@ -1,12 +1,12 @@
 <?php
 /**
 |--------------------------------------------------------------------------
-| Obullo Framework (c) 2010. 
+| Obullo Framework (c) 2009 - 2011. 
 |--------------------------------------------------------------------------
 |
 | PHP5 MVC Based Minimalist Software for PHP 5.1.2 or newer
 |
-| @version .base/obullo/Controller.php
+| @version defined  in  .obullo/core/Controller.php
 | @see     license.txt
 |
 */ 
@@ -40,6 +40,8 @@ error_reporting(E_ALL | E_STRICT);
 */
 define('BASE', 'obullo'. DS);
 define('APP',  'application'. DS);
+define('DIR',  'modules'. DS);
+
 /*
 |---------------------------------------------------------------
 | DEFINE APPLICATION CONSTANTS
@@ -55,7 +57,6 @@ define('APP',  'application'. DS);
 define('EXT',  '.php'); 
 define('FCPATH', __FILE__);
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-define('DIR',  'modules'. DS);
 
 require(APP  .'system'. DS .'init'. DS .'Bootstrap'. EXT);  
 require(BASE .'core'. DS .'Bootstrap'. EXT);
