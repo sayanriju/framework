@@ -13,7 +13,7 @@ Class Doly {
 
     public function test()
     {   
-
+        echo 'test !! ';
     }
     
 } 

@@ -1,10 +1,23 @@
 <?php
 
+
 Class Welcome extends Global_controller {
     
     function __construct()
     {   
         parent::__construct();
+        
+        loader::base_helper('hmvc');
+        // http://www.jonasjohn.de/snippets/php/post-request.htm
+        
+        $this->hello = 'blabla';
+    
+        $response = hmvc_query('welcome/dashboard/test?query=SELECT+%%%from&bool=true');
+        echo $response.'<br />';
+        
+        $response2 = hmvc_query('welcome/dashboard/hello?query=mynames&query2=ersin');
+        echo $response2;
+        
     }           
     
     public function index()

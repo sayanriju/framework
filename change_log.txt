@@ -112,6 +112,19 @@ works automatically from now on.
 //-----------------------------------------------------------------------------
 
 
+@todolist 
+- css functionality from modules  change it css();
+- configuration for modules.
+- those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers 
+- check routes functionality for subfolders ..
+- restful http call hmvc, post, put, delete, get
+- test router and add router changes to hmvc.
+- add GET method support to subfolder urls.
+- add module library extend support, helper extend, model extend
+- view nested data support
+- this() function should be in current hmvc SCOPE.
+- hmvc cache test.
+
 
 !!!!!!!!!!!!!!!!!!! NEW TODOS !!!!!!!!!!!!!!!
 @todo .. multiple database active ercord.

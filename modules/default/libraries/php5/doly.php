@@ -23,9 +23,9 @@ Class doly implements PHP5_Library
     }
     
 
-    public function doly_func()
+    public function func()
     {
-        // ..   
+        echo 'php5 test ... works !!';
     }
     
 } 

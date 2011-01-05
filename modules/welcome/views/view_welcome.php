@@ -1,12 +1,11 @@
-<?php
 
-// view_var('head', js(array('../welcome/welcome', '../welcome/test')));
-view_var('head', link_tag('../welcome/xmlrpc.rss', 'pingback'));
+<?php
 view_var('head', css('../welcome/welcome.css'));
-view_var('head', js('../welcome/welcome.js'));
+view_var('head', js('welcome.js'));
 view_var('head', script('welcome'));    
-view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set head tags // in view files. 
+view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files. 
 ?>
+
 <!-- body content -->
 
 <h1>Welcome to Obullo Framework !</h1> 

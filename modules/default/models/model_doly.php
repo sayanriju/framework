@@ -14,6 +14,8 @@ Class Model_doly extends Model {
     
     public function doly()
     {
+        echo 'test';
+        
         // ...
         // $this->db->query( ... );
     }

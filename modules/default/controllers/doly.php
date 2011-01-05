@@ -12,10 +12,12 @@ Class Doly extends Controller {
 
     public function index()
     {
-        view_var('title', '');
-
-        view_var('body', view(''));
-        view_temp('layout_');
+        echo '';
+    }
+    
+    function test()
+    {
+        echo 'hmvc works !!';
     }
     
 }
