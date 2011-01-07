@@ -7,26 +7,25 @@ Class Welcome extends Global_controller {
         parent::__construct();
         
         loader::base_helper('hmvc');
-        // http://www.jonasjohn.de/snippets/php/post-request.htm
-        
-        $this->hello = 'blabla';
-        $this->response = json_decode(hmvc_process('GET', 'api/v3?query=SELECT+%%%from&bool=true', array('last' => 'me')));
-        
-        print_r($this->response);
-
-        // var_dump(this());
-
-        // echo detect_uri();
-        
-        /*
-        $response2 = hmvc_query('welcome/dashboard/hello?query=mynames&query2=ersin');
-        echo $response2;
-        */
+        loader::model('../api/doly');
     }           
     
     public function index($hello = '')
     {                
-        echo $hello;
+        $this->doly->var = 'welcome controller';
+        
+        $this->hello = 'blabla';
+        $result = hmvc_process('GET', 'api/v3?query=SELECT+%%%from&bool=true', array('last' => 'me'), 0);
+        $response = json_decode($result);
+        
+        echo $response.'<br />';
+        
+        $response = json_decode(hmvc_process('GET', 'api?query=SELECT+%%%from&bool=true', array('last' => 'me'), 1000));
+        
+        echo $response;
+        
+        echo $this->doly->var;
+        
         
         view_var('title', 'Welcome to Obullo Framework !');
         

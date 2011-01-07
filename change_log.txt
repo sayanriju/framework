@@ -115,15 +115,16 @@ works automatically from now on.
 @todolist 
 - css functionality from modules  change it css();
 - configuration for modules.
+- output cache folder for each modules.
 - those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers 
 - check routes functionality for subfolders ..
 - restful http call hmvc, post, put, delete, get
 - test router and add router changes to hmvc.
 - add GET method support to subfolder urls.
-- add module library extend support, helper extend, model extend
+- add module library extend support, helper extend, model extend (in module directory !!)
 - view nested data support
-- this() function should be in current hmvc SCOPE.
-- hmvc cache test.
+- this() function should be in current hmvc SCOPE. ( fixed.)
+- hmvc cache test. ( fixed )
 
 
 !!!!!!!!!!!!!!!!!!! NEW TODOS !!!!!!!!!!!!!!!
