@@ -113,8 +113,11 @@ works automatically from now on.
 
 
 @todolist 
+- check hmvc loop same class but different function
+- $this->router->forward('members/signup_step1/index'); action forward support
+- $this->router->forward('members/signup_step2/index'); action forward support
 - css functionality from modules  change it css();
-- configuration for modules.
+- configuration folder for each modules.
 - output cache folder for each modules.
 - those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers 
 - check routes functionality for subfolders ..

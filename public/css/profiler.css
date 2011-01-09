@@ -68,6 +68,26 @@ body {
  color: blue;
 }
 
+/* ---------------- HMVC Requests -------------------*/
+#hmvc table th {
+ background-color: #fff;
+ font-size: 14px;
+ color: #666666;
+ border-top: 1px solid #ccc;  
+}
+
+#hmvc table .td {
+ background-color: #EFEFEF;
+ font-size: 14px;
+ color: brown;
+}
+
+#hmvc table .td_val {
+ background-color: #EFEFEF;
+ font-size: 14px;
+ color: blue;
+}
+
 /* ---------------- Queries -------------------*/
 
 #queries table th {

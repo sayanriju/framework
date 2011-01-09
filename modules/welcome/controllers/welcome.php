@@ -1,31 +1,35 @@
 <?php
 
-Class Welcome extends Global_controller {
+Class Welcome extends Welcome_controller {
     
     function __construct()
     {   
         parent::__construct();
-        
         loader::base_helper('hmvc');
-        loader::model('../api/doly');
     }           
     
     public function index($hello = '')
     {                
-        $this->doly->var = 'welcome controller';
+        // $this->doly->var = 'welcome controller';
+        
+        // echo $this->uri->uri_string;
         
         $this->hello = 'blabla';
-        $result = hmvc_process('GET', 'api/v3?query=SELECT+%%%from&bool=true', array('last' => 'me'), 0);
-        $response = json_decode($result);
+        $hmvc = hmvc_request('GET', 'api/v3?query=SELECT+%%%from&bool=true', array('last' => 'me'), 0);
+        $hmvc->set_server('USER_AGENT', 'Hmvc class');
+        $result = $hmvc->exec()->response();
+        echo json_decode($result);
+        //  print_r($_SERVER);        
+
+        echo '<br />';
+    
+        $hmvc = hmvc_request('GET', 'api?query=SELECT+%%%from&bool=true', array('last' => 'me'));
+        $result = $hmvc->exec()->response();
+        echo json_decode($result);
         
-        echo $response.'<br />';
+
         
-        $response = json_decode(hmvc_process('GET', 'api?query=SELECT+%%%from&bool=true', array('last' => 'me'), 1000));
-        
-        echo $response;
-        
-        echo $this->doly->var;
-        
+        // echo $this->doly->var;
         
         view_var('title', 'Welcome to Obullo Framework !');
         
@@ -33,6 +37,12 @@ Class Welcome extends Global_controller {
         
         view_var('body', view('view_welcome', $data));
         view_temp('layout_base'); 
+    }
+    
+    
+    function _test()
+    {
+        echo 'test function works fine !';
     }
     
 }
