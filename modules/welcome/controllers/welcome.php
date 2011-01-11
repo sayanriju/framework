@@ -6,30 +6,48 @@ Class Welcome extends Welcome_controller {
     {   
         parent::__construct();
         loader::base_helper('hmvc');
+        
+        // $this->output->profiler();
     }           
     
     public function index($hello = '')
-    {                
+    {              
+    
+        /*
         // $this->doly->var = 'welcome controller';
+        $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'))->no_loop();
+        echo $hmvc->exec()->response();
+        */ 
+        
+        print_r($this->uri->rsegments);
+        
+        // echo base_register('HMVC')->request_count;
+        
+        // $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'));
+        // $result = $hmvc->exec()->response();
         
         // echo $this->uri->uri_string;
-        
-        $this->hello = 'blabla';
+/*
         $hmvc = hmvc_request('GET', 'api/v3?query=SELECT+%%%from&bool=true', array('last' => 'me'), 0);
-        $hmvc->set_server('USER_AGENT', 'Hmvc class');
         $result = $hmvc->exec()->response();
-        echo json_decode($result);
-        //  print_r($_SERVER);        
-
-        echo '<br />';
-    
+        echo json_decode($result);       
+        
         $hmvc = hmvc_request('GET', 'api?query=SELECT+%%%from&bool=true', array('last' => 'me'));
         $result = $hmvc->exec()->response();
         echo json_decode($result);
+*/
+        /*
+        $data = file_get_contents('public/images/gif/obullo.gif');
         
+        header('Content-length: '.strlen($data)."\r\n"); 
+        header('Content-type: image/gif');
+        echo $data;
+        */
 
-        
-        // echo $this->doly->var;
+        /*
+        $hmvc = hmvc_request('PUT', 'welcome/welcome/_test');
+        echo $hmvc->exec()->response();
+        */
         
         view_var('title', 'Welcome to Obullo Framework !');
         

@@ -113,6 +113,7 @@ works automatically from now on.
 
 
 @todolist 
+- http://www.gen-x-design.com/archives/create-a-rest-api-with-php/
 - check hmvc loop same class but different function
 - $this->router->forward('members/signup_step1/index'); action forward support
 - $this->router->forward('members/signup_step2/index'); action forward support
