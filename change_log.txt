@@ -113,6 +113,7 @@ works automatically from now on.
 
 
 @todolist 
+- added loader::lib('../api/php5/process'); support to userguide.
 - http://www.gen-x-design.com/archives/create-a-rest-api-with-php/
 - check hmvc loop same class but different function
 - $this->router->forward('members/signup_step1/index'); action forward support
@@ -127,6 +128,7 @@ works automatically from now on.
 - add GET method support to subfolder urls.
 - add module library extend support, helper extend, model extend (in module directory !!)
 - view nested data support
+- Change all Ssc:instance(); to base_register('Empty');
 - this() function should be in current hmvc SCOPE. ( fixed.)
 - hmvc cache test. ( fixed )
 

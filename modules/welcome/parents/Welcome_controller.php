@@ -2,7 +2,7 @@
 defined('BASE') or exit('Access Denied!');
 
 
-Class Welcome_controller extends Controller
+Class Welcome_Controller extends Controller
 {                                     
     public function __construct()
     {

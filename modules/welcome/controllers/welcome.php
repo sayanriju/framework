@@ -1,30 +1,38 @@
 <?php
 
-Class Welcome extends Welcome_controller {
+Class Welcome extends Welcome_Controller {
     
     function __construct()
     {   
         parent::__construct();
-        loader::base_helper('hmvc');
         
         // $this->output->profiler();
+        // - api_test model loader
     }           
     
-    public function index($hello = '')
+    public function index()
     {              
-    
-        /*
+        // loader::model('doly');
         // $this->doly->var = 'welcome controller';
-        $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'))->no_loop();
+        // header('Content-type: image/gif');
+
+        /*
+        $gif_data = file_get_contents('public/images/gif/obullo.gif');
+        $hmvc = hmvc_request('PUT', 'api/v3', $gif_data);
         echo $hmvc->exec()->response();
-        */ 
+        */
         
-        print_r($this->uri->rsegments);
+        // zip::instance()->test = 'ersimmmmmmmmmmmmm ';;
+    
+        $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'));
+        $result = $hmvc->exec()->response();
         
-        // echo base_register('HMVC')->request_count;
+        echo $result;
+    
+        // echo base_register('Restore')->test;
+        // echo zip::instance()->test;
         
-        // $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'));
-        // $result = $hmvc->exec()->response();
+        // echo $this->doly->var;
         
         // echo $this->uri->uri_string;
 /*
@@ -55,11 +63,16 @@ Class Welcome extends Welcome_controller {
         
         view_var('body', view('view_welcome', $data));
         view_temp('layout_base'); 
+        
     }
     
     
     function _test()
     {
+        view_var('title', 'sssssssss');
+        
+        $this->config->load('api');
+        
         echo 'test function works fine !';
     }
     
