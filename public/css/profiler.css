@@ -12,7 +12,7 @@ body {
  background-color: #fff;
  margin: 5px;
  font-family: Arial;
- font-size: 13px;
+ font-size: 11px;
  color: #000;
 }
 
@@ -26,7 +26,7 @@ body {
 #obullo_profiler table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 #obullo_profiler table th {
@@ -51,40 +51,40 @@ body {
 /* ---------------- Benchmark -------------------*/
 #benchmark table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc;  
+   
 }
 
 #benchmark table .td {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: brown;
 }
 
 #benchmark table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: blue;
 }
 
 /* ---------------- HMVC Requests -------------------*/
 #hmvc table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc;  
+   
 }
 
 #hmvc table .td {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: brown;
 }
 
 #hmvc table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: blue;
 }
 
@@ -93,14 +93,14 @@ body {
 #queries table th {
  text-align: left;
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc; 
+  
 }
 
 #queries table .td {
  background-color: #EFEFEF;
- font-size: 14px; 
+ font-size: 11px; 
 }
 
 #queries table .td .notice { color:red; }
@@ -109,7 +109,7 @@ body {
 
 #queries table .td_val {
  background-color: #ddd;
- font-size: 14px;   
+ font-size: 11px;   
  font-weight: normal;
  color: #0000FF;
 }
@@ -117,113 +117,113 @@ body {
 /* ---------------- GET -------------------*/
 #get table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc; 
+  
 }
 
 #get table .td {
  background-color: #EFEFEF;
- font-size: 14px; 
+ font-size: 11px; 
  color: brown;
 }
 
 #get table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: green;
 }
 
 /* ---------------- POST -------------------*/
 #post table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc;  
+   
 }
 
 #post table .td {
  background-color: #EFEFEF;
- font-size: 14px; 
+ font-size: 11px; 
  color: brown;
 }
 
 #post table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: green;
 }
 
 /* ---------------- Uri String -------------------*/
 #uri_string table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666; 
 }
 
 #uri_string .td {
  background-color: #EFEFEF;
- font-size: 14px; 
+ font-size: 11px; 
  color: black;
 }
 
 #uri_string .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: #800080;
 }
 
 /* ---------------- Controller Info -------------------*/
 #controller_info table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc; 
+  
 }
 
 #controller_info table .td {
  background-color: #EFEFEF;
- font-size: 14px; 
+ font-size: 11px; 
  color: black;
 }
 
 #controller_info table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: #000080;
 }
 
 /* ---------------- Memory Info -------------------*/
 #memory table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc;  
+   
 }
 
 #memory table .td {
  background-color: #EFEFEF;
- font-size: 14px; 
+ font-size: 11px; 
  color: black;
 }
 
 #memory table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: green;
 }
 
 /* ---------------- Loaded Files -------------------*/
 #loaded_files table th {
  background-color: #fff;
- font-size: 14px;
+ font-size: 11px;
  color: #666666;
- border-top: 1px solid #ccc; 
+  
 }
 
 #loaded_files table .td {
  background-color: #EFEFEF;
- font-size: 14px;  
+ font-size: 11px;  
  color: brown;
 }
 
@@ -241,6 +241,6 @@ body {
 
 #loaded_files table .td_val {
  background-color: #EFEFEF;
- font-size: 14px;
+ font-size: 11px;
  color: #800080;
 }
