@@ -113,23 +113,23 @@ works automatically from now on.
 
 
 @todolist
+- add to userguide language and config file load changes, change the directory structure.
 - add module() (url helper) function to userguide.
-- loader::config('../welcome/lang'); support .. 
+- loader::config('../welcome/config'); + loader::lang('../welcome/lang'); support .. 
 - add $this->router->forward() method to userguide, change Global form control tutorial in userguide.
 - added loader::lib('../api/php5/process'); support to userguide.
 
-- check hmvc loop same class but different function 
+- check hmvc loop same class but different function (fixed)
 - $this->router->forward('members/signup_step1/index'); (fixed)
-- css functionality from modules  change it css();
+- css functionality from modules  change it css(); (fixed)
 - configuration folder for each modules.
 - output cache folder for each modules.
-- those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers 
-- check routes functionality for subfolders ..
+- those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers (fixed) 
+- check routes functionality for subfolders .. (fixed)
 - restful http call hmvc, post, put, delete, get (fixed)  http://www.gen-x-design.com/archives/create-a-rest-api-with-php/  (fixed)
-- test router and add router changes to hmvc.
 - add GET method support to subfolder urls. (fixed)
 - add module library extend support, helper extend, model extend (in module directory !!)
-- view nested data support
+- view nested data support (fixed)
 - Change all Ssc:instance(); to base_register('Empty'); (fixed)
 - this() function should be in current hmvc SCOPE. ( fixed.)
 - hmvc cache test. ( fixed )
