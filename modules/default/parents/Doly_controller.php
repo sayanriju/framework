@@ -2,7 +2,7 @@
 defined('BASE') or exit('Access Denied!');
 
 /**
-* Your copy paste Global Controller file.
+* Your copy paste Module Controller file.
 */
 
 Class Doly_controller extends Controller

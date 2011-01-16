@@ -9,7 +9,7 @@ Class Welcome extends Welcome_Controller {
     }           
     
     public function index()
-    {            
+    {           
         /*
         $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'));
         $result = $hmvc->exec()->response();
