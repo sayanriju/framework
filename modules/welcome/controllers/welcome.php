@@ -14,7 +14,7 @@ Class Welcome extends Welcome_Controller {
     
     public function index()
     {     
-print nl2br(ob_get_contents()); exit;
+        // print nl2br(ob_get_contents()); exit;
     /*    
         $hmvc = hmvc_request('GET', 'welcome/welcome/_test', array('last' => 'me'), 0);
         $result = $hmvc->exec()->response();
@@ -27,7 +27,9 @@ print nl2br(ob_get_contents()); exit;
         
         // view_var('body', view_render(array('layouts/view_header', 'view_left',   
         // 'view_welcome', 'view_right', 'layouts/view_footer'), $data));
- 
+        
+        $cal = lib('Calendar');
+        echo $cal->generate();
         
         view_var('body', view('view_welcome', $data));
         view_layout('layout_welcome'); 

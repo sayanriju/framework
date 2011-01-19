@@ -113,6 +113,7 @@ works automatically from now on.
 
 
 @todolist
+- if somene use loader::config('../another/modulename'); ?
 - default db
 - add to userguide 
 view_var('body', view_render(array('layouts/view_header', 'view_left',   
