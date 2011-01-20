@@ -138,7 +138,7 @@ view_var('body', view_render(array('layouts/view_header', 'view_left',
 - Change all Ssc:instance(); to base_register('Empty'); (fixed)
 - this() function should be in current hmvc SCOPE. ( fixed.)
 - hmvc cache test. ( fixed )
-
+- test
 
 !!!!!!!!!!!!!!!!!!! NEW TODOS !!!!!!!!!!!!!!!
 @todo .. multiple database active ercord.
