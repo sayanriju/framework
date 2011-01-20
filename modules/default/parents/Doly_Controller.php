@@ -5,7 +5,7 @@ defined('BASE') or exit('Access Denied!');
 * Your copy paste Module Controller file.
 */
 
-Class Doly_controller extends Controller
+Class Doly_Controller extends Controller
 {                                     
     public function __construct()
     {
