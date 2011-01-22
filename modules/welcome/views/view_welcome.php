@@ -1,15 +1,16 @@
 <?php
 view_var('head', css('welcome.css'));
-
-view_var('head', css('font-size:24px;', 'embed'));
-
 view_var('head', js('welcome.js'));
 view_var('head', script('welcome'));    
 view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files. 
 ?>
 <!-- body content -->
-
 <h1>Welcome to Obullo !</h1> 
+
+<?php // echo api_process('welcome/welcome/_test?query=%22SELECT+%2A+FROM+common.user+LIMIT+1%22', array('last' => 'me')); 
+$hmvc = hmvc_request('GET', 'api/v3?query=%22SELECT+%2A+FROM+common.user+LIMIT+1%22', array('last' => 'me'));
+echo $hmvc->exec()->response();
+?>
 
 <div id="main">
     <div class="fieldset"> 
