@@ -7,11 +7,6 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
 
-<?php // echo api_process('welcome/welcome/_test?query=%22SELECT+%2A+FROM+common.user+LIMIT+1%22', array('last' => 'me')); 
-$hmvc = hmvc_request('GET', 'api/v3?query=%22SELECT+%2A+FROM+common.user+LIMIT+1%22', array('last' => 'me'));
-echo $hmvc->exec()->response();
-?>
-
 <div id="main">
     <div class="fieldset"> 
           <div class="fieldbox"> 
