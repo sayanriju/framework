@@ -113,6 +113,7 @@ works automatically from now on.
 
 
 @todolist
+- every modules should have their own post library ? 
 - if somene use loader::config('../another/modulename'); ?
 - default db
 - add to userguide 
