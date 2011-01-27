@@ -113,8 +113,11 @@ works automatically from now on.
 
 
 @todolist
+- advanced error handling ... with reflection class ..
+- turn pager class include '' files to base_register();, drivers support for base_register(); function.
+- add module library extend support, helper extend.
 - every modules should have their own post library ? 
-- if somene use loader::config('../another/modulename'); ?
+- if somene use loader::config('../another/modulename'); ?  (fixed)
 - default db
 - add to userguide 
 view_var('body', view_render(array('layouts/view_header', 'view_left',   
@@ -128,13 +131,12 @@ view_var('body', view_render(array('layouts/view_header', 'view_left',
 - check hmvc loop same class but different function (fixed)
 - $this->router->forward('members/signup_step1/index'); (fixed)
 - css functionality from modules  change it css(); (fixed)
-- configuration folder for each modules.
+- configuration folder for each modules. (fixed)
 - output cache folder for each modules.
 - those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers (fixed) 
 - check routes functionality for subfolders .. (fixed)
 - restful http call hmvc, post, put, delete, get (fixed)  http://www.gen-x-design.com/archives/create-a-rest-api-with-php/  (fixed)
 - add GET method support to subfolder urls. (fixed)
-- add module library extend support, helper extend, model extend (in module directory !!)
 - view nested data support (fixed)
 - Change all Ssc:instance(); to base_register('Empty'); (fixed)
 - this() function should be in current hmvc SCOPE. ( fixed.)

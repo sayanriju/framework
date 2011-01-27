@@ -4,7 +4,7 @@
 * Your copy paste module config file.
 */
 
-$config['doly_item1']  = 'Doly module config item1 works !';
+$config['doly_item1']  = 'default Doly module config item1 works !';
 $config['doly_item2']  = 'Doly module config item2 works !';
 
 
