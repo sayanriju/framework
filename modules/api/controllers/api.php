@@ -13,11 +13,10 @@ Class Api extends Controller {
     
     function v3()
     {
-        loader::model('doly', null, null, true);
+        print_r(i_server('REQUEST_METHOD'));
         
-        $this->doly->test();
-    
-        print_r(i_server('REQUEST_METHOD'));        
+        print_r($this->uri->segments);
+                
     }
     
     function model_test()
