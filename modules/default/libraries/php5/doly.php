@@ -3,7 +3,7 @@
 /**
 * Your copy paste php5 library file.
 */
-Class doly implements PHP5_Library
+Class doly
 {
     private static $instance;
     
