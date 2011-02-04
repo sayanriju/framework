@@ -7,7 +7,7 @@ The goal of Obullo is keep the Core minimal via less coding.
 
 - Global Controllers (Obullo GC)
 - HMVC (Hierarchical Model View Controller)
-- Advanced Directory Structure and Sub folders
+- Advanced Directory Structure (Modules) and Sub folders
 - PDO with Active Record Class
 - Orginally based CodeIgniter
 - Lightweight and Easy to Use.
@@ -19,7 +19,7 @@ The goal of Obullo is keep the Core minimal via less coding.
 - Check your php.ini, `short_open_tag = ` should be `On`.
 - Check your phpinfo(); `PDO` and `Pdo_yourdriver` (pdo_mysql, pdo_pgsql etc..) must be installed on your host.
 - Open your browser and run Obullo e.g. `http://localhost/obullo`
-- You can change configuration from `application/config/config.php file`.
+- You can change configuration from `application/config/config.php` file.
   
   
 ## Quick Start

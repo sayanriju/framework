@@ -114,6 +114,7 @@ works automatically from now on.
 
 @todolist
 - advanced error handling ... with reflection class ..
+- command line support, tasks look at fuelphp.com
 - turn pager class include '' files to base_register();, drivers support for base_register(); function.
 - add module library extend support, helper extend.
 - every modules should have their own post library ? 
