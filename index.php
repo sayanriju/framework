@@ -38,6 +38,7 @@ error_reporting(E_ALL | E_STRICT);
 | User Guide: Chapters / General Topics / Managing Your Applications
 |
 */
+define('ROOT', realpath(dirname(__FILE__)) . DS);
 define('BASE', 'obullo'. DS);
 define('APP',  'application'. DS);
 define('DIR',  'modules'. DS);
@@ -46,10 +47,11 @@ define('DIR',  'modules'. DS);
 |---------------------------------------------------------------
 | DEFINE APPLICATION CONSTANTS
 |---------------------------------------------------------------
-|
+| DS        - The DIRECTORY SEPERATOR
 | EXT       - The file extension.  Typically ".php"
 | SELF      - The name of THIS file (typically "index.php")
 | FCPATH    - The full server path to THIS file
+| ROOT      - The root path of your server
 | BASE      - The full server path to the "system" folder
 | APP       - The full server path to the "application" folder
 |
@@ -58,7 +60,7 @@ define('EXT',  '.php');
 define('FCPATH', __FILE__);
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
-require(APP  .'system'. DS .'init'. DS .'Bootstrap'. EXT);  
+require(APP  .'core'. DS .'my_core'. DS .'Bootstrap'. EXT);  
 require(BASE .'core'. DS .'Bootstrap'. EXT);
 
 /**
