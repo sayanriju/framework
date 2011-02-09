@@ -13,7 +13,7 @@ Class Api extends Controller {
     
     function v3()
     {
-        print_r(i_server('REQUEST_METHOD'));
+        print_r($_SERVER);
         
         print_r($this->uri->segments);
                 

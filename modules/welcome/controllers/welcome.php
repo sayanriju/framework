@@ -13,19 +13,27 @@ Class Welcome extends Welcome_Controller {
     
     public function index()
     {     
-        view_var('title', 'Welcome to Obullo Framework !');
+        view_var('title', 'Welcome to Obullo Framework !')
+        
+        // $A = NEW DFDF();
+        
+        $arc = new stdClass();
+        $arc->es = 'asdasd';
+        
+        echo $arc;
+        
+        // $field = '';
         
         // $this->db->query('SELECT * FROM ARd');
     
         echo 'ersin';
         
         // loader::model('doly');   
-        /*
+ 
         $response = request('get', 'api/v3?query=SELECT * FROM&a=b<b>ersin</b>', 
         array('query' => 'SELECT * FROM mailer'), true);
         
         echo $response;
-        */
         
         // $this->doly->test();
     
