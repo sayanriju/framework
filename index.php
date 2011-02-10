@@ -38,11 +38,10 @@ error_reporting(E_ALL | E_STRICT);
 | User Guide: Chapters / General Topics / Managing Your Applications
 |
 */
-define('ROOT', realpath(dirname(__FILE__)) . DS);
+define('ROOT',  realpath(dirname(__FILE__)) . DS);
 define('BASE', 'obullo'. DS);
 define('APP',  'application'. DS);
 define('DIR',  'modules'. DS);
-define('EXTENSION',  'extensions'. DS);
 
 /*
 |---------------------------------------------------------------

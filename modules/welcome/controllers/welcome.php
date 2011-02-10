@@ -7,6 +7,7 @@ Class Welcome extends Welcome_Controller {
         parent::__construct();
         
         loader::base_helper('request');
+
         loader::database();
     }           
     
