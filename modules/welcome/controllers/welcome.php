@@ -7,20 +7,31 @@ Class Welcome extends Welcome_Controller {
         parent::__construct();
         
         loader::base_helper('request');
-        
         loader::database();
     }           
     
     public function index()
     {     
-        view_var('title', 'Welcome to Obullo Framework !')
+        view_var('title', 'Welcome to Obullo Framework !');
         
         // $A = NEW DFDF();
         
         $arc = new stdClass();
         $arc->es = 'asdasd';
         
-        echo $arc;
+        // echo $arc;
+        
+        $myarray = array('a' => 'a', 'b' => 'b');
+    
+        
+        // is_extension('email_error');
+        
+        // $ext = get_config('extensions');
+        
+        // print_r($ext);
+        
+        // echo $myarray[$myarray];
+        // echo $arc;
         
         // $field = '';
         
@@ -29,12 +40,12 @@ Class Welcome extends Welcome_Controller {
         echo 'ersin';
         
         // loader::model('doly');   
- 
+                            /*
         $response = request('get', 'api/v3?query=SELECT * FROM&a=b<b>ersin</b>', 
         array('query' => 'SELECT * FROM mailer'), true);
         
         echo $response;
-        
+        */
         // $this->doly->test();
     
         $params = array(

@@ -42,6 +42,7 @@ define('ROOT', realpath(dirname(__FILE__)) . DS);
 define('BASE', 'obullo'. DS);
 define('APP',  'application'. DS);
 define('DIR',  'modules'. DS);
+define('EXTENSION',  'extensions'. DS);
 
 /*
 |---------------------------------------------------------------
