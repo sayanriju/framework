@@ -60,7 +60,7 @@ define('EXT',  '.php');
 define('FCPATH', __FILE__);
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
-require(APP  .'core'. DS .'my_core'. DS .'Bootstrap'. EXT);  
+require(APP  .'core'. DS .'Bootstrap'. EXT);  
 require(BASE .'core'. DS .'Bootstrap'. EXT);
 
 /**
