@@ -7,8 +7,10 @@ Class Welcome extends Welcome_Controller {
         parent::__construct();
         
         loader::base_helper('request');
-
+        
         loader::database();
+        
+        if($ejf){ echo ' ersn';}
     }           
     
     public function index()
@@ -20,7 +22,7 @@ Class Welcome extends Welcome_Controller {
         $arc = new stdClass();
         $arc->es = 'asdasd';
         
-        // echo $arc;
+        echo $arc;
         
         $myarray = array('a' => 'a', 'b' => 'b');
     
@@ -37,8 +39,6 @@ Class Welcome extends Welcome_Controller {
         // $field = '';
         
         // $this->db->query('SELECT * FROM ARd');
-    
-        echo 'ersin';
         
         // loader::model('doly');   
                             /*
@@ -48,7 +48,7 @@ Class Welcome extends Welcome_Controller {
         echo $response;
         */
         // $this->doly->test();
-    
+          /*
         $params = array(
             'mode'         => 'Sliding',  // Jumping
             'per_page'     => 8,
@@ -78,7 +78,7 @@ Class Welcome extends Welcome_Controller {
         echo 'PAGED DATA: '; print_r($paged_data);
 
         echo '<hr />';
-                                       
+                  */                    
         /*
         $query ='dfdf';
         $request = request('get', 'api/v3?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => $query));
