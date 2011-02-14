@@ -1,4 +1,5 @@
 <?php
+
 view_var('head', css('welcome.css'));
 view_var('head', js('welcome.js'));
 view_var('head', script('welcome'));    

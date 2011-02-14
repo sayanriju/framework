@@ -11,7 +11,7 @@ Class Api extends Controller {
     {
     }
     
-    function v3()
+    function v3(object $a)
     {
         print_r($_SERVER);
         

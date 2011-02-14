@@ -22,9 +22,10 @@ define('DS',   DIRECTORY_SEPARATOR);
 
 | For security
 | reasons you are encouraged to change this when your site goes live.
-|
+| If you use Obullo error handle you don't
 */
 error_reporting(E_ALL | E_STRICT); 
+error_reporting(0);
 
 /**
 |---------------------------------------------------------------
@@ -41,7 +42,7 @@ error_reporting(E_ALL | E_STRICT);
 define('ROOT',  realpath(dirname(__FILE__)) . DS);
 define('BASE', 'obullo'. DS);
 define('APP',  'application'. DS);
-define('DIR',  'modules'. DS);
+define('MODULES',  'modules'. DS);
 
 /*
 |---------------------------------------------------------------
