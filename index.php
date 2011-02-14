@@ -40,9 +40,9 @@ error_reporting(0);
 |
 */
 define('ROOT',  realpath(dirname(__FILE__)) . DS);
-define('BASE', 'obullo'. DS);
-define('APP',  'application'. DS);
-define('MODULES',  'modules'. DS);
+define('BASE', ROOT .'obullo'. DS);
+define('APP',  ROOT .'application'. DS);
+define('MODULES',  ROOT .'modules'. DS);
 
 /*
 |---------------------------------------------------------------
