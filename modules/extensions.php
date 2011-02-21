@@ -17,15 +17,18 @@ defined('BASE') or exit('Access Denied!');
 |
 */
 
-$extensions['sample']['enabled']         = FALSE;
-$extensions['sample']['lib_override']    = '';
-$extensions['sample']['helper_override'] = '';
-$extensions['sample']['public_folder']   = 'public'; 
-
-$extensions['error_mail']['enabled']         = FALSE;
-$extensions['error_mail']['lib_override']    = 'Exception';
-$extensions['error_mail']['public_folder']   = 'public'; 
-
+$extensions['sample'] =  array(
+                                'enabled' => FALSE,
+                                'lib_override' => '',
+                                'helper_override' => '',
+                                'public_folder' => 'public',
+                                );
+                                
+$extensions['error_mail'] =  array(
+                                    'enabled' => FALSE,
+                                    'lib_override'    => 'Exception',
+                                    'public_folder'   => 'public',
+                                    );
 
 
 /* End of file config.php */
