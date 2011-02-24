@@ -10,21 +10,7 @@
 | @see     license.txt
 |
 */ 
-define('DS',   DIRECTORY_SEPARATOR);  
-
-/**
-|--------------------------------------------------------------------------
-| NATIVE PHP ERROR HANDLER (DEFAULT OFF)
-|--------------------------------------------------------------------------
-| For security
-| reasons you are encouraged to change this when your site goes live.
-| If you use Obullo error handle this functionality default off, otherwise
-| you should turn off Obullo error handler from 
-| application/config.php file.
-|
-*/                                   
-error_reporting(E_ALL | E_STRICT); 
-error_reporting(0);
+define('DS',   DIRECTORY_SEPARATOR);
 
 /**
 |---------------------------------------------------------------
@@ -73,8 +59,21 @@ define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 | @see User Guide: Chapters / General Topics / Control Your Application Boot
 |
 */                                     
-require(APP  .'core'. DS .'Bootstrap'. EXT);  
+if(defined('CMD'))
+{
+    // Obullo Command Line Bootstrap file.
+    //--------------------------------------------------------------- 
+    require(APP  .'core'. DS .'Cli_Bootstrap'. EXT); 
+} 
+else 
+{
+    // Obullo Standart Bootstrap file.
+    //--------------------------------------------------------------- 
+    require(APP  .'core'. DS .'Bootstrap'. EXT); 
+}
+
 require(BASE .'core'. DS .'Bootstrap'. EXT);
+  
 
 ob_include_files();
 ob_set_headers();
