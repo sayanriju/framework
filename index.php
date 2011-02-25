@@ -30,7 +30,7 @@ define('BASE', ROOT .'obullo'. DS);
 define('APP',  ROOT .'application'. DS);
 define('MODULES',  ROOT .'modules'. DS);
 
-/*
+/**
 |---------------------------------------------------------------
 | UNDERSTANDING CONSTANTS
 |---------------------------------------------------------------

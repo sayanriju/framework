@@ -27,14 +27,6 @@ if (isset($_SERVER['REMOTE_ADDR'])) exit('Access denied!');
 |
 */  
 define('CMD', 1);
-
-/**
-|--------------------------------------------------------------------------
-| Set Command Line Server Headers
-|--------------------------------------------------------------------------
-*/ 
-$_SERVER['HTTP_USER_AGENT']     = 'Obullo Command Line';
-$_SERVER['HTTP_ACCEPT_CHARSET'] = 'utf-8';
  
 /**
 |--------------------------------------------------------------------------
