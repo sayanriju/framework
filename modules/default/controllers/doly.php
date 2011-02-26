@@ -12,7 +12,7 @@ Class Doly extends Controller {
 
     public function index()
     {
-        echo '';
+        echo 'doly works !!';
     }
     
     function test()
