@@ -1,17 +1,17 @@
 <?php
 /**
 |--------------------------------------------------------------------------
-| Obullo Command Line Tool
+| Obullo Command Line Tool (TASKS)
 |--------------------------------------------------------------------------
 | Obullo Cli Easy Steps, Go to command line
 | 
 | $ cd /root/path/to/your/framework
-| $ php cmd.php welcome
+| $ php task.php tasks start
 | 
-| - php cmd.php task_controller method 'arguments'
+| - php task.php module controller method 'arguments'
 |
-| 'Welcome.php' task controller located in your .application/tasks path.
-| Also you can use task folders creating them under the .modules.
+| 'Start.php' task controller located in your .modules/tasks path.
+| Also you can use at tasks folder creating it under the current module.
 |
 | @author CJ Lazell
 |

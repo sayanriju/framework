@@ -38,6 +38,7 @@ define('MODULES',  ROOT .'modules'. DS);
 | EXT       - The file extension.  Typically ".php"
 | SELF      - The name of THIS file (typically "index.php")
 | FCPATH    - The full server path to THIS file
+| FPATH     - The full server path without file
 | ROOT      - The root path of your server
 | BASE      - The full server path to the "obullo" folder
 | APP       - The full server path to the "application" folder
@@ -46,6 +47,7 @@ define('MODULES',  ROOT .'modules'. DS);
 */
 define('EXT',  '.php'); 
 define('FCPATH', __FILE__);
+define('FPATH', dirname(__FILE__));  
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
 /**
