@@ -12,7 +12,7 @@ Class Welcome extends Welcome_Controller {
         // loader::base_helper('request');
         // loader::model('doly');
         
-        if($ejf){ echo ' ersn';}
+        // if($ejf){ echo ' ersn';}
     }         
     
     public function index()
