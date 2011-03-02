@@ -13,6 +13,30 @@
 define('DS',   DIRECTORY_SEPARATOR);
 
 /**
+|--------------------------------------------------------------------------
+| Set Default Time Zone Identifer.
+|--------------------------------------------------------------------------
+|                                                                 
+| Set the default timezone identifier for date function ( Server Time )
+| @see  http://www.php.net/manual/en/timezones.php
+| 
+*/
+date_default_timezone_set('America/Chicago');
+
+ /**
+|--------------------------------------------------------------------------
+| Native PHP Error Handler (Default Off) 
+|--------------------------------------------------------------------------
+| For security reasons its default off.
+| Default Obullo error handle active also you don't want to use Obullo
+| development error handler you can *turn off it easily from 
+| application/config.php file.
+|
+*/                                   
+error_reporting(E_ALL | E_STRICT); 
+error_reporting(0);
+
+/**
 |---------------------------------------------------------------
 | FOLDER CONSTANTS
 |---------------------------------------------------------------
@@ -38,6 +62,7 @@ define('MODULES',  ROOT .'modules'. DS);
 | EXT       - The file extension.  Typically ".php"
 | SELF      - The name of THIS file (typically "index.php")
 | FCPATH    - The full server path to THIS file
+| PHP_PATH  - The full server path to THIS file
 | FPATH     - The full server path without file
 | ROOT      - The root path of your server
 | BASE      - The full server path to the "obullo" folder
@@ -45,8 +70,9 @@ define('MODULES',  ROOT .'modules'. DS);
 | MODULES   - The full server path to the "modules" folder
 |
 */
-define('EXT',  '.php'); 
+define('EXT',  '.php');
 define('FCPATH', __FILE__);
+define('PHP_PATH', '/usr/bin/php'); 
 define('FPATH', dirname(__FILE__));  
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 

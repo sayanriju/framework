@@ -13,8 +13,6 @@ Class Api extends Controller {
     
     function v3(object $a)
     {
-        echo $dkfdf;
-        
         print_r($_SERVER);
         
         print_r($this->uri->segments);
