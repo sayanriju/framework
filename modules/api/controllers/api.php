@@ -11,11 +11,13 @@ Class Api extends Controller {
     {
     }
     
-    function v3(object $a)
+    function v3($a = '')
     {
-        print_r($_SERVER);
+        echo sess_get('session_id').'<br />';
         
-        print_r($this->uri->segments);
+        // print_r($_SERVER);
+        
+        // print_r($this->uri->segments);
                 
     }
     

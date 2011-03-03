@@ -117,6 +117,9 @@ works automatically from now on.
 - rename DBAdapter as DB_PDO_Connector
 - rename DBFactory as DB_Factory
 
+@ DATAMAPPER (ORM) http://stensi.com/datamapper/pages/gettingstarted.html
+@ merge head_tag and body_tag helpers into html
+@ todo ob_exception var_dump() fix.
 @ todo loader::include('../sample/file');  for extensions, for view() function instead of require ''
 
 loader::include('../sample/file', true); (include once)

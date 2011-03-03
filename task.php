@@ -39,6 +39,18 @@ unset($_SERVER['argv'][0]);
 
 /**
 |--------------------------------------------------------------------------
+| We need to make sure is it Task or Cmd Request
+| The main difference of a task request, user call it via
+| task helper and run with task_run(); function internally.
+|--------------------------------------------------------------------------
+*/
+if(end($_SERVER['argv']) == 'OB_TASK_REQUEST')
+{
+    define('TASK', 1);
+}
+
+/**
+|--------------------------------------------------------------------------
 | Set Command Line Arguments as Obullo Segments
 |--------------------------------------------------------------------------
 | Manually set the URI path based on command line arguments.
