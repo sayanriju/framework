@@ -13,7 +13,11 @@ Class Api extends Controller {
     
     function v3($a = '')
     {
-        echo sess_get('session_id').'<br />';
+        // echo sess_get('session_id').'<br />';
+        
+        echo $djhdf;
+        
+        echo current_url();
         
         // print_r($_SERVER);
         

@@ -117,6 +117,7 @@ works automatically from now on.
 - rename DBAdapter as DB_PDO_Connector
 - rename DBFactory as DB_Factory
 
+@ When ajax requets comes then Obullo Errors SHould be Firefox friendly, like task errors.
 @ DATAMAPPER (ORM) http://stensi.com/datamapper/pages/gettingstarted.html
 @ merge head_tag and body_tag helpers into html
 @ todo ob_exception var_dump() fix.
