@@ -1,10 +1,26 @@
 <?php
 
+view_var('head', js('http://code.jquery.com/jquery-1.5.1.js'));
+
 view_var('head', css('welcome.css'));
 view_var('head', js('welcome.js'));
 view_var('head', script('welcome'));    
 view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files. 
 ?>
+
+<script type="text/javascript">
+
+function send_ajax()
+{
+    $.post('/index.php/welcome/ajax', function(data) 
+    {
+        // alert(data);
+    });
+}
+
+</script>
+
+
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
 
