@@ -7,7 +7,6 @@ Class Welcome extends Welcome_Controller {
         parent::__construct();
         
         loader::base_helper('request');
-        // $this->output->profiler();
         
         // loader::app_lib('test', array('d', 'a'));
         
@@ -16,10 +15,11 @@ Class Welcome extends Welcome_Controller {
         // loader::model('doly');
         
         // if($ejf){ echo ' ersn';}
+        
     }         
     
     public function index()
-    {     
+    { 
         /*
         $sql = lib('sql');
         $output = $sql->get('table');
@@ -98,14 +98,12 @@ Class Welcome extends Welcome_Controller {
         echo $request->exec()->response();
        */ 
         // echo $dfdf;
-    
-    /*
+        /*
         $query ='dfdf';
         $request = request('get', 'api/v3/a?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => $query));
         echo $request->exec()->response();
-      */    
-        //echo $dfdf; 
-                       
+       */
+        echo $dfdf; 
                        
         echo '<a href="javascript:void(0);" onclick="send_ajax();">Ajax Request</a>';
                        
