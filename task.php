@@ -6,14 +6,14 @@
 | Obullo Cli Easy Steps, Go to command line
 | 
 | $ cd /root/path/to/your/framework
-| if you have /tasks folder in modules root
+| if you have /tasks folder in modules root run
 | $ php task.php tasks start
 |  OR
-| if you have a /tasks folder in a module
+| if you have a /tasks folder in a module run
 | $ php task.php module task_controller method 'arguments' 
 |
 | 'Start.php' task controller located in your .modules/tasks path.
-| Also you can use at tasks folder creating it under the current module.
+| Also you can use 'tasks' folder creating it under the current module.
 |
 | @author CJ Lazell
 |

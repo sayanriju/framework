@@ -15,13 +15,13 @@ Class Api extends Controller {
     {
         // echo sess_get('session_id').'<br />';
         
-        echo $djhdf;
-        
         echo current_url();
         
-        // print_r($_SERVER);
+        // loader::model('');
+        echo '<br />';
         
-        // print_r($this->uri->segments);
+        print_r($_SERVER);
+        //print_r($this->uri->segments);
                 
     }
     
