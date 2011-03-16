@@ -34,7 +34,7 @@ date_default_timezone_set('America/Chicago');
 |
 */                                   
 error_reporting(E_ALL | E_STRICT); 
-error_reporting(0);
+// error_reporting(0);
 
 /**
 |---------------------------------------------------------------

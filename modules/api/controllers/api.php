@@ -15,7 +15,8 @@ Class Api extends Controller {
     {
         // echo sess_get('session_id').'<br />';
         
-        echo current_url();
+        echo '<br />'.$GLOBALS['d'].'<br /><br />';
+        // echo current_url().'<br />';
         
         // loader::model('');
         echo '<br />';

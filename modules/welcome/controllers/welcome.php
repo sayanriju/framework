@@ -31,7 +31,7 @@ Class Welcome extends Welcome_Controller {
         // $A = NEW DFDF();
         
         $arc = new stdClass();
-        $arc->es = 'asdasd';
+        $arc->es = 'asdasd'
         
         echo $arc;
         
@@ -99,9 +99,11 @@ Class Welcome extends Welcome_Controller {
        */ 
         // echo $dfdf;
 
+        // echo core_module();
+        
         $query ='dfdf';
-        $request = request('post', 'api/v3/a?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => $query));
-        echo $request->exec()->response();
+        // $request = request('post', 'api/v3/a?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => $query));
+        // echo $request->exec()->response();
         
         // print_r($_SERVER);
        

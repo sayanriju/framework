@@ -126,6 +126,11 @@ works automatically from now on.
 loader::include('../sample/file', true); (include once)
 
 @todolist
+- HU we have A big issue pdo BINd inserting http://wezfurlong.org/blog/2004/may/first-steps-with-pdo?nid=44
+$this->db->prep();  // doesn't work
+$this->db->insert();
+
+- mysql_driver ': ' $this->prepare bug add it to other drivers.
 - advanced error handling ... with reflection class .. ( OK )
 - command line support, tasks look at fuelphp.com
 - turn pager class include '' files to base_register();, drivers support for base_register(); function.
