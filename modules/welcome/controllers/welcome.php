@@ -31,7 +31,7 @@ Class Welcome extends Welcome_Controller {
         // $A = NEW DFDF();
         
         $arc = new stdClass();
-        $arc->es = 'asdasd'
+        $arc->es = 'asdasd';
         
         echo $arc;
         

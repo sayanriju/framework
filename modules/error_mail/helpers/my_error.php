@@ -1,0 +1,167 @@
+<?php
+defined('BASE') or exit('Access Denied!');
+
+/**
+ * Obullo Framework (c) 2009.
+ *
+ * PHP5 MVC Based Minimalist Software.
+ * 
+ * @package         obullo    
+ * @author          obullo.com
+ * @copyright       Ersin Guvenc (c) 2009.
+ * @since           Version 1.0
+ * @filesource
+ * @license
+ */
+ 
+/**
+* We Override to Obullo Exception Handler Function
+* 
+* @param  object $e
+* @return void
+*/
+function Obullo_Exception_Handler($e, $type = '')
+{   
+    $shutdown_errors = array(
+    'ERROR'            => 'ERROR',            // E_ERROR 
+    'PARSE ERROR'      => 'PARSE ERROR',      // E_PARSE
+    'COMPILE ERROR'    => 'COMPILE ERROR',    // E_COMPILE_ERROR   
+    'USER FATAL ERROR' => 'USER FATAL ERROR', // E_USER_ERROR
+    );
+    
+    if(isset($shutdown_errors[$type]))  // We couldn't use any object for shutdown errors.
+    {
+        $type  = ucwords(strtolower($type));
+        $code  = $e->getCode();
+        $level = config_item('error_reporting');
+
+        // Send errors ..
+        //----------------------------------------
+        
+        write_errors_to_file($e, $type, $sql = array(), $uniqid = uniqid());
+        
+        //----------------------------------------
+        
+        if(defined('CMD'))  // If Command Line Request.
+        {
+            echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";
+            
+            $cmd_type = (defined('TASK')) ? 'Task' : 'Cmd';
+            
+            log_me('error', 'Php Error Type ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE);
+            return;
+        }
+
+        if($level > 0 OR is_string($level))  // If user want to display all errors
+        {
+            $sql    = array();
+            $errors = error_get_defined_errors();
+            $error  = (isset($errors[$code])) ? $errors[$code] : 'OB_EXCEPTION';
+            
+            $http_request = isset($_SERVER['HTTP_X_REQUESTED_WITH']) ? $_SERVER['HTTP_X_REQUESTED_WITH'] : '';
+             
+            if(is_numeric($level)) 
+            {
+                switch ($level) 
+                {              
+                   case -1: return; break; 
+                   case  0: return; break; 
+                   case  1:
+                   if($http_request == 'XMLHttpRequest')  // Ajax Friendly Errors
+                   {
+                       echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";   
+                   }
+                   else
+                   {
+                       include(APP .'core'. DS .'errors'. DS .'ob_exception'. EXT);
+                   }   
+                   return;
+                   break;
+                }   
+            }       
+                             
+            $rules = error_parse_regex($level); 
+            
+            if($rules == FALSE) 
+            {
+                return;
+            }
+            
+            if(in_array($error, error_get_allowed_errors($rules), TRUE))
+            { 
+                if($http_request == 'XMLHttpRequest')  // Ajax friendly errors
+                {
+                    echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";    
+                }
+                else
+                {
+                    include(APP .'core'. DS .'errors'. DS .'ob_exception'. EXT);
+                }
+            }
+        }
+        else
+        {
+            include(APP .'core'. DS .'errors'. DS .'ob_disabled_error'. EXT);
+        }
+        
+        log_me('error', 'Php Error Type: '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE); 
+         
+    } 
+    else  // Is It Exception ?
+    {   
+        $exception = base_register('Exception');
+        
+        if(is_object($exception)) 
+        {           
+            $exception->write($e, $type);
+        }
+    }
+    
+    return;
+}     
+
+//---------------------------------------------------------------------------------
+
+/**
+* Write errors into static html files
+* and send them via email links in background.
+* 
+* @param mixed $e
+* @param mixed $type
+* @param mixed $sql
+* @param mixed $uniqid
+*/
+function write_errors_to_file($e, $type = '', $sql = array(), $uniqid = '')
+{   
+    $data['e']    =  $e;
+    $data['type'] =  $type;
+    $data['sql']  =  $sql;
+    $data['uniqid'] = $uniqid;
+    
+    loader::base_helper('view');
+    
+    $message   = "<"."?php defined('BASE') or exit('Access Denied!'); ?".">\n\n";
+    $message  .= view('../error_mail/error_template', $data);
+    $file_path = MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
+    
+    if ( ! $fp = @fopen($file_path, FOPEN_WRITE_CREATE))
+    {
+        return FALSE;
+    }
+
+    flock($fp, LOCK_EX);    
+    fwrite($fp, $message);
+    flock($fp, LOCK_UN);
+    fclose($fp);
+
+    @chmod($file_path, FILE_WRITE_MODE);
+    
+    // Load task helper we need to send errors in background
+    //----------------------------------------------------------
+    
+    loader::base_helper('task');
+    
+    //----------------------------------------------------------
+    
+    task_run('error_mail send_mail/send/'.$uniqid, true);      
+}
