@@ -3,17 +3,19 @@
 /**
 * Display error templates
 * 
-* http://acd/error_mail/display/show/4d8125a246863
+* @see http://acd/error_mail/display/ticket/4d8125a246863
 */
-
 Class Display extends Controller {
     
     function __construct()
     {
         parent::__construct();
+        
+        restore_error_handler();        // Reset exception handlers
+        restore_exception_handler();
     }
     
-    function show($error_id = '')
+    function ticket($error_id = '')
     {
         if( file_exists(MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT))
         {

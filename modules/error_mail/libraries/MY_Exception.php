@@ -2,9 +2,9 @@
 
 /**
 * Custom Exception Class
-* Capture all errors and sen them via email
+* Capture all Exceptions and send them via email
 *
-* Ersin Guvenc
+* @author Ersin Guvenc
 */
 Class MY_Exception extends OB_Exception
 {
@@ -12,17 +12,6 @@ Class MY_Exception extends OB_Exception
     {
         parent::__construct();
         
-        define('DEV_EMAIL', 'eguvenc@gmail.com');
-      
-        if(DEV_EMAIL == 'eguvenc@gmail.com')
-        {
-            loader::config('../error_mail/settings_ersin');
-        }
-        else
-        {
-            loader::config('../error_mail/settings');
-        }
-
         log_me('debug', 'MY_Exception class initialized !');
     }
     
@@ -57,13 +46,13 @@ Class MY_Exception extends OB_Exception
             }
         }
         
-        // Write All errors to html files and Send them view mail ..
-        //----------------------------------------------------------
-        
-        write_errors_to_file($e, $type, $sql = array(), $uniqid = uniqid());
-        
-        //----------------------------------------------------------
+        // CAPTURE ERRORS
+        //--------------------------------------------------------------------------------
 
+        write_errors_and_send_email($e, $type, $sql);
+        
+        //-------------------------------------------------------------------------------- 
+        
         // Command Line Errors
         //-----------------------------------------------------------------------
         if(defined('CMD'))  // If Command Line Request. 

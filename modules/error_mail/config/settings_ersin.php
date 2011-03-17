@@ -5,11 +5,11 @@
 *
 * @var mixed
 */
+$config['domain']         = 'http://obullo/';
 $config['capture_errors'] = TRUE;
 $config['write_log']      = FALSE;  // Keep all errors into log file.
 
 $config['recipients']     = array('eguvenc@gmail.com');
-
 
 $config['from_email']     = 'test@develturk.com';
 $config['from_name']      = 'ACD Errors';

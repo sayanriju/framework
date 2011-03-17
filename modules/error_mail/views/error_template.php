@@ -242,8 +242,7 @@ function delete_file(uniqid)
      
     if(input_box) 
     {
-        // document.getElementById('del_msg').innerHTML = '<b>The error file ' + uniqid + '.php deleted from server !</b>';
-        
+        // document.getElementById('del_msg').innerHTML = '<b>The error file ' + uniqid + '.php deleted from server !</b>';       
         document.forms["error_form"].submit();
     }
 }

@@ -5,6 +5,7 @@
 *
 * @var mixed
 */
+$config['domain']         = 'http://obullo/';
 $config['capture_errors'] = TRUE;
 $config['write_log']      = FALSE;  // Keep all errors into log file.
 

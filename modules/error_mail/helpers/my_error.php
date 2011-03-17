@@ -34,13 +34,14 @@ function Obullo_Exception_Handler($e, $type = '')
         $type  = ucwords(strtolower($type));
         $code  = $e->getCode();
         $level = config_item('error_reporting');
-
-        // Send errors ..
-        //----------------------------------------
         
-        write_errors_to_file($e, $type, $sql = array(), $uniqid = uniqid());
-        
-        //----------------------------------------
+        // CAPTURE ERRORS
+        //---------------------------------------------------------------------------------
+    
+        write_errors_and_send_email($e, $type, $sql = array());
+    
+        //---------------------------------------------------------------------------------
+        // CAPTURE ERRORS END
         
         if(defined('CMD'))  // If Command Line Request.
         {
@@ -123,16 +124,42 @@ function Obullo_Exception_Handler($e, $type = '')
 //---------------------------------------------------------------------------------
 
 /**
-* Write errors into static html files
-* and send them via email links in background.
+* Write errors into static html files we just
+* send html links via email.
 * 
 * @param mixed $e
 * @param mixed $type
 * @param mixed $sql
 * @param mixed $uniqid
 */
-function write_errors_to_file($e, $type = '', $sql = array(), $uniqid = '')
+function write_errors_and_send_email($e, $type = '', $sql = array())
 {   
+    if( ! defined('DEV_EMAIL'))
+    define('DEV_EMAIL', 'eguvenc@gmail.com');
+    
+    if(DEV_EMAIL == 'eguvenc@gmail.com')
+    {
+        loader::config('../error_mail/settings_ersin');
+    }
+    else
+    {
+        loader::config('../error_mail/settings');
+    }
+    
+    if(core_register('Config')->item('capture_errors') == FALSE)   // Capture switch.
+    {
+        return;
+    }
+
+    $uniqid = md5($e->getFile() . $e->getLine() . $e->getMessage());
+    
+    $file   = MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
+    
+    if( file_exists($file) )  // If we already have same file, we don't need capture this
+    {                          // error foreach users !!   
+        return;
+    }
+    
     $data['e']    =  $e;
     $data['type'] =  $type;
     $data['sql']  =  $sql;
@@ -156,12 +183,15 @@ function write_errors_to_file($e, $type = '', $sql = array(), $uniqid = '')
 
     @chmod($file_path, FILE_WRITE_MODE);
     
-    // Load task helper we need to send errors in background
+    // Write All errors to html files and Send them via smtp in background..
+    //---------------------------------------------------------------------
+    // Run SHELL COMMAND and Send Emails in Background.
     //----------------------------------------------------------
     
     loader::base_helper('task');
     
-    //----------------------------------------------------------
+    task_run('error_mail send_mail/send/'.$uniqid);
     
-    task_run('error_mail send_mail/send/'.$uniqid, true);      
+    //----------------------------------------------------------    
+
 }
