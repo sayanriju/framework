@@ -7,7 +7,7 @@ Class Welcome extends Welcome_Controller {
         parent::__construct();
         
         // loader::helper('ob/request'); 
-        
+
         loader::model('app/test_model');
     }         
     
