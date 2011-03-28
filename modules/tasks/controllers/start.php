@@ -27,7 +27,7 @@ Class Start extends Controller {
      Please run this command [$php task.php start help] for help !'."\n\n";
      
      /*
-     loader::base_helper('request');
+     loader::helper('ob/request');
      
      $request = request('get', 'api/v3/a/?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => 'SELECT * FROM'));
      echo $request->exec()->response();

@@ -153,7 +153,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
 
     $uniqid = md5($e->getFile() . $e->getLine() . $e->getMessage());
     
-    $file   = MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
+    $file   = MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$uniqid. '.html';
     
     if( file_exists($file) )  // If we already have same file, we don't need capture this
     {                          // error foreach users !!   
@@ -169,7 +169,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
     
     $message   = "<"."?php defined('BASE') or exit('Access Denied!'); ?".">\n\n";
     $message  .= view('../error_mail/error_template', $data);
-    $file_path = MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
+    $file_path = MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$uniqid. '.html';
     
     if ( ! $fp = @fopen($file_path, FOPEN_WRITE_CREATE))
     {

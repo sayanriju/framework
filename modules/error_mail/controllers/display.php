@@ -17,7 +17,7 @@ Class Display extends Controller {
     
     function ticket($error_id = '')
     {
-        if( file_exists(MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT))
+        if( file_exists(MODULES .'error_mail'. DS .'views'. DS .'html_errors'. DS .$error_id. '.html'))
         {
             echo view('html_errors/'.$error_id);
             

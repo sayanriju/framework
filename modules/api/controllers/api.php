@@ -26,6 +26,11 @@ Class Api extends Controller {
                 
     }
     
+    function v4()
+    {
+        echo 'works';
+    }
+    
     function model_test()
     {
         echo '<br /><br /><br /><B>MODEL TEST IS OK !!!!!!!!</B>';

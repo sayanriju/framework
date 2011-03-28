@@ -69,7 +69,7 @@ Class MY_Exception extends OB_Exception
             return;
         }
 
-        loader::base_helper('view');
+        loader::helper('ob/view');
 
         $data['e']    = $e;
         $data['sql']  = $sql;

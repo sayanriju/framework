@@ -11,8 +11,8 @@ Class Doly_Controller extends Controller
     {
         parent::__construct();
         
-        loader::base_helper('head_tag');
-        loader::base_helper('url');
+        loader::helper('ob/html');
+        loader::helper('ob/url');
         
     }
       

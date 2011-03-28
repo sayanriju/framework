@@ -76,7 +76,7 @@ Class Send_Mail extends Controller
             // $smtp->cc('another@another-example.com');
             // $smtp->bcc('xturknet@hotmail.com');
 
-            loader::base_helper('url');
+            loader::helper('ob/url');
             
             $message = 'An Error Was Encountered, follow this link ---> ';
             $err_uri = trim($cfg->item('domain'), '/').'/error_mail/display/ticket/'.$uniqid;

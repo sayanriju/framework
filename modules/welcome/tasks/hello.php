@@ -16,7 +16,7 @@ Class Hello extends Controller {
         
         echo 'Hello Cmd'."\n";
         
-        // loader::base_helper('request');
+        // loader::helper('ob/request');
     
         // $request = request('get', 'welcome/test/arg1/arg2');
         // echo $request->exec()->response();

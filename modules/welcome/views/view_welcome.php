@@ -12,7 +12,7 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
 
 function send_ajax()
 {
-    $.post('/index.php/welcome/ajax', function(data) 
+    $.post('/api/test.ajax', function(data) 
     {
         // alert(data);
     });

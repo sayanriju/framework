@@ -112,10 +112,39 @@ works automatically from now on.
 //-----------------------------------------------------------------------------
                                    
 @todo IMPORTANT /Database folder changes !!
+- we need add support app support loading helpers, libraries etc..
+- not need to remove app_ or base_ functions. we need just change to userguide.
+{
+      loader::helper('form');          // from current module    
+      loader::helper('ob/form');   // load helper from obullo dir
+      loader::helper('app/form');      // from /application folder
+      loader::helper('../module/form');  // from another module  
+      
+      loader::lib('app/libname');
+      loader::lib('ob/libname');
+      
+      loader::model('app/modelname');
+      loader::model('modelname');
+}
 - RENAME DB php as DB_PDO.php
 - rename DBAc_record as SQL and move it /libraries folder , THIS library should have some /pdo_drivers 4d_, mysql etc.. (like pager class)
 - rename DBAdapter as DB_PDO_Connector
 - rename DBFactory as DB_Factory
+- add to user guide     
+$this->config->set('error_reporting', 0);  
+        
+        $fh = fopen('welcome', 'x+'); 
+        
+        if($fh) 
+        {
+            echo 'success: true'; 
+        } 
+        else 
+        {
+            echo 'success: false';
+        }
+        
+$this->config->set('error_reporting', 1);          
 
 @ When ajax requets comes then Obullo Errors SHould be Firefox friendly, like task errors.
 @ DATAMAPPER (ORM) http://stensi.com/datamapper/pages/gettingstarted.html
