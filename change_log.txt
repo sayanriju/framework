@@ -110,6 +110,9 @@ works automatically from now on.
 - updated Config.php and url helper public_url() function.
     
 //-----------------------------------------------------------------------------
+                             
+@todo add this functionality for debug 
+$config['debug_backtrace']       = array('enabled' => 'E_ALL ^ E_NOTICE', 'padding' => 5);
                                    
 @todo IMPORTANT /Database folder changes !!
 - we need add support app support loading helpers, libraries etc..
@@ -144,9 +147,16 @@ $this->config->set('error_reporting', 0);
             echo 'success: false';
         }
         
-$this->config->set('error_reporting', 1);          
+$this->config->set('error_reporting', 1);   
 
-@ When ajax requets comes then Obullo Errors SHould be Firefox friendly, like task errors.
+// ! OB_QUERY ! (NOT OBULLO QUERY - OBJECT QUERY METHOD GOOD NAME FOR THIS)
+@lets do an extension api for obullo query
+
+        loader::lib('ext/ob_query');
+        $this->ob->select('');
+        $this->ob->from('');
+        $this->ob->query('SELECT ');
+
 @ DATAMAPPER (ORM) http://stensi.com/datamapper/pages/gettingstarted.html
 @ merge head_tag and body_tag helpers into html
 @ todo ob_exception var_dump() fix.

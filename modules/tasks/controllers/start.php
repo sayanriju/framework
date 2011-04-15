@@ -6,11 +6,6 @@ Class Start extends Controller {
     function __construct()
     {   
         parent::__construct();
-        
-        // loader::ob_helper('session');
-        // sess_start();
-        // sess_start();
-        // echo sess_get('session_id');
     }         
     
     public function index()
@@ -24,17 +19,8 @@ Class Start extends Controller {
   /_______/   /__________/ /________/ /_______/ /_______ /  /_______/ 
   
                 Welcome to Obullo Task Manager (c) 2011.
-     Please run this command [$php task.php start help] for help !'."\n\n";
-     
-     /*
-     loader::helper('ob/request');
-     
-     $request = request('get', 'api/v3/a/?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => 'SELECT * FROM'));
-     echo $request->exec()->response();
-     
-     $request = request('get', 'api/v3/a/?query=SELECT * FROM&a=b<b>ersin</b>', array('query' => 'SELECT * FROM'));
-     echo $request->exec()->response();
-     */
+     Please run this command [$php task.php start help] for help ! 
+               YOU ARE IN /MODULES/TASKS FOLDER '."\n\n";
     }
     
     public function help()

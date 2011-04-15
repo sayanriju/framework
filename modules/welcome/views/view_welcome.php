@@ -12,7 +12,7 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
 
 function send_ajax()
 {
-    $.post('/api/test.ajax', function(data) 
+    $.post('/api/test.add/param', function(data) 
     {
         // alert(data);
     });
@@ -23,6 +23,10 @@ function send_ajax()
 
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
+
+<?php 
+foreach($results as $row)
+echo $row['sat']; ?>
 
 <div id="main">
     <div class="fieldset"> 
