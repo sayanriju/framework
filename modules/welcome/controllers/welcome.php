@@ -38,6 +38,14 @@ Class Welcome extends Welcome_Controller {
         echo 'hmvc-cmd-test: '.$arg1 .' -- '.$arg2;
     }
     
+    
+    function task()
+    {
+        loader::helper('ob/task');
+        
+        task_run('welcome/hello/index', true);
+    }
+    
 }
 
 /* End of file start.php */

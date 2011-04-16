@@ -24,9 +24,6 @@ function send_ajax()
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
 
-<?php 
-foreach($results as $row)
-echo $row['sat']; ?>
 
 <div id="main">
     <div class="fieldset"> 
