@@ -213,7 +213,8 @@ http://www.askaboutphp.com/50/codeigniter-extending-the-native-model-and-make-it
 @todo .. add htaccess rules for ngnix server
 @todo .. put archived doc meta tag to old user guide base layout ..
 @todo .. change obullo mvc2 names as Obullo GC in web site.            
-@todo .. change mvc2 map as GC in userguide                                   
+@todo .. change mvc2 map as GC in userguide       
+@todo .. loader::helper('ob/utf8/ucwords');   // Loading utf8 helpers ..                        
 
 
 NEXT VERSION

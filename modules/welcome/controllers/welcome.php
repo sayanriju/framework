@@ -22,6 +22,7 @@ Class Welcome extends Welcome_Controller {
         $request = request('get', 'api/test/method.ajax');
         echo $request->exec()->response();
         */
+        echo $asds;
         
        
         echo '<a href="javascript:void(0);" onclick="send_ajax();">Ajax Request</a>';
