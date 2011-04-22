@@ -7,8 +7,13 @@ Class Welcome extends Welcome_Controller {
         parent::__construct();
         
         // loader::helper('ob/request'); 
+        // loader::helper('ob/requestdfdf'); 
 
         loader::model('app/test_model');
+        
+        // loader::database();
+        
+        // $this->db->query('SEKECC');
     }         
     
     public function index()

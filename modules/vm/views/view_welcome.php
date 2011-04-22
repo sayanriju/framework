@@ -1,6 +1,6 @@
 <?php
 
-view_var('head', js('http://code.jquery.com/jquery-1.5.1.js'));
+// view_var('head', js('http://code.jquery.com/jquery-1.5.1.js'));
 
 view_var('head', css('welcome.css'));
 view_var('head', js('welcome.js'));
@@ -12,7 +12,7 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
 
 function send_ajax()
 {
-    $.post('/api/test.add/param', function(data) 
+    $.post('/index.php/welcome/ajax', function(data) 
     {
         // alert(data);
     });
@@ -23,7 +23,6 @@ function send_ajax()
 
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
-
 
 <div id="main">
     <div class="fieldset"> 

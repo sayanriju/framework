@@ -57,26 +57,14 @@ function Obullo_Exception_Handler($e, $type = '')
         {
             $sql    = array();
             $errors = error_get_defined_errors();
-            $error  = (isset($errors[$code])) ? $errors[$code] : 'OB_EXCEPTION';
+            $error  = (isset($errors[$code])) ? $errors[$code] : '';
             
-            $http_request = isset($_SERVER['HTTP_X_REQUESTED_WITH']) ? $_SERVER['HTTP_X_REQUESTED_WITH'] : '';
-             
             if(is_numeric($level)) 
             {
                 switch ($level) 
                 {              
-                   case -1: return; break; 
                    case  0: return; break; 
-                   case  1:
-                   if($http_request == 'XMLHttpRequest')  // Ajax Friendly Errors
-                   {
-                       echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";   
-                   }
-                   else
-                   {
-                       include(APP .'core'. DS .'errors'. DS .'ob_exception'. EXT);
-                   }   
-                   return;
+                   case  1: include(APP .'core'. DS .'errors'. DS .'ob_exception'. EXT); return;
                    break;
                 }   
             }       
@@ -88,16 +76,11 @@ function Obullo_Exception_Handler($e, $type = '')
                 return;
             }
             
-            if(in_array($error, error_get_allowed_errors($rules), TRUE))
-            { 
-                if($http_request == 'XMLHttpRequest')  // Ajax friendly errors
-                {
-                    echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";    
-                }
-                else
-                {
-                    include(APP .'core'. DS .'errors'. DS .'ob_exception'. EXT);
-                }
+            $allowed_errors = error_get_allowed_errors($rules);  // Check displaying error enabled for current error.
+        
+            if(isset($allowed_errors[$code]))
+            {
+                include(APP .'core'. DS .'errors'. DS .'ob_exception'. EXT);
             }
         }
         else

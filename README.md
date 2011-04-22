@@ -1,13 +1,15 @@
 Obullo: PHP5 Framework
 =========================
 
-The goal of Obullo is keep the Core minimal via less coding. 
+The goal of Obullo is keep the Core flexible, easy and minimal. 
 
 ## Features
 
-- Global Controllers (Obullo GC)
+- Modular Controllers (Obullo GC)
 - HMVC (Hierarchical Model View Controller)
-- Advanced Directory Structure (Modules) and Sub folders
+- Validation Model (VM) instead of using a complex structure such as ORM
+- Task Management and Command Line structures
+- Advanced Directories (Modules and Sub folders)
 - PDO with Active Record Class
 - Orginally based CodeIgniter
 - Lightweight and Easy to Use.
