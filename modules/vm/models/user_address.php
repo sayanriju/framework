@@ -1,6 +1,6 @@
 <?php
   
-Class User extends VM
+Class User_Address extends VM
 {
     function __construct()
     {
@@ -9,7 +9,7 @@ Class User extends VM
     
     public $settings = array(
     'database' => 'db',
-    'table'    => 'users',
+    'table'    => 'user_address',
     'primary_key' => 'id',
     'fields' => array
      (
@@ -18,30 +18,15 @@ Class User extends VM
           'type'  => 'int',
           'rules' => 'trim|integer'
         ),
-        'name' => array(
-         'label'  => 'name', 
+        'user_id' => array(
+          'label' => 'User ID',
+          'type'  => 'int',
+          'rules' => 'trim|integer'
+        ),
+        'address_line' => array(
+         'label'  => 'Address', 
          'type'   => 'string',
-         'rules'  => 'trim|min_lenght[3]|max_length[40]|xss_clean'
-        ),
-        'username' => array(
-         'label'  => 'Username',  // you can use lang:username
-         'type'   => 'string',
-         'rules'  => 'required|trim|unique|min_lenght[3]|max_length[40]|xss_clean'
-        )
-        ,'password' => array(
-          'label' => 'Password',
-          'type'  => 'string',
-          'rules' => 'required|trim|min_lenght[6]|encrypt'
-        ),
-        'confirm_password' => array(
-          'label' => 'Confirm Password',
-          'type'  => 'string',
-          'rules' => 'required|encrypt|matches[password]'
-        ),
-        'email' => array(
-          'label' => 'Email Address',
-          'type'  => 'string',
-          'rules' => 'required|trim|valid_email'
+         'rules'  => 'required|trim|min_lenght[3]|max_length[60]|xss_clean'
         )
         
     ));
@@ -49,7 +34,7 @@ Class User extends VM
     function get($limit = '', $offset = '')
     {        
         $this->db->select('*');
-        return $this->db->get('users', $limit, $offset);
+        return $this->db->get('user_address', $limit, $offset);
     }
 
     /**
@@ -59,7 +44,7 @@ Class User extends VM
     */
     function save($val = '')
     {   
-        $id = $this->item('primary_key');
+        $id = $this->settings['primary_key'];
         
         if(is_array($val))
         {
@@ -80,7 +65,7 @@ Class User extends VM
     */
     function delete($val = '')
     {
-        $id = $this->item('primary_key');
+        $id = $this->settings['primary_key'];
         
         if(is_array($val))
         {
@@ -99,20 +84,6 @@ Class User extends VM
         }
         
         return parent::delete();
-    }
-    
-    
-    function save_all($val = '')
-    {
-        $this->save($val);      // save to first table
-        
-        $id = $this->item('primary_key');
-        
-        $last_id = $this->values[$id];
-        
-        loader::model('user_address', false);   // save data to second table
-        
-        $address = new User_Address();
     }
     
 }
