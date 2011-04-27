@@ -46,9 +46,16 @@ Class User extends VM
         
     ));
     
-    function get($limit = '', $offset = '')
+    function get($limit = '', $offset = '', $id = '')
     {        
         $this->db->select('*');
+        
+        if($id != '')
+        {
+            $data = array('id' => $id);
+            parent::validator($data);
+        }
+        
         return $this->db->get('users', $limit, $offset);
     }
 
