@@ -12,18 +12,11 @@ Class Start extends Welcome_Controller {
     public function index()
     { 
         $user = new User();
-        $user->username = 'develturk4'; // 'develturk <script>sd</script>';
+        $user->username = ''; // 'develturk <script>sd</script>';
         $user->email    = 'cccceguvenc@gmail.com';
-        $user->save_join('user_address', 'user_id = id');
-        $user->address_line = 'test2 ... ';
-        $user->save();
+        $user->address_line = '';
         
-        /*
-        $adr = new User_Address();
-        $adr->user_id = $user->save();
-        $adr->address_line = 'test ... ';
-        $adr->save_all();
-        */
+        $user->insert_all();
         
         // echo form_error('id');
         // echo form_error('username');

@@ -1,6 +1,6 @@
 <?php
   
-Class User_Address extends VM
+Class Table_User_Address extends VM
 {
     function __construct()
     {

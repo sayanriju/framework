@@ -5,15 +5,14 @@ Class Welcome extends Welcome_Controller {
     function __construct()
     {   
         parent::__construct();
-    
-        loader::model('app/test_model');
     }         
     
     public function index()
-    {   
+    {
         view_var('title', 'Welcome to Obullo Framework !');
        
-        loader::helper('ob/query');
+        // loader::helper('ob/query');
+        // lib('drivers/query/mysql_compiler');
         
         
         // $request = request('get', 'api/test/method.ajax/1/');

@@ -87,7 +87,7 @@ Class User extends VM
     */
     function delete($val = '')
     {
-        $id = $this->item('primary_key');
+        $key = $this->item('primary_key');
         
         if(is_array($val))
         {
@@ -96,30 +96,48 @@ Class User extends VM
                 $this->$k = $v;  // set data for validation
             }
             
-            $this->db->where_in($id, $val);
+            $this->db->where_in($key, $val);
         }
         elseif($val != '')
         {
-            $this->$id = $val;   // set data for validation
+            $this->$key = $val;   // set data for validation
             
-            $this->db->where($id, $val);  
+            $this->db->where($key, $val);  
         }
         
         return parent::delete();
     }
     
-    
-    function save_all($val = '')
+    /**
+    * Save data to all tables
+    * 
+    * @param mixed $val
+    * @return FALSE
+    */
+    function insert_all()
     {
-        $this->save($val);      // save to first table
+        $last_id = $this->save();               // save to first table
         
-        $id = $this->item('primary_key');
+        //------------- User Address ---------------//
         
-        $last_id = $this->values[$id];
+        loader::model('table_user_address', false);   // save data to sub tables
         
-        loader::model('user_address', false);   // save data to second table
+        $adr = new Table_User_Address();
+        $adr->user_id      = $last_id;
+        $adr->address_line = $this->address_line;
         
-        $address = new User_Address();
+        $last_id = $adr->save();
+        
+        $this->errors = array_merge($adr->errors, $this->errors);
+        $this->values = array_merge($adr->values, $this->values);
+        
+        return $last_id;  
+    }
+    
+    
+    function update_all($id)
+    {
+
     }
     
 }
