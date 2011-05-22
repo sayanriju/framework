@@ -42,30 +42,30 @@ Class Table_User_Address extends VM
     * 
     * @param mixed $val
     */
-    function save($val = '')
+    function save($key = '', $val = '')
     {   
-        $id = $this->settings['primary_key'];
+        $key = ($key == '') ? $this->item('primary_key') : $key; 
         
         if(is_array($val))
         {
-            $this->db->where_in($id, $val);
+            $this->db->where_in($key, $val);
         }
         elseif($val != '')
         {
-            $this->db->where($id, $val);  
+            $this->db->where($key, $val);  
         }
         
         return parent::save();
     }
     
-    /**
+     /**
     * Delete
     * 
     * @param mixed $val
     */
-    function delete($val = '')
+    function delete($key = '', $val = '')
     {
-        $id = $this->settings['primary_key'];
+        $key = ($key == '') ? $this->item('primary_key') : $key;
         
         if(is_array($val))
         {
@@ -74,13 +74,13 @@ Class Table_User_Address extends VM
                 $this->$k = $v;  // set data for validation
             }
             
-            $this->db->where_in($id, $val);
+            $this->db->where_in($key, $val);
         }
         elseif($val != '')
         {
-            $this->$id = $val;   // set data for validation
+            $this->$key = $val;   // set data for validation
             
-            $this->db->where($id, $val);  
+            $this->db->where($key, $val);  
         }
         
         return parent::delete();

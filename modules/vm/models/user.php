@@ -64,17 +64,17 @@ Class User extends VM
     * 
     * @param mixed $val
     */
-    function save($val = '')
+    function save($key = '', $val = '')
     {   
-        $id = $this->item('primary_key');
+        $key = ($key == '') ? $this->item('primary_key') : $key; 
         
         if(is_array($val))
         {
-            $this->db->where_in($id, $val);
+            $this->db->where_in($key, $val);
         }
         elseif($val != '')
         {
-            $this->db->where($id, $val);  
+            $this->db->where($key, $val);  
         }
         
         return parent::save();
@@ -85,9 +85,9 @@ Class User extends VM
     * 
     * @param mixed $val
     */
-    function delete($val = '')
+    function delete($key = '', $val = '')
     {
-        $key = $this->item('primary_key');
+        $key = ($key == '') ? $this->item('primary_key') : $key;
         
         if(is_array($val))
         {
@@ -109,9 +109,8 @@ Class User extends VM
     }
     
     /**
-    * Save data to all tables
+    * Insert user data to all tables
     * 
-    * @param mixed $val
     * @return FALSE
     */
     function insert_all()
@@ -134,10 +133,22 @@ Class User extends VM
         return $last_id;  
     }
     
-    
-    function update_all($id)
+    /**
+    * Update user data to all tables
+    * 
+    * @param mixed $val
+    * @return FALSE
+    */
+    function update_all($usr_id)
     {
-
+        $update = $this->save($usr_id);  // Update this table
+        
+        if($update)   // Update address table
+        {
+            $adr = new Table_User_Address();
+            $adr->address_line = $this->address_line;
+            $adr->save('usr_id', $usr_id);
+        }
     }
     
 }

@@ -1,25 +1,9 @@
 <?php
-
-view_var('head', js('http://code.jquery.com/jquery-1.5.1.js'));
-
 view_var('head', css('welcome.css'));
 view_var('head', js('welcome.js'));
 view_var('head', script('welcome'));    
 view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files. 
 ?>
-
-<script type="text/javascript">
-
-function send_ajax()
-{
-    $.post('/api/test.add/param', function(data) 
-    {
-        // alert(data);
-    });
-}
-
-</script>
-
 
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
@@ -49,7 +33,9 @@ function send_ajax()
                     
                     <code class="no_background"><input type="button" onclick="test_me();" value="Script Test !"/></code>
                        
-                    <?php echo br(); ?>
+                    <?php echo $response; ?>
+                       
+                    <?php echo br() . br();  ?>
                     
                     <p><b>Note:</b> If you are new to Obullo, you should start by 
                 reading the <a href="http://obullo.com/user_guide/<?php echo OBULLO_VERSION; ?>/index.html">User Guide</a>.</p>
