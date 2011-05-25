@@ -8,7 +8,7 @@ echo meta('author', '');
 ?>
 <?php echo view_var('meta'); ?>
 
-<title><?php echo view_var('title'); ?></title>
+<title><?php echo strip_tags(view_var('title')); ?></title>
 
 <?php echo view_var('head'); ?>
 

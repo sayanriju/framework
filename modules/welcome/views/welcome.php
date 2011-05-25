@@ -19,7 +19,7 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
                     
                     <?php echo br(); ?>
                     
-                    <code><b>.modules/welcome/views/</b><samp>layouts</samp>/layout_base.php <kbd>( Layout )</kbd></code> 
+                    <code><b>.modules/welcome/views/</b><samp>layouts</samp>/welcome.php <kbd>( Layout )</kbd></code> 
                     
                     <code><b>.modules/welcome/</b><samp>views</samp>/view_welcome.php <kbd>( View )</kbd></code>
                     
