@@ -149,18 +149,9 @@ $this->config->set('error_reporting', 0);
         
 $this->config->set('error_reporting', 1);   
 
-// ! OB_QUERY ! (NOT OBULLO QUERY - OBJECT QUERY METHOD GOOD NAME FOR THIS)
-@lets do an extension api for obullo query
 
-        loader::lib('ext/ob_query');
-        $this->ob->select('');
-        $this->ob->from('');
-        $this->ob->query('SELECT ');
-
-@ DATAMAPPER (ORM) http://stensi.com/datamapper/pages/gettingstarted.html
-@ merge head_tag and body_tag helpers into html
-@ todo ob_exception var_dump() fix.
-@ todo loader::include('../sample/file');  for extensions, for view() function instead of require ''
+@todo !! Huge issue after that .ajax support URI library removes LAST argument which are contain dot.
+@todo loader::include('../sample/file');  for extensions, for view() function instead of require ''
 
 loader::include('../sample/file', true); (include once)
 

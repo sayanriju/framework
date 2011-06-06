@@ -12,8 +12,6 @@ echo meta('author', '');
 
 <?php echo view_var('head'); ?>
 
-<base href="<?php echo base_url(); ?>" />
-
 </head>
 
 <body>
