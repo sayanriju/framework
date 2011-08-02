@@ -110,7 +110,10 @@ works automatically from now on.
 - updated Config.php and url helper public_url() function.
     
 //-----------------------------------------------------------------------------
-                             
+
+- added [no_space] rule to Validator.php
+- added [valid_email_dns] rule to Validator library
+
 @todo add this functionality for debug 
 $config['debug_backtrace']       = array('enabled' => 'E_ALL ^ E_NOTICE', 'padding' => 5);
                                    
@@ -215,11 +218,6 @@ MONGO DB API ( loader::nosql('mongodb'); )
 http://devzone.zend.com/article/12132-Getting-Started-with-MongoDB-and-PHP
 http://lithify.me/en/docs/lithium/data/source/MongoDb
 
-@next version todo .. think a js validator function
- var frmvalidator = new Validator("form");
- frmvalidator.addValidation("firstname","req","Please enter your First Name");
- frmvalidator.addValidation("firstname","maxlen=20","Max length for FirstName is 20");
- frmvalidator.addValidation("firstname","alpha");
  
 @next version todo .. add user guide to uri protocol functionality ... http://localhost/obullo/index.php?foo=bar it works in just $config['uri_protocol']          = "PATH_INFO"; we need to explain this functionality ..
 @next version todo .. utf8 support http://www.phpwact.org/php/i18n/utf-8
