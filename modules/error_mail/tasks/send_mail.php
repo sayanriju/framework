@@ -49,7 +49,7 @@ Class Send_Mail extends Controller
     */
     function send($uniqid)
     {
-        $cfg = core_register('Config');
+        $cfg = core_class('Config');
         
         if($cfg->item('capture_errors'))
         {

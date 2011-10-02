@@ -93,7 +93,7 @@ function Obullo_Exception_Handler($e, $type = '')
     } 
     else  // Is It Exception ?
     {   
-        $exception = base_register('Exception');
+        $exception = load_class('Exception');
         
         if(is_object($exception)) 
         {           
@@ -129,7 +129,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
         loader::config('../error_mail/settings');
     }
     
-    if(core_register('Config')->item('capture_errors') == FALSE)   // Capture switch.
+    if(core_class('Config')->item('capture_errors') == FALSE)   // Capture switch.
     {
         return;
     }
@@ -148,7 +148,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
     $data['sql']  =  $sql;
     $data['uniqid'] = $uniqid;
     
-    loader::base_helper('view');
+    loader::helper('ob/view');
     
     $message   = "<"."?php defined('BASE') or exit('Access Denied!'); ?".">\n\n";
     $message  .= view('../error_mail/error_template', $data);
@@ -171,7 +171,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
     // Run SHELL COMMAND and Send Emails in Background.
     //----------------------------------------------------------
     
-    loader::base_helper('task');
+    loader::helper('ob/task');
     
     task_run('error_mail send_mail/send/'.$uniqid);
     

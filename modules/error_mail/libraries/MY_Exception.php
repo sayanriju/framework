@@ -61,7 +61,7 @@ Class MY_Exception extends OB_Exception
             
             $cmd_type = (defined('TASK')) ? 'Task' : 'Cmd';
             
-            if(core_register('Config')->item('write_log'))
+            if(core_class('Config')->item('write_log'))
             {
                 log_me('error', 'Php Error Type ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE);
             }
@@ -75,7 +75,7 @@ Class MY_Exception extends OB_Exception
         $data['sql']  = $sql;
         $data['type'] = $type;
 
-        if(core_register('Config')->item('write_log'))
+        if(core_class('Config')->item('write_log'))
         {
             log_me('error', 'Php Error Type: '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE);
         }
