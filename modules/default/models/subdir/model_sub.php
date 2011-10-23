@@ -12,8 +12,10 @@ Class Model_sub extends Model {
         
     }
     
-    public function sub()
+    public function test()
     {
+        echo 'Default sub model sub test function works !';
+        
         // ...
         // $this->db->query( ... );
     }

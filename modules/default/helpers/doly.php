@@ -6,7 +6,7 @@
 
 function doly()
 {
-    echo 'doly';
+    echo 'doly helper works !';
     //...
 }
 

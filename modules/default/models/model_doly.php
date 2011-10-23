@@ -9,12 +9,11 @@ Class Model_doly extends Model {
     {    
         loader::database();
         parent::__construct();
-        
     }
     
-    public function doly()
+    public function test()
     {
-        echo 'test';
+        echo 'Default model test function works !';
         
         // ...
         // $this->db->query( ... );

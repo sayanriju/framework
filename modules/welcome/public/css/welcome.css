@@ -13,7 +13,7 @@ body {
  background-color: #fff;
  margin: 40px;
  font-family: Arial;
- font-size: 14px;
+ font-size: 16px;
  color: #000;
 }
 
@@ -26,13 +26,13 @@ a {
 h1 {
  color: #808080;
  background-color: transparent;
- font-size: 25px;
+ font-size: 30px;
  font-weight: bold;
  margin: 24px 0 2px 0;
  padding: 5px 0 6px 0;
 }
 
-#main{ width: 600px;}
+#main{ width: 640px;}
 
 div.fieldset { padding: 4px 0px 4px 0px; } 
 div.fieldbox { 
@@ -45,7 +45,7 @@ h3.legend {
   position: relative; 
   top: -19px; 
   display: inline; 
-  padding: 2px 8px 1px 6px; 
+  padding: 4px 8px 3px 6px; 
   margin: 0px; 
   font: 0.99em Verdana, Helvetica, Sans-Serif; 
   font-weight: bold; 
@@ -89,3 +89,12 @@ legend {
 
 samp { color: #367fc2; font: 0.99em Monaco, Verdana, Sans-serif; }
 kbd { color: #969696; font: 0.99em Monaco, Verdana, Sans-serif; }
+
+div.test {
+ font-family: Monaco, Verdana, Sans-serif;
+ font-size: 16px;
+ color: #969696;
+ display: block;
+ margin-top: 5px; 
+ font-weight: bold;
+}

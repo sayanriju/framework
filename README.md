@@ -34,7 +34,7 @@ The goal of Obullo is keep the Core flexible, easy and minimal.
 
 ## License 
 
-Copyright (c) 2009 - 2010 Ersin Guvenc, http://obullo.com
+Copyright (c) 2009 - 2011 Ersin Guvenc and Obullo Team, http://obullo.com
 All rights reserved.
 
 This license is a legal agreement between you and Obullo.com for the use

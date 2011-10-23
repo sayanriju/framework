@@ -9,11 +9,10 @@ Class Doly {
     {
 
     }
-    
 
     public function test()
     {   
-        echo 'test !! ';
+        echo 'Default doly library test function works !! ';
     }
     
 } 

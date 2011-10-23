@@ -3,7 +3,7 @@
 /**
 * Your copy paste Task Controller.
 */
-Class Start extends Controller {
+Class Doly extends Controller {
     
     function __construct()
     {   
@@ -12,7 +12,7 @@ Class Start extends Controller {
 
     public function index()
     {
-        echo 'Module tasks works !!';
+        echo 'Default Module tasks works !!';
     }
 }
 

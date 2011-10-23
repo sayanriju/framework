@@ -3,7 +3,7 @@
 /**
 * Your copy paste Controller.
 */
-Class Doly extends Controller {
+Class Subdir extends Controller {
     
     function __construct()
     {   
@@ -12,7 +12,7 @@ Class Doly extends Controller {
 
     public function index()
     {
-        echo 'doly works !!';
+        echo 'Default subfolder subdir controller works !!';
     }
 }
 

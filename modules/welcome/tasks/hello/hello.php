@@ -10,17 +10,7 @@ Class Hello extends Controller {
     
     public function index()
     {     
-        loader::helper('test');
-        
-        // test();
-        
         echo 'Hello Cmd'."\n";
-        
-        // loader::helper('ob/request');
-    
-        // $request = request('get', 'welcome/test/arg1/arg2');
-        // echo $request->exec()->response();
-        
     }
     
 }
