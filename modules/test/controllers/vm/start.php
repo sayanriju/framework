@@ -1,7 +1,7 @@
 <?php
 
 Class Start extends VM_Controller {   // VM_Controller is your VM module custom controller 
-                                      // and its located in /modules/vm/parents folder.
+                                      // and its located in /modules/test/parents folder.
     function __construct()
     {   
         parent::__construct();

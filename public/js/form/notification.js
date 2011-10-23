@@ -4,17 +4,11 @@
       var $notification, icon, notification_content, self;
       self = this;
       self.find('.notification').remove();
-      /* icon = {
-        success: 'accept',
-        error: 'exclamation',
-        info: 'information',
-        warn: 'error'
-      };
-      */
+      
       notification_content = '<div class="notification notification-' + type + '">' + message + '</div>';
 
       if(view){
-          notification_content += '<div class="notification-view margin-top border rounded padding-big">' + view + '</div>';
+          notification_content += '<div style="margin-top:10px;padding:10px;">' + view + '</div>';
       }
 
       $notification = $('<div>', {

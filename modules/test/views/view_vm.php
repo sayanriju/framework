@@ -1,5 +1,6 @@
 <?php
-view_var('meta', meta('keywords', 'obullo, validation model, vm, validation in model')); 
+view_var('meta', meta('keywords', 'obullo, validation model, vm, validation in model'));
+view_var('head', css('.input-error { color:red; }', 'embed'));
 ?>
 
 <!-- body content -->
@@ -15,14 +16,14 @@ view_var('meta', meta('keywords', 'obullo, validation model, vm, validation in m
     <tr>
         <td width="35%"><b>Username</b></td>
         <td>
-        <? echo form_error('username', '<div class="form_error">', '</div>'); ?>
+        <? echo form_error('username', '<div class="input-error">', '</div>'); ?>
         <? echo form_input('username', '', " id='username' ");?></td>
     </tr>
     
     <tr>
         <td><b>Email</b></td>
         <td>
-        <? echo form_error('email', '<div class="form_error">', '</div>'); ?>
+        <? echo form_error('email', '<div class="input-error">', '</div>'); ?>
         <? echo form_input('email', '', " id='email' ");?></td>
     </tr>
     
