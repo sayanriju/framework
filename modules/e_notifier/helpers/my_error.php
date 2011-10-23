@@ -133,9 +133,9 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
         return;
     }
     
-    $data['e']    =  $e;
-    $data['type'] =  $type;
-    $data['sql']  =  $sql;
+    $data['e']      =  $e;
+    $data['type']   =  $type;
+    $data['sql']    =  $sql;
     $data['uniqid'] = $uniqid;
     
     loader::helper('ob/view');

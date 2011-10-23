@@ -15,7 +15,7 @@ Class Send_Mail extends Controller
         // WARNING !!!!
         //-----------------------------------------------------------
         // We need to reset error handlers, otherwise if we have a
-        // bug in this class server will go to unlimited loop while 
+        // bug in this class server will go unlimited loop while 
         // consume all the server memory.
         // 
         // Please don't remove exception handler functions !!
