@@ -12,8 +12,6 @@ echo meta('author', '');
 
 <?php echo view_var('head'); ?>
 
-<?php // echo css('welcome.css');  // base layout css  ?>
-
 </head>
 
 <body>

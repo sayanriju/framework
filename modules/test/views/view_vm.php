@@ -1,6 +1,6 @@
 <?php
 view_var('meta', meta('keywords', 'obullo, validation model, vm, validation in model'));
-view_var('head', css('.input-error { color:red; }', 'embed'));
+view_var('head', css('.input-error { color: #DF4545; }', 'embed'));
 ?>
 
 <!-- body content -->
@@ -29,7 +29,7 @@ view_var('head', css('.input-error { color:red; }', 'embed'));
     
     <tr>
         <td></td>
-        <td><? echo form_submit('do_post', 'Do Post');?><font size="1"> * Please do post with blank fields to see the errors.</font></td>
+        <td><? echo form_submit('do_post', 'Do Post');?><font size="1"> * Please do post with blank fields and see the errors.</font></td>
     </tr>
     
     <tr>
@@ -80,8 +80,8 @@ else
     </tr>
     
     <tr>
-        <td><b>form_validate_errors();</b></td>
-        <td><pre><? echo form_validate_errors(' | ', ' | '); ?></pre></td>
+        <td><b>validation_errors();</b></td>
+        <td><pre><? echo validation_errors(' | ', ' | '); ?></pre></td>
     </tr>
     
     <? if(isset($user)) { ?>
@@ -110,10 +110,6 @@ else
         
     <tr>
         <td colspan="2">&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td colspan="2">We use php <b>json_encode()</b> function which is encode data to json format for ajax requests. <b>json_encode($user->errors);</b> </td>
     </tr>
     
 </table>

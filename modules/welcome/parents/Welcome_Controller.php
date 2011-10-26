@@ -10,7 +10,6 @@ Class Welcome_Controller extends Controller
         
         loader::helper('ob/html');
         loader::helper('ob/url');
-        
     }
       
 }

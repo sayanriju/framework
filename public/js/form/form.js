@@ -24,7 +24,7 @@
       base = this;
       $base = $(base.selector);
       settings = _.extend({
-        error_msg: "There are some errors in the form fields !",
+        error_msg: form_plugin_settings.error_msg,
         success: function() {},
         error: function() {},
         before: function() {},
@@ -54,6 +54,7 @@
             
             settings.before.call(root, $root);
             data = $root.find(':visible, [type="hidden"], .send_even_if_hidden').serialize();
+            
             if (data.length) {
               data += "&SOCKET_ID=" + window.SOCKET_ID;
             } else {
@@ -64,16 +65,16 @@
             $root.find('input[type=submit]', this).addClass('disabled');
             
             $loading = $root.find('.loading_div');
-            $loading.after("<div style='float:left;'><img class='loading' src='/public/images/gif/loading.gif' /></div>");
+            $loading.after(form_plugin_settings.loading_div);
 
             $.ajax({
               type: method,
               url: $root.attr('action'),
-              dataType: 'json',
-              cache: false,
-              timeout: 10000,
+              dataType: form_plugin_settings.ajax_data_type,
+              cache: form_plugin_settings.ajax_cache,
+              timeout: form_plugin_settings.ajax_timeout,
               data: data,
-              complete: function(){   },
+              complete: function(){ },
               success: function(r) { 
                 
                 $root.parent().find('.notification').remove();
@@ -81,15 +82,13 @@
               
                 if (!r.success) {
 
-                  // if we have server redirect request
-                  if ( typeof r.redirect !== 'undefined' && r.redirect)
+                  if ( typeof r.redirect !== 'undefined' && r.redirect)  // if we have server redirect request
                   {
                       window.location.replace(r.redirect);
                       return;
                   }
-                  
-                  // if we have alert request
-                  if ( typeof r.alert !== 'undefined' && r.alert != '')
+                 
+                  if ( typeof r.alert !== 'undefined' && r.alert != '')  // if we have alert request
                   {
                       alert(r.alert);
                       return;
@@ -106,6 +105,7 @@
                   }
 
                   settings.error.call(root, r, $root);
+                  
                   if ($root.data('form.error')) {
                     $root.data('form.error').call(root, r, $root);
                   }
@@ -139,16 +139,14 @@
                   
                 } else {
 
-                  // if we have a forward url request
-                  if ( typeof r.forward_url !== "undefined" && r.forward_url)
+                  if ( typeof r.forward_url !== "undefined" && r.forward_url)  // if we have a forward url request
                   {
                       $root.attr('action', r.forward_url);
                       document.forms[$root.attr('name')].submit();
                       return;
                   }
 
-                  // if we have a server redirect request
-                  if ( typeof r.redirect !== "undefined" && r.redirect)
+                  if ( typeof r.redirect !== "undefined" && r.redirect)  // if we have a server redirect request
                   {
                       window.location.replace(r.redirect);
                       return;
@@ -159,9 +157,11 @@
                   $('input[type=submit]', this).removeClass('disabled');
 
                   settings.success.call(root, r, $root);
+                  
                   if ($root.data('form.success')) {
                     $root.data('form.success').call(root, r, $root);
                   }
+                  
                   if (r.success_msg)
                   {
                      if(r.view){
@@ -174,7 +174,8 @@
                   } 
                   else if(settings.success_msg)
                   {
-                    $root.notification('success', settings.success_msg);
+                     $root.notification('success', settings.success_msg);
+                     
                      $('.notification.notification-success').attr("tabindex", '0').focus();
                   }
 
@@ -188,8 +189,8 @@
               }  // end success,
               
               ,error: function() { 
-                  alert('Please check your internet connection !');
-              return false; 
+                  alert(form_plugin_settings.connection_error);
+                  return false; 
             }
            
            });
@@ -205,3 +206,8 @@
     });
   })(jQuery, this || exports);
 }).call(this);
+
+
+
+/* End of file form.js. */
+/* Location: .public/js/form/form.js */

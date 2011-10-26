@@ -1,7 +1,7 @@
 <?php
 view_var('head', js('jquery-min.js'));
 view_var('head', plugin('form'));
-// embed css example
+/* embed css example */
 view_var('head', css('
 .button {
     padding: 5px 10px;
@@ -29,10 +29,46 @@ view_var('head', css('
 .button.white { font-size: 90%; background-color: #fff; color: #003399; text-shadow: 1px 1px #fff; border: 1px solid #ACACAC; }
 .button.disabled { background: #F2F1F0; color: #ccc; text-shadow: 1px 1px #fff; border: 1px solid #ACACAC; }
 
-.input-error { color:red; }
+.input-error { color: #DF4545; }
+
+
+.notification {
+  max-width: 800px;
+  border:1px solid;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  padding: 15px;
+  text-align:center;
+  font-weight:bold;
+  font-size: 16px;
+}
+
+.notification h1 { margin-bottom: 5px; }
+
+.notification.notification-success {
+  border-color: #E6DB55;
+  background-color: #FFFFE0;
+  line-height: 24px;
+  color: #000;
+  background-position:0px 1px
+}
+.notification.notification-error {
+  border-color: #DF4545;
+  background-color: #FFEBE8;
+  color: #000;
+  background-position:0 -7055px;
+}
 
 ', 'embed'));
 
+?>
+
+<?
+    ##  OBULLO JQUERY FORM VALIDATION CLASS ATTRIBUTES ##
+    //  
+    // no-top-msg:    hide the main jquery form error msg which is locate the top.
+    // no-ajax:       if you don't want to ajax post use this atttribute for native posts.
+    // hide-formarea: put formarea div which have id="formarea" attribute, form plugin will hide the form area div if form submit success !
 ?>
 
 <!-- body content -->
@@ -41,15 +77,8 @@ view_var('head', css('
 <div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
 
 <!-- body content -->
-
-<? echo form_open('/test/vm/start/do_post.json', array('method' => 'POST', 'class' => 'no-top-msg hide-formarea'));?>
-<?
-    ##  OBULLO JQUERY FORM VALIDATION CLASS ATTRIBUTES ##
-    // no-top-msg: the class attribute no-top-msg hide the main jquery form msg
-    // no-ajax: if you don't want to ajax post use this atttribute
-    // hide-formarea: put formarea div which have id="formarea" attribute, obullo will hide the form if form submit success !
-?>
 <div id="formarea">
+<? echo form_open('/test/vm/start/do_post.json', array('method' => 'POST', 'class' => 'hide-formarea'));?>
 <table>
     
     <tr>
@@ -79,7 +108,7 @@ loader::model('user', false);
 
 $user = new User();
 $user->username = '';
-$user->email    = 'me@example.com';
+$user->email    = i_get_post('email');
 
 if($user->save())
 {
@@ -97,8 +126,10 @@ else
     </tr>
     
 </table>
+<?php echo form_close(); ?>
+</div> 
 
-        
+
 <p>
 <?php echo br(); ?>Page rendered in {elapsed_time} seconds 
 
@@ -108,9 +139,6 @@ else
 echo img('../welcome/gif/obullo.gif', ' border="0" '); ?>
 </p>
 
-</div> 
-
-<?php echo form_close(); ?>
 
 <?php echo br(); ?>
 <!-- body content -->

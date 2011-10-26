@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Obullo e_notifier (Error Notifier) Extension
+* Obullo e_notifier (Error Notifier) Module Extension
 * Config variables.
 *
 * @var mixed
