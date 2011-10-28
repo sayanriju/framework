@@ -61,6 +61,9 @@ function Obullo_Element()
 function Obullo_Error_Toggle(obj)
 {
     var el = Obullo_Element(obj);
+    if (el == null){
+        return false;
+    }
     el.className = (el.className != 'collapsed' ? 'collapsed' : '' );
 }
 </script>

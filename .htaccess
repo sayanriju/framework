@@ -21,8 +21,8 @@ php_flag html_errors on
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule (.*)/public/(.*) modules/$1/public/$2 [L]
+
     #This last condition enables access to the images and css folders, and the robots.txt file
-    #Submitted by Michael Radlmaier (mradlmaier)
     RewriteCond $1 !^(index\.php|obullo|modules|application|public)
     RewriteRule ^(.*)$ index.php/$1 [L]
     AddType text/x-component .htc
@@ -32,8 +32,6 @@ php_flag html_errors on
 <IfModule !mod_rewrite.c>
     # If we don't have mod_rewrite installed, all 404's
     # can be sent to index.php, and everything works as normal.
-    # Submitted by: ElliotHaughin
 
     ErrorDocument 404 /index.php
 </IfModule>
-

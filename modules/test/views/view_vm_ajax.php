@@ -63,6 +63,8 @@ view_var('head', css('
 
 ?>
 
+<!-- body content -->
+
 <?
     ##  OBULLO JQUERY FORM VALIDATION CLASS ATTRIBUTES ##
     //  
@@ -71,12 +73,10 @@ view_var('head', css('
     // hide-formarea: put formarea div which have id="formarea" attribute, form plugin will hide the form area div if form submit success !
 ?>
 
-<!-- body content -->
 <h1>Welcome to Obullo Validation Model !</h1> 
 
 <div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
 
-<!-- body content -->
 <div id="formarea">
 <? echo form_open('/test/vm/start/do_post.json', array('method' => 'POST', 'class' => 'hide-formarea'));?>
 <table>
@@ -141,4 +141,5 @@ echo img('../welcome/gif/obullo.gif', ' border="0" '); ?>
 
 
 <?php echo br(); ?>
-<!-- body content -->
+
+<!-- end body content -->
