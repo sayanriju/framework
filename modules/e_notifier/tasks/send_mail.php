@@ -65,7 +65,7 @@ Class Send_Mail extends Controller
             $smtp->to($cfg->item('recipients'));
 
             // $smtp->cc('another@another-example.com');
-            // $smtp->bcc('xturknet@hotmail.com');
+            // $smtp->bcc('example@example.com');
 
             loader::helper('ob/url');
             

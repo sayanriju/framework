@@ -8,13 +8,6 @@ Class VM_Controller extends Controller
     {
         parent::__construct();
         
-        loader::helper('ob/html');
-        loader::helper('ob/url');
-        loader::helper('ob/form');
-        loader::helper('ob/form_json');
-        loader::helper('ob/session');
-        
-        sess_start();
     }
       
 }
