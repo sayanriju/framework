@@ -32,9 +32,9 @@ Class Start extends Controller {
         loader::model('user', false);  // Include user model
         
         $user = new User();
-        // $user->usr_username = i_get_post('usr_username');
-        // $user->usr_password = i_get_post('usr_password');
-        // $user->usr_email    = i_get_post('usr_email');
+        $user->usr_username = i_get_post('usr_username');
+        $user->usr_password = i_get_post('usr_password');
+        $user->usr_email    = i_get_post('usr_email');
         
         if($user->save())
         {
