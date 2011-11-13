@@ -26,13 +26,6 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
                    
                     <code><b>modules/welcome/</b><samp>parents</samp>/Welcome_Controller.php <kbd>( Module Controller )</kbd></code>
 
-                                        
-                    <?php echo br(); ?>
-                    
-                    <p>If you would like to edit Application Controller file located at</p>
-                    
-                    <code><b>application/</b><samp>parents</samp>/App_Controller.php <kbd>( Application Controller )</kbd></code>
-                       
                     <?php echo br();  ?>
                     
                     <div class="test"><? echo anchor('/welcome/hmvc', 'Try to New HMVC Feature'); ?></div>

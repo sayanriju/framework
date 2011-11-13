@@ -20,14 +20,3 @@ $config['form'] = array(
                          'js/form/form.js',
                          'js/form/form_settings.js',
                         );
-
-
-$config['form2'] = array(
-                         'js/form2/underscore.js',
-                         'js/form2/underscore_addons.js',
-                         'js/form2/jquery.livequery.js',
-                         'js/form2/jquery.multiselect.js',
-                         'js/form2/jquery.masked_input.js',
-                         'js/form2/form.js',
-                         'js/form2/notification.js',
-                        );

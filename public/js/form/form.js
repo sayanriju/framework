@@ -179,9 +179,9 @@
                      $('.notification.notification-success').attr("tabindex", '0').focus();
                   }
 
-                  if(_.strpos($root.attr('class'), 'hide-formarea') !== false)
+                  if(_.strpos($root.attr('class'), 'hide-form') !== false)
                   {
-                     $root.find("[id='formarea']:visible:eq(0)").hide();
+                      $root.hide();
                   }
 
                 }

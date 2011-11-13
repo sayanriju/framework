@@ -31,7 +31,6 @@ view_var('head', css('
 
 .input-error { color: #DF4545; }
 
-
 .notification {
   max-width: 800px;
   border:1px solid;
@@ -60,35 +59,42 @@ view_var('head', css('
 }
 
 ', 'embed'));
-
 ?>
-
-<!-- body content -->
 
 <?
     ##  OBULLO JQUERY FORM VALIDATION CLASS ATTRIBUTES ##
     //  
-    // no-top-msg:    hide the main jquery form error msg which is locate the top.
-    // no-ajax:       if you don't want to ajax post use this atttribute for native posts.
-    // hide-formarea: put formarea div which have id="formarea" attribute, form plugin will hide the form area div if form submit success !
+    // no-top-msg:    Hide the main jquery form error msg which is located at the top.
+    // no-ajax:       If you don't want to ajax post use this atttribute for native posts.
+    // hide-form:     Form plugin will hide the form area if form submit success !
 ?>
 
 <h1>Welcome to Obullo Validation Model !</h1> 
 
 <div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
 
-<div id="formarea">
-<? echo form_open('/test/vm/start/do_post.json', array('method' => 'POST', 'class' => 'hide-formarea'));?>
-<table>
+<div>
+<? echo form_open('/test/vm/start/do_post.json', array('method' => 'POST', 'class' => 'hide-form'));?>
+<table width="100%">
     
     <tr>
-        <td width="35%"><b>Username</b></td>
-        <td><? echo form_input('username', '', " id='username' ");?></td>
+        <td style="width:20%;"><b>Username</b></td>
+        <td><? echo form_input('usr_username', '', " id='username' ");?></td>
     </tr>
     
     <tr>
         <td><b>Email</b></td>
-        <td><? echo form_input('email', '', " id='email' ");?></td>
+        <td><? echo form_input('usr_email', '', " id='email' ");?></td>
+    </tr>
+    
+    <tr>
+        <td><b>Password</b></td>
+        <td><? echo form_password('usr_password', '', " id='password' ");?></td>
+    </tr>
+    
+    <tr>
+        <td><b>Confirm</b></td>
+        <td><? echo form_password('usr_confirm_password', '', " id='confirm' ");?></td>
     </tr>
     
     <tr>
@@ -101,7 +107,7 @@ view_var('head', css('
     </tr>
     
     <tr>
-        <td width="35%"><b>Code</b></td>
+        <td><b>Code</b></td>
         <td>
 <pre>
 loader::model('user', false);
@@ -121,14 +127,18 @@ else
     </tr>
     
     <tr>
-        <td colspan="2">Using php <b>json_encode()</b> function you can turn to json format for ajax requests. <b>json_encode($user->errors);</b>, We do it with obullo form_json helper because of write less coding.<br />
-        Please look at the <b>form_json_encode();</b> function you will understand well how does it work.It's located <b>obullo/helpers/form_json.php</b></td>
+        <td colspan="2">&nbsp;</td>
     </tr>
     
 </table>
 <?php echo form_close(); ?>
-</div> 
+</div>
 
+
+<p>
+    Using php <b>json_encode()</b> function you can turn to json format for ajax requests. <b>json_encode($user->errors);</b>, We do it with obullo form_json helper because of write less coding.<br />
+        Please look at the <b>form_json_encode();</b> function you will understand well how does it work.It's located <b>obullo/helpers/form_json.php</b>
+</p>
 
 <p>
 <?php echo br(); ?>Page rendered in {elapsed_time} seconds 

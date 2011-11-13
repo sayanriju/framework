@@ -8,7 +8,7 @@ Class Start extends Controller {
     }         
     
     public function index()
-    {   
+    {
         view_var('title', 'Welcome to Obullo Validation Model !');
                         
         $data = array();
@@ -32,18 +32,19 @@ Class Start extends Controller {
         loader::model('user', false);  // Include user model
         
         $user = new User();
-        $user->username = i_get_post('username');
-        $user->email    = i_get_post('email');
-
+        // $user->usr_username = i_get_post('usr_username');
+        // $user->usr_password = i_get_post('usr_password');
+        // $user->usr_email    = i_get_post('usr_email');
+        
         if($user->save())
         {
             if($this->uri->extension() == 'json')  // Ajax support
             {
-                echo form_json_success('Success !');
+                echo form_json_success('Data Saved Successfuly !');
                 return;
             }
             
-            sess_set_flash('msg', 'Data Saved !');
+            sess_set_flash('msg', 'Data Saved Successfuly !');
             redirect('/test/vm/start/index');
         } 
         else

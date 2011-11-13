@@ -8,23 +8,42 @@ view_var('head', css('.input-error { color: #DF4545; }', 'embed'));
 
 <div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
 
-<? echo sess_flash('msg', '<div style="padding:10px;">' ,'</div>')?>
+<? echo sess_flash('msg', '<div style="padding-bottom:10px;">' ,'</div>')?>
 
+<div>
 <? echo form_open('/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
-<table>
+<table width="100%">
     
     <tr>
-        <td width="35%"><b>Username</b></td>
+        <td style="width:20%;"><b>Username</b></td>
         <td>
-        <? echo form_error('username', '<div class="input-error">', '</div>'); ?>
-        <? echo form_input('username', '', " id='username' ");?></td>
+        <? echo form_error('usr_username', '<div class="input-error">', '</div>'); ?>
+        <? echo form_input('usr_username', '', " id='username' ");?>
+        </td>
     </tr>
     
     <tr>
         <td><b>Email</b></td>
         <td>
-        <? echo form_error('email', '<div class="input-error">', '</div>'); ?>
-        <? echo form_input('email', '', " id='email' ");?></td>
+        <? echo form_error('usr_email', '<div class="input-error">', '</div>'); ?>
+        <? echo form_input('usr_email', '', " id='email' ");?>
+        </td>
+    </tr>
+    
+    <tr>
+        <td><b>Password</b></td>
+        <td>
+        <? echo form_error('usr_password', '<div class="input-error">', '</div>'); ?>
+        <? echo form_password('usr_password', '', " id='password' ");?>
+        </td>
+    </tr>
+    
+    <tr>
+        <td><b>Confirm</b></td>
+        <td>
+        <? echo form_error('usr_confirm_password', '<div class="input-error">', '</div>'); ?>
+        <? echo form_password('usr_confirm_password', '', " id='confirm' ");?>
+        </td>
     </tr>
     
     <tr>
@@ -75,8 +94,8 @@ else
         <td colspan="2">Test Results</td>
     </tr>
     <tr>
-        <td><b>form_error('username');</b></td>
-        <td><pre><? echo form_error('username'); ?></pre></td>
+        <td><b>form_error('usr_username');</b></td>
+        <td><pre><? echo form_error('usr_username'); ?></pre></td>
     </tr>
     
     <tr>
@@ -115,6 +134,7 @@ else
 </table>
      
 <? echo form_close(); ?>
+</div>
 
 <p>
 <?php echo br(); ?>Page rendered in {elapsed_time} seconds 

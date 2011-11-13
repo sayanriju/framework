@@ -13,32 +13,28 @@ Class User extends VM
     'primary_key' => 'id',
     'fields' => array
      (
-        'id' => array(
+        'usr_id' => array(
           'label' => 'ID',
           'type'  => 'int',
           'rules' => 'trim|integer'
         ),
-        'name' => array(
-         'label'  => 'name', 
-         'type'   => 'string',
-         'rules'  => 'trim|min_lenght[3]|max_length[40]|xss_clean'
-        ),
-        'username' => array(
+        'usr_username' => array(
          'label'  => 'Username',  // you can use lang:username
          'type'   => 'string',
-         'rules'  => 'required|trim|unique|min_lenght[3]|max_length[40]|xss_clean'
-        )
-        ,'password' => array(
+         'rules'  => 'required|trim|unique|min_lenght[3]|max_length[100]|xss_clean'
+        ),
+        'usr_password' => array(
           'label' => 'Password',
           'type'  => 'string',
-          'rules' => 'required|trim|min_lenght[6]|encrypt'
+          'rules' => 'required|trim|min_lenght[6]|encrypt',
+          'func'  => 'md5'
         ),
-        'confirm_password' => array(
+        'usr_confirm_password' => array(
           'label' => 'Confirm Password',
           'type'  => 'string',
-          'rules' => 'required|encrypt|matches[password]'
+          'rules' => 'required|encrypt|matches[usr_password]'
         ),
-        'email' => array(
+        'usr_email' => array(
           'label' => 'Email Address',
           'type'  => 'string',
           'rules' => 'required|trim|valid_email'
@@ -127,5 +123,7 @@ Class User extends VM
         return $result;
     }
     
-    
 }
+
+/* End of file start.php */
+/* Location: .modules/test/controllers/vm/start.php */
