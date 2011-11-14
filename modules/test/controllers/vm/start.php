@@ -36,16 +36,17 @@ Class Start extends Controller {
         $user->usr_password = i_get_post('usr_password');
         $user->usr_email    = i_get_post('usr_email');
         
+        $data['user'] = $user;
+        
         if($user->save())
         {
             if($this->uri->extension() == 'json')  // Ajax support
             {
-                echo form_json_success('Data Saved Successfuly !');
+                echo form_json_success('Data Saved Successfully !');
                 return;
             }
-            
-            sess_set_flash('msg', 'Data Saved Successfuly !');
-            redirect('/test/vm/start/index');
+
+            $data['msg'] = 'Data Saved Successfully !';
         } 
         else
         {
@@ -54,12 +55,15 @@ Class Start extends Controller {
                 echo form_json_error($user);
                 return;
             }
-           
-            $data['user'] = $user;
             
-            view_var('body', view('view_vm', $data));
-            view_layout('layout_vm'); 
+            if($user->validation())  // If validation ok but we have a system error ?
+            {
+                $data['msg'] = form_error($user);
+            }
         }
+        
+        view_var('body', view('view_vm', $data));
+        view_layout('layout_vm'); 
     }
     
 }

@@ -20,7 +20,7 @@
       self = this;
       self.find('.notification').remove();
       
-      notification_content = '<div class="notification notification-' + type + '">' + message + '</div>';
+      notification_content = '<div class="notification ' + type + '">' + message + '</div>';
 
       if(view){
           notification_content += '<div style="margin-top:10px;padding:10px;">' + view + '</div>';

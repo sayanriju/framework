@@ -1,6 +1,36 @@
 <?php
 view_var('meta', meta('keywords', 'obullo, validation model, vm, validation in model'));
-view_var('head', css('.input-error { color: #DF4545; }', 'embed'));
+view_var('head', css('
+.input-error { color: #DF4545; }
+    
+.notification {
+  max-width: 800px;
+  border:1px solid;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  padding: 15px;
+  text-align:center;
+  font-weight:bold;
+  font-size: 16px;
+}
+
+.notification h1 { margin-bottom: 5px; }
+
+.notification.success {
+  border-color: #E6DB55;
+  background-color: #FFFFE0;
+  line-height: 24px;
+  color: #000;
+  background-position:0px 1px
+}
+
+.notification.error {
+  border-color: #DF4545;
+  background-color: #FFEBE8;
+  color: #000;
+  background-position:0 -7055px;
+}
+', 'embed'));
 ?>
 
 <!-- body content -->
@@ -8,7 +38,19 @@ view_var('head', css('.input-error { color: #DF4545; }', 'embed'));
 
 <div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
 
-<? echo sess_flash('msg', '<div style="padding-bottom:10px;">' ,'</div>')?>
+<? 
+if(isset($user) AND isset($msg))
+{
+    if($user->errors('success') == 0)
+    {
+        echo '<div class="notification error">'.$msg.'</div>';
+    }
+    else
+    {
+        echo '<div class="notification success">'.$msg.'</div>';
+    }
+} 
+?>
 
 <div>
 <? echo form_open('/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
@@ -59,20 +101,24 @@ view_var('head', css('.input-error { color: #DF4545; }', 'embed'));
         <td><b>Code</b></td>
         <td>
 <pre>
+loader::model('user', false);  // Include user model
+
 $user = new User();
-$user->username = i_get_post('username');
-$user->email    = i_get_post('email');
+$user->usr_username = i_get_post('usr_username');
+$user->usr_password = i_get_post('usr_password');
+$user->usr_email    = i_get_post('usr_email');
+
+$data['user'] = $user;
 
 if($user->save())
 {
     if($this->uri->extension() == 'json')  // Ajax support
     {
-        echo form_json_success('Success !');
+        echo form_json_success('Data Saved Successfuly !');
         return;
     }
 
-    sess_set_flash('msg', 'Data Saved !');
-    redirect('/test/vm/start/index');
+    $data['msg'] = 'Data Saved Successfuly !';
 } 
 else
 {
@@ -82,11 +128,14 @@ else
         return;
     }
 
-    $data['user'] = $user;
+    if($user->validation())  // If validation ok but we have a system error ?
+    {
+        $data['msg'] = form_error($user);
+    }
+}
 
-    view_var('body', view('view_vm', $data));
-    view_layout('layout_vm'); 
-}</pre></td>
+view_var('body', view('view_vm', $data));
+view_layout('layout_vm'); </pre></td>
     </tr>
     
     
@@ -111,7 +160,7 @@ else
     </tr>
     
     <tr>
-        <td><b>print_r($user->errors());</b></td>
+        <td><b>print_r($user->errors);</b></td>
         <td><pre><? print_r($user->errors); ?></pre></td>
     </tr>
     

@@ -44,14 +44,14 @@ view_var('head', css('
 
 .notification h1 { margin-bottom: 5px; }
 
-.notification.notification-success {
+.notification.success {
   border-color: #E6DB55;
   background-color: #FFFFE0;
   line-height: 24px;
   color: #000;
   background-position:0px 1px
 }
-.notification.notification-error {
+.notification.error {
   border-color: #DF4545;
   background-color: #FFEBE8;
   color: #000;
