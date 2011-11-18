@@ -5,14 +5,16 @@ The goal of Obullo is keep the Core flexible, easy and minimal.
 
 ## Features
 
-- Modular Controllers (Obullo GC)
-- HMVC (Hierarchical Model View Controller)
+- Modular Controllers (Modules and Sub folders)
+- Simple HMVC (Hierarchical Model View Controller)
 - Validation Model (VM) instead of using a complex structure such as ORM
-- Task Management and Command Line structures
-- Advanced Directories (Modules and Sub folders)
-- PDO with Active Record Class
-- Orginally based CodeIgniter
-- Lightweight and Easy to Use.
+- Integrated Task Management and Command Line structures
+- Advanced Debugging and Error Notifiers
+- UTF8 Libraries
+- SSL Support, Ajax Support
+- Nginx HTTP Server Support
+- Lightweight and Easy to Use, Orginally based CodeIgniter
+- Well documented, It focuses on simplicity and best maintainability.
 
 
 ## Installation

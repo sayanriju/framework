@@ -38,19 +38,8 @@ view_var('head', css('
 
 <div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
 
-<? 
-if(isset($user) AND isset($msg))
-{
-    if($user->errors('success') == 0)
-    {
-        echo '<div class="notification error">'.$msg.'</div>';
-    }
-    else
-    {
-        echo '<div class="notification success">'.$msg.'</div>';
-    }
-} 
-?>
+
+<? echo form_msg($user); ?>
 
 <div>
 <? echo form_open('/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
@@ -114,11 +103,9 @@ if($user->save())
 {
     if($this->uri->extension() == 'json')  // Ajax support
     {
-        echo form_json_success('Data Saved Successfuly !');
+        echo form_json_success('Data Saved Successfully !');
         return;
     }
-
-    $data['msg'] = 'Data Saved Successfuly !';
 } 
 else
 {
@@ -126,12 +113,7 @@ else
     {
         echo form_json_error($user);
         return;
-    }
-
-    if($user->validation())  // If validation ok but we have a system error ?
-    {
-        $data['msg'] = form_error($user);
-    }
+    }   
 }
 
 view_var('body', view('view_vm', $data));
@@ -152,7 +134,7 @@ view_layout('layout_vm'); </pre></td>
         <td><pre><? echo validation_errors(' | ', ' | '); ?></pre></td>
     </tr>
     
-    <? if(isset($user)) { ?>
+    <? if(is_object($user)) { ?>
     
     <tr>
         <td><b>print_r($user->errors());</b></td>

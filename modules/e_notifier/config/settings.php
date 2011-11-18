@@ -15,7 +15,7 @@ $config['from_name']      = 'Obullo Application Errors';
 $config['subject']        = 'Application Errors';
 
 $config['protocol']       = 'smtp';
-$config['smtp_host']      = 'mail.example.com';   // pust ssl://  for ssl connection
+$config['smtp_host']      = 'mail.example.com';   // pust ssl:// for ssl connections
 $config['smtp_user']      = '';
 $config['smtp_pass']      = '';
 $config['smtp_port']      = '587'; // 465 for ssl

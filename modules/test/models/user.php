@@ -10,7 +10,7 @@ Class User extends VM
     public $settings = array(
     'database' => 'db',
     'table'    => 'users',
-    'primary_key' => 'id',
+    'primary_key' => 'usr_id',
     'fields' => array
      (
         'usr_id' => array(
@@ -92,7 +92,7 @@ Class User extends VM
     * Delete
     * 
     * @param string $key $this->db->where($key, ); (set table field)
-   *  @param string $mixed $val $this->db->where($key, $val); (set value)
+    * @param string $mixed $val $this->db->where($key, $val); (set value)
     */
     function delete($key = '', $val = '')
     {
@@ -104,14 +104,14 @@ Class User extends VM
         {
             foreach($val as $k => $v)
             {
-                $this->$k = $v;  // set data for validation
+                $this->{$k} = $v;  // set data for validation
             }
             
             $this->db->where_in($key, $val);
         }
         elseif($val != '')
         {
-            $this->$key = $val;   // set data for validation
+            $this->{$key} = $val;  // set data for validation
             
             $this->db->where($key, $val);  
         }

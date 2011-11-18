@@ -6,12 +6,12 @@ Class Start extends Controller {
     {   
         parent::__construct();
     }         
-    
+
     public function index()
     {
         view_var('title', 'Welcome to Obullo Validation Model !');
                         
-        $data = array();
+        $data['user'] = array();
         
         view_var('body', view('view_vm', $data));
         view_layout('layout_vm'); 
@@ -45,8 +45,6 @@ Class Start extends Controller {
                 echo form_json_success('Data Saved Successfully !');
                 return;
             }
-
-            $data['msg'] = 'Data Saved Successfully !';
         } 
         else
         {
@@ -54,16 +52,28 @@ Class Start extends Controller {
             {
                 echo form_json_error($user);
                 return;
-            }
-            
-            if($user->validation())  // If validation ok but we have a system error ?
-            {
-                $data['msg'] = form_error($user);
-            }
+            }   
         }
         
         view_var('body', view('view_vm', $data));
         view_layout('layout_vm'); 
+    }
+    
+    
+    public function delete()
+    {
+        loader::model('user', false);  // Include user model
+        
+        $user = new User();
+        
+        if($user->delete('usr_id', 5))
+        {
+            echo 'User Deleted Successfuly !';
+        }
+        
+        print_r($user->errors());
+        
+        echo $user->last_query();
     }
     
 }
