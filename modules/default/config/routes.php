@@ -10,7 +10,7 @@ defined('BASE') or exit('Access Denied!');
 | configure it before the first run of your module.
 |
 */
-$routes['default']       = '';   
+$routes['default']       = 'default/doly/index';   
 
 /*
 |--------------------------------------------------------------------------

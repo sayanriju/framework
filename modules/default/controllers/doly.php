@@ -12,7 +12,11 @@ Class Doly extends Controller {
 
     public function index()
     {
-        echo 'doly works !!';
+        echo 'MODULENAME: Default and doly controller works !!';
+       
+        echo br(2);
+        
+        echo anchor('default/subdir', 'Try Subfolder !');
     }
 }
 

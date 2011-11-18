@@ -7,7 +7,7 @@ your application run your LIVE server.
 ## Requirements
 - Any Linux platform
 - Shell command must available on your server (This module use php exec() or system() command)
-- A smtp account to send emails to you
+- A smtp account to send error emails to you
 
 ## Installation
 - To set e_notifier extension for application, change $extensions['application']['e_notifier']['enabled'] = TRUE; set to true 

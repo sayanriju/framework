@@ -4,7 +4,7 @@ defined('BASE') or exit('Access Denied!');
 | -------------------------------------------------------------------
 | AUTO-LOADER MODULE
 | -------------------------------------------------------------------
-| This file specifies which MODULE should be loaded by default.
+| This file specifies which MODULE file should be loaded by default.
 |
 | In order to keep the framework as light-weight as possible only the
 | absolute minimal resources are loaded by default.This file lets
@@ -22,7 +22,7 @@ defined('BASE') or exit('Access Denied!');
 |	$autoload['helper'] = array('ob/url', 'ob/file', 'my_helper');
 */
 
-$autoload['helper']     = array('ob/view', 'ob/html', 'ob/url', 'ob/session');
+$autoload['helper']     = array('ob/session', 'ob/form');
 
 /*
 | -------------------------------------------------------------------
