@@ -117,7 +117,7 @@ function Obullo_Exception_Handler($e, $type = '')
 */
 function write_errors_and_send_email($e, $type = '', $sql = array())
 {   
-    loader::config('../e_notifier/settings');
+    loader::config('../e_notifier/config');  // load extension config file.
     
     if(core_class('Config')->item('send_errors') == FALSE)   // Capture switch.
     {
@@ -168,3 +168,8 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
     //----------------------------------------------------------    
 
 }
+
+// END my_error.php File
+
+/* End of file my_error.php
+/* Location: ./modules/e_notifier/helpers/my_error.php */

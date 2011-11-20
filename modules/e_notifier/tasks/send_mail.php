@@ -24,10 +24,7 @@ Class Send_Mail extends Controller
         restore_error_handler();        // Reset exception handlers
         restore_exception_handler();
         
-        //-----------------------------------------------------------
-
-        loader::config('../e_notifier/settings');
-        
+        loader::config('../e_notifier/config');  // Load extension config file.
     }
     
     //------------------------------------------------------------

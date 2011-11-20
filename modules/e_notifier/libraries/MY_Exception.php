@@ -93,3 +93,8 @@ Class MY_Exception extends OB_Exception
     }
     
 }
+
+// END MY_Exception.php File
+
+/* End of file MY_Exception.php
+/* Location: ./modules/e_notifier/libraries/MY_Exception.php */
