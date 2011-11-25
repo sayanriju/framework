@@ -5,6 +5,12 @@ Class User extends VM
     function __construct()
     {
         parent::__construct();
+        
+        $this->settings['fields']['captcha_answer'] = array(
+          'label' => 'Security Image',
+          'type'  => 'string',
+          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_captcha_check'
+        );
     }
     
     public $settings = array(
@@ -121,6 +127,28 @@ Class User extends VM
         $this->after_delete();
         
         return $result;
+    }
+    
+    
+    /**
+    * Validate captcha answer.
+    *
+    * @return  boolean
+    */
+    public function captcha_check()
+    {
+        loader::helper('ob/request');
+
+        $response = request('GET','/captcha/check')->exec()->response();
+        
+        if($response == '0')
+        {
+            return FALSE;
+        }
+        elseif($response == '1')
+        {
+            return TRUE;
+        }
     }
     
 }

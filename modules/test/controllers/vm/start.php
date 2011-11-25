@@ -13,6 +13,14 @@ Class Start extends Controller {
                         
         $data['user'] = array();
         
+        //------ HMVC CALL -----//
+        
+        loader::helper('ob/request');  
+        $response = request('GET', '/captcha/create')->exec()->response();
+        $data['cap'] = unserialize($response);
+                
+        //------ HMVC CALL -----//
+        
         view_var('body', view('view_vm', $data));
         view_layout('layout_vm'); 
     }
@@ -20,8 +28,14 @@ Class Start extends Controller {
     function ajax_example()
     {
         view_var('title', 'Welcome to Obullo Validation Model !');
-                        
-        $data = array();
+        
+        //------ HMVC CALL -----//
+        
+        loader::helper('ob/request');  
+        $response = request('GET', '/captcha/create')->exec()->response();
+        $data['cap'] = unserialize($response);
+                
+        //------ HMVC CALL -----//
         
         view_var('body', view('view_vm_ajax', $data));
         view_layout('layout_vm'); 
@@ -36,7 +50,7 @@ Class Start extends Controller {
         $user->usr_password = i_get_post('usr_password');
         $user->usr_email    = i_get_post('usr_email');
         
-        $data['user'] = $user;
+        $data['user'] = $user;  // User object for none ajax request
         
         if($user->save())
         {
@@ -53,6 +67,13 @@ Class Start extends Controller {
                 echo form_json_error($user);
                 return;
             }   
+            
+            //------ Hmvc call for none ajax requests -----//
+        
+            loader::helper('ob/request');  
+            $response = request('GET', '/captcha/create')->exec()->response();
+            $data['cap'] = unserialize($response);
+            
         }
         
         view_var('body', view('view_vm', $data));

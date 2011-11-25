@@ -1,8 +1,10 @@
 <?php
+view_var('head', js('jquery-min.js'));
 view_var('meta', meta('keywords', 'obullo, validation model, vm, validation in model'));
 view_var('head', css('
+label { font-weight:bold; }
 .input-error { color: #DF4545; }
-    
+
 .notification {
   max-width: 800px;
   border:1px solid;
@@ -46,7 +48,7 @@ view_var('head', css('
 <table width="100%">
     
     <tr>
-        <td style="width:20%;"><b>Username</b></td>
+        <td style="width:20%;"><? echo form_label('Username'); ?></td>
         <td>
         <? echo form_error('usr_username', '<div class="input-error">', '</div>'); ?>
         <? echo form_input('usr_username', '', " id='username' ");?>
@@ -54,7 +56,7 @@ view_var('head', css('
     </tr>
     
     <tr>
-        <td><b>Email</b></td>
+        <td><? echo form_label('Email'); ?></td>
         <td>
         <? echo form_error('usr_email', '<div class="input-error">', '</div>'); ?>
         <? echo form_input('usr_email', '', " id='email' ");?>
@@ -62,7 +64,7 @@ view_var('head', css('
     </tr>
     
     <tr>
-        <td><b>Password</b></td>
+        <td><? echo form_label('Password'); ?></td>
         <td>
         <? echo form_error('usr_password', '<div class="input-error">', '</div>'); ?>
         <? echo form_password('usr_password', '', " id='password' ");?>
@@ -70,12 +72,18 @@ view_var('head', css('
     </tr>
     
     <tr>
-        <td><b>Confirm</b></td>
+        <td><? echo form_label('Confirm'); ?></td>
         <td>
         <? echo form_error('usr_confirm_password', '<div class="input-error">', '</div>'); ?>
         <? echo form_password('usr_confirm_password', '', " id='confirm' ");?>
         </td>
     </tr>
+    
+    <!-- Get the captcha module view -->
+
+    <? echo view('../captcha/view_captcha'); ?>
+    
+    <!-- Get the captcha module view -->
     
     <tr>
         <td></td>
