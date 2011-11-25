@@ -6,7 +6,7 @@ your application run your LIVE server.
 
 ## Requirements
 - Any Linux platform
-- Shell command must available on your server (This module use php exec() or system() command)
+- Shell command must available on your server (This module use php `exec()` or `system()` command)
 - A smtp account to send error emails to you
 
 ## Installation
@@ -27,36 +27,36 @@ obullo e_notifier module.
 - You can add these codes to /e_notifier/config/settings.php if you don't want get error emails 
 when you work on local.
 
-------- modules/e_notifier/config/settings.php --------
+## modules/e_notifier/config/settings.php
 
-if(config_item('env') == 'LIVE') 
-{
-    $config['send_errors']    = TRUE;
-} 
-else 
-{
-    $config['send_errors']    = FALSE;
-}
+    if(config_item('env') == 'LIVE') 
+    {
+        $config['send_errors']    = TRUE;
+    } 
+    else 
+    {
+        $config['send_errors']    = FALSE;
+    }
 
 or You can add these lines of codes to /application/config/settings.php if you don't want enable "e_notifier" extension
 when you work on local.
 
-------- application/config/extensions.php --------
+## application/config/extensions.php
 
-if(config_item('env') == 'LIVE') 
-{
-    $extensions['application']['e_notifier']['enabled'] = TRUE;
-} 
-else 
-{
-    $extensions['application']['e_notifier']['enabled'] = FALSE;
-}
+    if(config_item('env') == 'LIVE') 
+    {
+        $extensions['application']['e_notifier']['enabled'] = TRUE;
+    } 
+    else 
+    {
+        $extensions['application']['e_notifier']['enabled'] = FALSE;
+    }
 
 - You can set e_notifier extension for another module, for example if you want to set e_notifier 
 for welcome module you need to open `application/config/extensions.php` and change settings like this.
 
-$extensions['welcome']['e_notifier']['enabled']               = TRUE;
-$extensions['welcome']['e_notifier']['lib_override']          = array('Exception');
-$extensions['welcome']['e_notifier']['helper_override']       = array('error');
+    $extensions['welcome']['e_notifier']['enabled']               = TRUE;
+    $extensions['welcome']['e_notifier']['lib_override']          = array('Exception');
+    $extensions['welcome']['e_notifier']['helper_override']       = array('error');
 
-After this changes e_notifier extension will work for just welcome module.
+After that changes e_notifier extension will work for just welcome module.

@@ -1,6 +1,5 @@
-
-
 <? ob_start(); ?>
+
 <script type="text/javascript">
 /**
  * This is the example
