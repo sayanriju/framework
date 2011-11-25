@@ -1,0 +1,408 @@
+<h1>Migrating from CodeIgniter to Obullo</h1>
+
+<p>First of all you need to build your folders into <dfn>application/directories</dfn> path that related with your subjects. Like that ..</p>
+
+{a_name_0}<h2>Directory Structure</h2>
+<code>{output}// This example demonstrates Obullo.com site directories{/output}
+
+-  application
+    + config
+    - directories
+        - bugs
+            - controllers
+                report.php
+            - models
+                model_bugs.php
+            - views                  
+                view_bug_report.php      {output}// put your local views to views folder !! {/output}
+       + code_examples
+       + downloads
+       - millstones
+            - controllers
+                start.php
+            - models
+            - views                   
+                view_millstones.php     {output}// put your local views to views folder !! {/output}
+       + user_guide
+       .
+       .
+    + helpers
+    + lang
+    + models
+    + parents
+    + scripts
+    - views
+        view_base_layout.php           {output}// put your global views here !! {/output}
+        view_user_guide_layout.php
++ base
+index.php
+license.txt</code>
+
+
+<p>Considering above the example put your global views into <dfn>application/views</dfn> folder. And put your local views into <dfn>application/directories/{folder_name}/views</dfn> folder.</p> 
+
+{a_name_1}<h2>Class Names</h2>
+
+Make your Controller contructors PHP5 if needed:
+<ul>
+
+<li>function <b>__construct()</b> instead of function <b>Controller_name()</b></li>
+<li><b>parent::__construct()</b> instead of <b>parent::Controller()</b></li>
+
+</ul>
+
+<p><b>Note:</b> This also applies to Models !</p>
+
+<p>If you use any libraries in the Models. You must use them <b>$ob = this(); $ob->library->method();</b> instead of  <b>$this->library->method();</b></p>
+
+<p>Look at <a href="{base_url}/models.html">models section</a> for this issue.</p>
+
+{a_name_2}<h2>Usage of Obullo Libraries</h2>
+<p>You must change below the libraries because of Obullo use some base libraries as <b>PHP5 </b>. Below the table showing these libraries.</p>
+
+<table style="width: 100%;" class="tableborder" border="0">
+<tbody>
+<tr>
+  <th style="width: 25%;">CodeIgniter</th>
+  <th>Obullo</th>
+</tr>
+
+<tr>
+ <td class="td">$this->load->library('calendar');<br />
+$this->calendar</td>
+<td class="td"><code>$calendar = calendar::instance();
+$calendar->init();
+$calendar->method();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('cart');<br />
+$this->cart</td>
+  <td class="td"><code>$cart = cart::instance();
+$cart->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('email');<br />
+$this->email</td>
+  <td class="td"><code>$email = email::instance();
+$email->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('encrypt');<br />
+$this->encrypt</td>
+  <td class="td"><code>$encrypt = encrypt::instance();
+$encrypt->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('form_validation'); <br />
+$this->form_validation</td>
+  <td class="td"><code>$form = form_validate::instance();
+$form->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('ftp');<br />$this->ftp</td>
+  <td class="td"><code>$ftp = ftp::instance();
+$ftp->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('image_lib');<br />$this->image_lib</td>
+  <td class="td"><code>$image = image_lib::instance();
+$image->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('pagination');<br />$this->pagination</td>
+  <td class="td"><code>$pager = pager::instance();
+$pager->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('session');<br />$this->session</td>
+  <td class="td"><code>loader::base_helper('session');
+sess_start();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('trackback');<br />$this->trackback</td>
+  <td class="td"><code>$trackback = trackback::instance();
+$trackback->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('typography');<br />$this->typography</td>
+  <td class="td"><code>$typo = typography::instance();
+$typo->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('unit_test');<br />$this->unit_test</td>
+  <td class="td"><code>$unit = unit_test::instance();
+$unit->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('upload');<br />$this->upload</td>
+  <td class="td"><code>$upload = upload::instance();
+$upload->init();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->library('zip');<br />$this->zip</td>
+  <td class="td"><code>$zip = zip::instance();
+$zip->init();</code></td>
+</tr>
+
+</tbody>
+</table>
+
+<p class="tip">You can also store instance object to a <b>$this</b> variable like this ..</p>
+
+<code>$this->zip = zip::instance();
+$this->zip->init();
+$this->zip->method();</code>
+
+<p><b>Note:</b> $this->zip is a public variable and you don't have to declare as <b>"public $zip"</b> in your controller. This is a native php behavior. </p>
+
+<p>And then look at below the table and change your codes with obullo version.</p>
+
+{a_name_3}<h2>Loader Class</h2>
+
+<p>There are many differences in the loader class. Below the schema show the loading map.</p>
+
+<code>- {samp}application{/samp}
+    + config
+    - directories
+        - welcome                   {output}// Loading local files. (Directories Folder){/output}
+              + controllers
+              + helpers             {output}loader::helper();{/output}
+              + lang                {output}loader::lang();{/output}
+              + libraries           {output}loader::lib();{/output}
+              + models              {output}loader::model();{/output}
+              + scripts             {output}script();{/output}
+              - views               {output}view();{/output}
+                view_welcome.php
+        + blog                      {output}// Loading global files. (Application Folder){/output}
+        
+    + helpers                       {output}loader::app_helper();{/output}
+    + lang                          {output}loader::app_lang();{/output}
+    + libraries                     {output}loader::app_lib();{/output}
+    + models                        {output}loader::app_model();{/output}
+    + parents
+    + scripts                       {output}script_app();{/output}
+    + system
+    - views                         {output}view_app();{/output}
+      view_base_layout.php
+      view_blog_layout.php
+                                 
+- {samp}base{/samp}                              {output}// Loading base files. (Base Folder){/output}
+    + constants
+    + database                      {output}loader::database();{/output}
+    + helpers                       {output}loader::base_helper();{/output}
+    + lang                          {output}loader::base_lang();{/output}
+    + libraries                     {output}loader::base_lib();{/output}
+    + scripts                       {output}script_base();{/output}
+    
+                                    {output}// Loading source files. (Sources Folder){/output}
+- {samp}sources{/samp}                           
+    + captcha                       {output}loader::base_helper('head_tag');{/output}
+    + css                           {output}css();{/output} 
+    + images                        {output}img();{/output}   {output}loader::base_helper('body_tag'); {/output}
+    + js                            {output}js();{/output}</code>
+
+<p>Look at the table for the Obullo differences.</p>
+
+<table style="width: 100%;" class="tableborder" border="0">
+<tbody>
+<tr>
+  <th style="width: 25%;">CodeIgniter</th>
+  <th>Obullo</th>
+</tr>
+
+<tr>
+ <td class="td">$this->load->library();</td>
+<td class="td"><code>loader::lib();
+loader::app_lib();
+loader::base_lib();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->view();</td>
+  <td class="td"><code>view();
+view_app();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->model();</td>
+  <td class="td"><code>loader::model();
+loader::app_model();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->database();</td>
+  <td class="td"><code>loader::database();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->helper();</td>
+  <td class="td"><code>loader::helper();
+loader::app_helper();
+loader::base_helper();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->plugin();</td>
+  <td class="td"><code>script();
+script_app();
+script_base();
+</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->file();</td>
+  <td class="td"><code>loader::file('');</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->lang();</td>
+  <td class="td"><code>loader::lang();
+loader::app_lang();
+loader::base_lang();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->load->config();</td>
+  <td class="td"><code>loader::config();</code></td>
+</tr>
+
+</tbody>
+</table>
+
+
+{a_name_4}<h2>CI Session Class Implemented as Session Helper in Obullo</h2>
+
+<table style="width: 100%;" class="tableborder" border="0">
+<tbody>
+<tr>
+  <th style="width: 25%;">CodeIgniter</th>
+  <th>Obullo</th>
+</tr>
+
+<tr>
+ <td class="td">$this->session->set_userdata();</td>
+<td class="td"><code>sess_set();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->session->userdata(); </td>
+  <td class="td"><code>sess(); or sess_get();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->session->unset_userdata();</td>
+  <td class="td"><code>sess_unset();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->session->set_flashdata();</td>
+  <td class="td"><code>sess_set_flash();</code></td>
+</tr>
+
+ <tr>
+  <td class="td">$this->session->flashdata();</td>
+  <td class="td"><code>sess_get_flash();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->session->keep_flashdata();</td>
+  <td class="td"><code>sess_keep_flash();</code></td>
+</tr>
+
+<tr>
+  <td class="td">$this->session->sess_destroy();</td>
+  <td class="td"><code>sess_destroy();</code></td>
+</tr>
+
+</table>
+
+{a_name_5}<h2>Common Functions</h2>
+
+<table style="width: 100%;" class="tableborder" border="0">
+<tbody>
+<tr>
+  <th style="width: 25%;">CodeIgniter</th>
+  <th>Obullo</th>
+</tr>
+
+<tr>
+ <td class="td">get_instance();</td>
+<td class="td"><code>this();
+</code></td>
+</tr>
+
+</table>
+
+{a_name_6}<h2>Database Functions</h2>
+
+<table style="width: 100%;" class="tableborder" border="0">
+<tbody>
+<tr>
+  <th style="width: 25%;">CodeIgniter</th>
+  <th>Obullo</th>
+</tr>
+
+<tr>
+<td class="td">$this->load->database();</td>
+<td class="td"><code>loader::database();</code></td>
+</tr>
+
+<tr>
+<td class="td">$this->db->result();</td>
+<td class="td"><code>$this->db->fetch_all();</code></td>
+</tr>
+
+
+<tr>
+<td class="td">$this->db->result_array();</td>
+<td class="td"><code>$this->db->fetch_all(assoc);</code></td>
+</tr>
+
+<tr>
+<td class="td">$this->db->num_rows();</td>
+<td class="td"><code>$this->db->row_count();</code></td>
+</tr>
+
+<tr>
+<td class="td">$this->db->row();</td>
+<td class="td"><code>$this->db->row();</code></td>
+</tr>
+
+<tr>
+<td class="td">$this->db->assoc();</td>
+<td class="td"><code>$this->db->assoc();</code></td>
+</tr>
+
+</table>
+
+change all of the libraries, if you want to create php5 libraries use them like this ..
+
+<code>$class = libraryname::instance();
+
+$class->init();
+$class->method();
+</code>
+
+<p>look at <a href="{base_url}/load-and-create-php5-libraries.html">creating php5 libraries</a> section for more details.</p>
+
+<p>if it is not php5 library you can use it like forexample config class.</p>
+
+<code>$this->config->method();</code>
+
+{a_name_7}<h2>Extending to Core Classes</h2>
+
+<p>There are some differences about Extending to Obullo base libraries look <a href="{base_url}/extending-to-core-classes.html">extending to core classes</a> section for this issue.</p>
+

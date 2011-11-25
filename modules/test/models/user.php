@@ -4,7 +4,7 @@ Class User extends VM
 {
     function __construct()
     {
-        parent::__construct($this->settings);
+        parent::__construct();
     }
     
     public $settings = array(
@@ -124,6 +124,7 @@ Class User extends VM
     }
     
 }
+
 
 /* End of file start.php */
 /* Location: .modules/test/controllers/vm/start.php */

@@ -12,5 +12,5 @@ Class Welcome_Controller extends Controller
       
 }
 
-/* End of file Global Welcome_controller.php */
-/* Location: ./modules/welcome/parents/Welcome_controller.php */
+/* End of file Welcome_Controller.php */
+/* Location: ./modules/welcome/parents/Welcome_Controller.php */
