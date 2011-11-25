@@ -1,8 +1,8 @@
 Obullo "e_notifier" Module Extension
 =========================
 
-The goal of `e_notifier` module sending application errors in background to developers.When 
-your application run your LIVE server.
+The goal of `e_notifier` module sending application errors in the background when 
+the application run on LIVE server.
 
 ## Requirements
 - Any Linux platform
@@ -24,7 +24,7 @@ when the script run if your settings right you will get an error email from
 obullo e_notifier module.
 
 ## Tips
-- You can add these codes to /e_notifier/config/settings.php if you don't want get error emails 
+- You can add these codes to `/modules/e_notifier/config/config.php` if you don't want get error emails 
 when you work on local.
 
 ## modules/e_notifier/config/settings.php
@@ -38,12 +38,12 @@ when you work on local.
         $config['send_errors']    = FALSE;
     }
 
-or You can add these lines of codes to /application/config/settings.php if you don't want enable "e_notifier" extension
+or You can add these lines of codes to `/application/config/config.php` if you don't want enable "e_notifier" extension
 when you work on local.
 
 ## application/config/extensions.php
 
-    if(config_item('env') == 'LIVE') 
+    if($config['env'] == 'LIVE') 
     {
         $extensions['application']['e_notifier']['enabled'] = TRUE;
     } 
