@@ -55,6 +55,8 @@ when you work on local.
 - You can set e_notifier extension for another module, for example if you want to set e_notifier 
 for welcome module you need to open `application/config/extensions.php` and change settings like this.
 
+## application/config/extensions.php
+
     $extensions['welcome']['e_notifier']['enabled']               = TRUE;
     $extensions['welcome']['e_notifier']['lib_override']          = array('Exception');
     $extensions['welcome']['e_notifier']['helper_override']       = array('error');

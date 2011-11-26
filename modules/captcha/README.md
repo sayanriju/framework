@@ -17,6 +17,8 @@ codes and paste to your models.
 - Do a Hmvc call to `/captcha/create/` url like below the code, response will return to 
 serialized string format and using unserialize(); function you can grab it as array();
 
+## Use in any controller method
+
     loader::helper('ob/request');  
     $response = request('GET', '/captcha/create')->exec()->response();
     $data['cap'] = unserialize($response);
