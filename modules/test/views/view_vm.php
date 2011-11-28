@@ -111,7 +111,7 @@ if($user->save())
 {
     if($this->uri->extension() == 'json')  // Ajax support
     {
-        echo form_json_success('Data Saved Successfully !');
+        echo form_send_success('Data Saved Successfully !');
         return;
     }
 } 
@@ -119,7 +119,7 @@ else
 {
     if($this->uri->extension() == 'json') // Ajax support
     {
-        echo form_json_error($user);
+        echo form_send_error($user);
         return;
     }   
 }

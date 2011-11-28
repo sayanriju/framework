@@ -126,11 +126,11 @@ $user->email    = i_get_post('email');
 
 if($user->save())
 {
-    echo form_json_success('Success !');
+    echo form_send_success('Success !');
 } 
 else
 {
-    echo form_json_error($user);
+    echo form_send_error($user);
 }</pre></td>
     </tr>
     

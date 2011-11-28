@@ -8,9 +8,15 @@ Class Hello extends Controller {
         parent::__construct();
     }         
     
-    public function index()
+    public function index($arg1 = '', $arg2 = '')
     {     
-        echo 'Hello Cmd'."\n";
+        loader::helper('ob/url');
+        
+        echo 'Module: '.module()."\n";
+        echo 'Hello World !'."\n";
+        echo 'Argument 1: '.$arg1."\n";
+        echo 'Argument 2: '.$arg2."\n";
+        echo 'The Hello Controller Index function successfully works !'."\n";
     }
     
 }

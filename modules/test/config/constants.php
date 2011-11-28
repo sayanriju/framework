@@ -16,7 +16,7 @@ defined('BASE') or exit('Access Denied!');
 |
 */
 
-$constant['CONSTANT_NAME'] = '';
+$constants['CONSTANT_NAME'] = '';
                                                           
 
 /* End of file constants.php */

@@ -1,7 +1,7 @@
 Obullo: PHP5 Framework
 =========================
 
-The goal of Obullo is keep the Core flexible, easy and minimal. 
+The goal of Obullo is keep the framework maintainable, portable, easy and minimal. 
 
 ## Features
 
@@ -23,10 +23,12 @@ The goal of Obullo is keep the Core flexible, easy and minimal.
 - Check your php.ini, `short_open_tag = ` should be `On`.
 - Check your phpinfo(); `PDO` and `Pdo_yourdriver` (pdo_mysql, pdo_pgsql etc..) must be installed on your host.
 - Open your browser and run Obullo e.g. `http://localhost/obullo`
-- You can change configuration from `application/config/config.php` file.
+- Captcha module use the GD library, give the 777 permissions to `/modules/captcha/public/images/` folder.
+- You can change the configuration from `application/config/config.php` file.
   
   
 ## Quick Start
+go `http://obullo.com/user_guide/en/1.0.1/getting-started.html`.
 
   
 ## Credits
@@ -34,9 +36,10 @@ The goal of Obullo is keep the Core flexible, easy and minimal.
 - Ersin Guvenc &lt;eguvenc at gmail.com&gt;
 - CJ Lazell &lt;cjlazell at googlemail.com&gt;
 
-## License 
 
-Copyright (c) 2009 - 2011 Ersin Guvenc and Obullo Team, http://obullo.com
+# LICENSE AGREEMENT
+
+Copyright (c) 2009 - 2011 Ersin Guvenc (eguvenc@gmail.com) http://obullo.com
 All rights reserved.
 
 This license is a legal agreement between you and Obullo.com for the use
@@ -44,6 +47,8 @@ of Obullo Software (the "Software").  By obtaining the Software you
 agree to comply with the terms and conditions of this license.
 
 PERMITTED USE
+-------------
+
 You are permitted to use, copy, modify, and distribute the Software and its
 documentation, with or without modification, for any purpose, provided that
 the following conditions are met:
@@ -69,6 +74,8 @@ the following conditions are met:
 
 
 INDEMNITY
+---------
+
 You agree to indemnify and hold harmless the authors of the Software and
 any contributors for any direct, indirect, incidental, or consequential
 third-party claims, actions or suits, as well as any related expenses,
@@ -76,6 +83,8 @@ liabilities, damages, settlements or fees arising from your use or misuse
 of the Software, or a violation of any terms of this license.
 
 DISCLAIMER OF WARRANTY
+----------------------
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESSED OR
 IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF QUALITY, PERFORMANCE,
 NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
@@ -89,6 +98,7 @@ APPROPRIATENESS OF USE AND ASSUME ALL RISKS ASSOCIATED WITH ITS USE, INCLUDING
 BUT NOT LIMITED TO THE RISKS OF PROGRAM ERRORS, DAMAGE TO EQUIPMENT, LOSS OF
 DATA OR SOFTWARE PROGRAMS, OR UNAVAILABILITY OR INTERRUPTION OF OPERATIONS.
 
----------------------------------------------------------------------------
-Note: This Product Derived From CodeIgniter Software.
+NOTES
+--------
+This Product Derived From CodeIgniter Software.
 

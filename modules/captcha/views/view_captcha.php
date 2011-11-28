@@ -9,7 +9,7 @@
  */
 function refresh_captcha()
 {
-    $.get("/captcha/create.json", function(data){
+    $.get("<?=site_url('/captcha/create.json')?>", function(data){
 
       if(data.image != '')
       {

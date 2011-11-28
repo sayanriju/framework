@@ -139,7 +139,7 @@ Class User extends VM
     {
         loader::helper('ob/request');
 
-        $response = request('GET','/captcha/check')->exec()->response();
+        $response = request('/captcha/check')->exec();
         
         if($response == '0')
         {

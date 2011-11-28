@@ -1,11 +1,21 @@
 <?php
   
-/**
-* Your copy paste module lang file.
+/*
+| -------------------------------------------------------------------
+| MODULE LANGUAGES
+| -------------------------------------------------------------------
+| This file specifies which MODULE file $lang should be
+| loaded.
+| 
+| Put your $lang variables here.
+|
+| Prototype:
+|
+|	$lang['MODULENAME_KEY'] = 'value';
+|
 */
  
-$lang['doly_item1'] = 'Doly item1 is a Sheep !';
-$lang['doly_item2'] = 'Doly item2 is a Sheep !';
+$lang['item1'] = 'item1 !';
  
  
 /* End of file doly.php */

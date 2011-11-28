@@ -11,9 +11,8 @@
          
 <pre>
 loader::helper('ob/request');
-$request = request('GET', 'welcome/test/1/2/3');
 
-$data['response'] = $request->exec()->response();</pre></td>
+$data['response'] = request('welcome/test/1/2/3')->exec();</pre></td>
     </tr>
 
     <tr>

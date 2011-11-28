@@ -12,6 +12,7 @@ defined('BASE') or exit('Access Denied!');
 |
 |	$config['item'] = 'mixed value';
 */
+
 $config['item']  = 'Welcome to Obullo :)';
 
 
