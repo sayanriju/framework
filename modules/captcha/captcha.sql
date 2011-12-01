@@ -9,7 +9,7 @@
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `ob_captcha`
 --
 
 CREATE TABLE ob_captcha (

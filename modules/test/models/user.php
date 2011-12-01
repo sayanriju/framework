@@ -43,7 +43,7 @@ Class User extends VM
         'usr_email' => array(
           'label' => 'Email Address',
           'type'  => 'string',
-          'rules' => 'required|trim|valid_email'
+          'rules' => 'required|trim|valid_emails'
         )
         
     ));

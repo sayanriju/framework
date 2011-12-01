@@ -28,7 +28,7 @@ Class Start extends Controller {
     
     function ajax_example()
     {
-        view_var('title', 'Welcome to Obullo Validation Model !');
+        view_var('title', 'Welcome to Obullo Validation Model (AJAX) !');
         
         //------ HMVC CALL -----//
           
@@ -51,10 +51,10 @@ Class Start extends Controller {
         $user->usr_email    = i_get_post('usr_email');
         
         $data['user'] = $user;  // User object for none ajax request
-        
+  
         if($user->save())
         {
-            if($this->uri->extension() == 'json')  // Ajax support
+            if(i_ajax())  // Ajax support
             {
                 echo form_send_success('Data Saved Successfully !');
                 return;
@@ -62,17 +62,16 @@ Class Start extends Controller {
         } 
         else
         {
-            if($this->uri->extension() == 'json') // Ajax support
+            if(i_ajax()) // Ajax support 
             {
                 echo form_send_error($user);
                 return;
-            }   
+            }
             
             //------ Hmvc call for none ajax requests -----//
         
             $response = request('/captcha/create')->exec();
             $data['cap'] = unserialize($response);
-            
         }
         
         view_var('body', view('view_vm', $data));

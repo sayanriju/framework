@@ -12,12 +12,10 @@ defined('BASE') or exit('Access Denied!');
 |
 | Prototype:
 |
-|	$constant['CONSTANT_NAME'] = 'value';
+|	define('MODULENAME_CONSTANT_NAME', 'value');
 |
 */
-
-$constants['CONSTANT_NAME'] = '';
-                                                          
+              
 
 /* End of file constants.php */
 /* Location: ./modules/test/config/constants.php */

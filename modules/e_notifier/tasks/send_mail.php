@@ -24,7 +24,7 @@ Class Send_Mail extends Controller
         restore_error_handler();        // Reset exception handlers
         restore_exception_handler();
         
-        loader::config('../e_notifier/config');  // Load extension config file.
+        loader::config('../e_notifier/config');  // Load module config file.
     }
     
     //------------------------------------------------------------
@@ -41,7 +41,7 @@ Class Send_Mail extends Controller
         
         if($cfg->item('send_errors'))
         {
-            $smtp = lib('Email');
+            $smtp = lib('ob/email');
             $smtp->clear();
 
             $config['protocol']  = $cfg->item('protocol');
@@ -79,13 +79,13 @@ Class Send_Mail extends Controller
             
             if($sent)
             {
-                log_me('debug', 'Ticket# '. $uniqid . ' error mail sent succesfully.');
+                log_me('debug', 'Ticket# '. $uniqid . ' error notify sent succesfully.');
                 
                 return TRUE;
             } 
             else
             {
-                log_me('debug', '!! WARNING Ticket# '. $uniqid . ' error mail could not send. Check your smtp 
+                log_me('debug', '!! WARNING Ticket# '. $uniqid . ' error notify could not send. Check your smtp 
                 settings.');
             }          
       

@@ -43,6 +43,7 @@ label { font-weight:bold; }
 
 <? echo form_msg($user); ?>
 
+
 <div>
 <? echo form_open('/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
 <table width="100%">
@@ -106,23 +107,6 @@ $user->usr_password = i_get_post('usr_password');
 $user->usr_email    = i_get_post('usr_email');
 
 $data['user'] = $user;
-
-if($user->save())
-{
-    if($this->uri->extension() == 'json')  // Ajax support
-    {
-        echo form_send_success('Data Saved Successfully !');
-        return;
-    }
-} 
-else
-{
-    if($this->uri->extension() == 'json') // Ajax support
-    {
-        echo form_send_error($user);
-        return;
-    }   
-}
 
 view_var('body', view('view_vm', $data));
 view_layout('layout_vm'); </pre></td>

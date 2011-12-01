@@ -23,6 +23,7 @@
       
       base = this;
       $base = $(base.selector);
+      
       settings = _.extend({
         error_msg: form_plugin_settings.error_msg,
         success: function() {},
@@ -98,8 +99,8 @@
                   $root.find('input[type=submit]', this).removeAttr('disabled');
                   $root.find('input[type=submit]', this).removeClass('disabled');
 
-                  if (r.errors.system_message) {
-                    $root.notification('error', r.errors.system_message);
+                  if (r.errors.system_msg) {
+                    $root.notification('error', r.errors.system_msg);
                     $('.notification.notification-error').attr("tabindex", '0').focus();
                     return;
                   }
