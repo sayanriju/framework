@@ -43,7 +43,6 @@ label { font-weight:bold; }
 
 <? echo form_msg($user); ?>
 
-
 <div>
 <? echo form_open('/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
 <table width="100%">

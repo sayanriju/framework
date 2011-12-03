@@ -4,7 +4,7 @@ Class Welcome extends Controller {
     
     function __construct()
     {   
-        parent::__construct();
+        parent::__construct(); 
     }         
     
     public function index()
@@ -34,6 +34,11 @@ Class Welcome extends Controller {
      
     function task($mode = '')
     {
+        if(PHP_OS != 'Linux')
+        {
+            exit('Task functionality can work just under the Linux Operating Systems.');
+        }
+        
         loader::helper('ob/task');
         
         echo "<font size='2'>You should run this command with none true or 'false' ";
@@ -55,4 +60,3 @@ Class Welcome extends Controller {
 
 /* End of file start.php */
 /* Location: .modules/welcome/controllers/welcome.php */
-

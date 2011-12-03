@@ -159,56 +159,15 @@ $this->config->set('error_reporting', 1);
 loader::include('../sample/file', true); (include once)
 
 @todolist
-- http://logpad.net/php-ve-linq  tufan ın class ını eklemeliyiz. 
+- http://logpad.net/php-ve-linq  eklemeliyiz. 
 - HU we have A big issue pdo BINd inserting http://wezfurlong.org/blog/2004/may/first-steps-with-pdo?nid=44
 $this->db->prep();  // doesn't work
 $this->db->insert();
 
 - mysql_driver ': ' $this->prepare bug add it to other drivers.
-- advanced error handling ... with reflection class .. ( OK )
-- command line support, tasks look at fuelphp.com
-- turn pager class include '' files to base_register();, drivers support for base_register(); function.
-- add module library extend support, helper extend.  ( OK )
-- ORM ? 
-- if somene use loader::config('../another/modulename'); ?  ( OK )
-- default db
 - add to userguide 
-view_var('body', view_render(array('layouts/view_header', 'view_left',   
-'view_welcome', 'view_right', 'layouts/view_footer'), $data));
-- add to userguide language and config file load changes, change the directory structure.
-- add module() (url helper) function to userguide.
-- loader::config('../welcome/config'); + loader::lang('../welcome/lang'); support .. 
-- add $this->router->forward() method to userguide, change Global form control tutorial in userguide.
-- added loader::lib('../api/php5/process'); support to userguide.
 
-- check hmvc loop same class but different function (fixed)
-- $this->router->forward('members/signup_step1/index'); (fixed)
-- css functionality from modules  change it css(); (fixed)
-- configuration folder for each modules. (fixed)
-- output cache folder for each modules.
-- those 3 things. css/js checking modules first, bug in printing out blank link and folders in controllers (fixed) 
-- check routes functionality for subfolders .. (fixed)
-- restful http call hmvc, post, put, delete, get (fixed)  http://www.gen-x-design.com/archives/create-a-rest-api-with-php/  (fixed)
-- add GET method support to subfolder urls. (fixed)
-- view nested data support (fixed)
-- Change all Ssc:instance(); to base_register('Empty'); (fixed)
-- this() function should be in current hmvc SCOPE. ( fixed.)
-- hmvc cache test. ( fixed )
-- test
-
-!!!!!!!!!!!!!!!!!!! NEW TODOS !!!!!!!!!!!!!!!
-@todo .. multiple database active ercord.
-@todo .. look log_message(); some functions does not work.
-@todo .. add user guide to extending to Core MY_model functionality.
-it works in Obullo !
-http://www.askaboutphp.com/50/codeigniter-extending-the-native-model-and-make-it-your-own.html 
-
-@todo .. change htaccess rules in userguide DirectoryIndex index.php, index.html
-@todo .. add htaccess rules for ngnix server
-@todo .. put archived doc meta tag to old user guide base layout ..
-@todo .. change obullo mvc2 names as Obullo GC in web site.            
-@todo .. change mvc2 map as GC in userguide       
-@todo .. loader::helper('ob/utf8/ucwords');   // Loading utf8 helpers ..                        
+- output cache folder for each modules.                   
 
 
 NEXT VERSION

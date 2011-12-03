@@ -6,7 +6,10 @@ Class Start extends Controller {
     {   
         parent::__construct();
         
-        loader::helper('ob/request');  
+        loader::helper('ob/request');
+        loader::helper('setup');
+        
+        check_setup();
     }         
 
     public function index()

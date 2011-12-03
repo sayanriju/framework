@@ -7,7 +7,6 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
 <!-- body content -->
 <h1>Welcome to Obullo !</h1> 
 
-
 <div id="main">
     <div class="fieldset"> 
           <div class="fieldbox"> 
@@ -35,7 +34,7 @@ view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should s
                     <?php echo br() . br();  ?>
                     
                     <p><b>Note:</b> If you are new to Obullo, you should start by 
-                reading the <a href="http://obullo.com/user_guide/<?php echo OBULLO_VERSION; ?>/index.html">User Guide</a>.</p>
+                reading the <a href="http://obullo.com/user_guide/en/<?php echo OBULLO_VERSION; ?>/index.html">User Guide</a>.</p>
            
               </div>
           </div> 

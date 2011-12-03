@@ -8,7 +8,7 @@
 
 -- --------------------------------------------------------
 
-CREATE DATABASE obullo_test;
+CREATE DATABASE IF NOT EXISTS obullo;
 
 --
 -- Table structure for table `users`

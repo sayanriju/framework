@@ -23,7 +23,7 @@ Class Captcha extends Controller {
 
         $vals = array(
             'max_char'   => 5,
-            'img_path'   => 'modules/captcha/public/images/',
+            'img_path'   => MODULES.'captcha'. DS .'public'. DS .'images'. DS,
             'img_url'    => base_url().'modules/captcha/public/images/',
             'font_path'  => 'modules/captcha/public/fonts/FixedDisplay.ttf',
             'font_size'  => 20,
@@ -48,7 +48,7 @@ Class Captcha extends Controller {
 
         $this->db->insert('ob_captcha', $cap_data);
 
-        if($this->uri->extension() == 'json')  // Ajax support
+        if(i_ajax())  // Ajax support
         {
             echo json_encode(array('image' => $data['cap']['image']));
             return;
@@ -66,7 +66,7 @@ Class Captcha extends Controller {
     {
         $validator = lib('Validator');
 
-        // We use Global POST variable instead of Local HMVC.
+        // We use Global POST variable instead of HMVC.
         $word =  i_get_post('captcha_answer', TRUE, $use_global_var = TRUE);
 
         log_me('debug', 'Wrong security word attempt: ' . $word);
