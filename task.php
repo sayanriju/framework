@@ -60,7 +60,16 @@ $_SERVER['PATH_INFO']      = '/'. implode('/', $_SERVER['argv']) .'/';
 $_SERVER['REQUEST_URI']    = $_SERVER['PATH_INFO'];
 $_SERVER['QUERY_STRING']   = $_SERVER['PATH_INFO'];
 $_SERVER['ORIG_PATH_INFO'] = $_SERVER['PATH_INFO'];
- 
+
+/**
+|--------------------------------------------------------------------------
+| Set Task file constant
+|--------------------------------------------------------------------------
+| We use this constant in task helper.
+|
+*/ 
+define('TASK_FILE', 'task.php');
+
 /**
 |--------------------------------------------------------------------------
 | Index.php file.
