@@ -189,8 +189,10 @@
 
               }  // end success,
               
-              ,error: function() { 
+              ,error: function(jqXHR, textStatus, errorThrown) {
+                  
                   alert(form_plugin_settings.connection_error);
+                  
                   return false; 
             }
            

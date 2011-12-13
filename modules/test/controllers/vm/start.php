@@ -57,7 +57,7 @@ Class Start extends Controller {
   
         if($user->save())
         {
-            if(i_ajax())  // Ajax support
+            if(uri_extension() == 'json')  // Ajax support
             {
                 echo form_send_success('Data Saved Successfully !');
                 return;
@@ -65,7 +65,7 @@ Class Start extends Controller {
         } 
         else
         {
-            if(i_ajax()) // Ajax support 
+            if(uri_extension() == 'json') // Ajax support 
             {
                 echo form_send_error($user);
                 return;

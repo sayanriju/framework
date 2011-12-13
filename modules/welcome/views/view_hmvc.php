@@ -1,4 +1,6 @@
 
+<?php view_var('head', css('welcome.css')); ?>
+
 <!-- body content -->
 <h1>Welcome to Obullo HMVC !</h1>
 
