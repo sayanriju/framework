@@ -68,13 +68,14 @@ define('MODULES',  ROOT .'modules'. DS);
 | BASE      - The full server path to the "obullo" folder
 | APP       - The full server path to the "application" folder
 | MODULES   - The full server path to the "modules" folder
-|
+| TASK_FILE - Set Task file constant We use this constant in task helper.
 */
 define('EXT',  '.php');
 define('FCPATH', __FILE__);
 define('PHP_PATH', '/usr/bin/php'); 
 define('FPATH', dirname(__FILE__));  
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+define('TASK_FILE', 'task.php');
 
 /**
 |--------------------------------------------------------------------------
