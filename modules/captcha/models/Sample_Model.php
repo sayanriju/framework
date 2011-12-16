@@ -5,23 +5,22 @@
  * with captcha module.
  * 
  * Just copy the captcha validation blocks
- * and paste to models which are 
- * use captcha module.
+ * and paste to your models.
  */
 
 Class Sample_Model extends VM
 {
     function __construct()
     {
-        //----- Captcha Validation ----//
+        //----- Sample Captcha Validation ----//
         
         $this->settings['fields']['captcha_answer'] = array(
           'label' => 'Security Image',
           'type'  => 'string',
-          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_captcha_check'
+          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_request[post][/captcha/check/]'
         );
         
-        //----- Captcha Validation ----//
+        //----- End Captcha Validation ----//
 
         parent::__construct();
     }
@@ -38,30 +37,4 @@ Class Sample_Model extends VM
           'rules' => 'trim|integer'
         ),
     ));
-    
-    //----- Captcha Validation ----//
-    
-    /**
-    * Validate captcha answer.
-    *
-    * @return  boolean
-    */
-    public function captcha_check()
-    {
-        loader::helper('ob/request');
-
-        $response = request('GET','/captcha/check')->exec()->response();
-        
-        if($response == '0')
-        {
-            return FALSE;
-        }
-        elseif($response == '1')
-        {
-            return TRUE;
-        }
-    }
-    
-    //----- Captcha Validation ----//
-    
 }

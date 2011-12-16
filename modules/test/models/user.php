@@ -9,8 +9,11 @@ Class User extends VM
         $this->settings['fields']['captcha_answer'] = array(
           'label' => 'Security Image',
           'type'  => 'string',
-          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_captcha_check'
+          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_request[post][/captcha/check/]'
         );
+        
+        // !! CALLBACK REQUEST : callback_request[post][/captcha/check/] rule do a hmvc request
+        // to /captcha module check method. Look at the captcha module check function.
     }
     
     public $settings = array(
@@ -127,28 +130,6 @@ Class User extends VM
         $this->after_delete();
         
         return $result;
-    }
-    
-    
-    /**
-    * Validate captcha answer.
-    *
-    * @return  boolean
-    */
-    public function captcha_check()
-    {
-        loader::helper('ob/request');
-
-        $response = request('/captcha/check')->exec();
-        
-        if($response == '0')
-        {
-            return FALSE;
-        }
-        elseif($response == '1')
-        {
-            return TRUE;
-        }
     }
     
 }

@@ -73,7 +73,7 @@ Class Captcha extends Controller {
 
         if(empty($word) OR $word == '')
         {
-           $validator->set_message('captcha_check','The security code you entered not valid, please try again.');
+           $validator->set_message('request','The security code you entered not valid, please try again.');
 
            echo '0';
            return;
@@ -92,7 +92,7 @@ Class Captcha extends Controller {
 
         if ($query->num_rows() == 0)
         {
-            $validator->set_message('captcha_check', 'The security code you entered not valid, please try again.');
+            $validator->set_message('request', 'The security code you entered not valid, please try again.');
 
             echo '0';  // wrong answer
 
