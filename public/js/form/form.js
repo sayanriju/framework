@@ -92,6 +92,11 @@
                   if ( typeof r.alert !== 'undefined' && r.alert != '')  // if we have alert request
                   {
                       alert(r.alert);
+                  
+                      $('.loading').hide();
+                      $root.find('input[type=submit]', this).removeAttr('disabled');
+                      $root.find('input[type=submit]', this).removeClass('disabled');
+                      
                       return;
                   }
                   
@@ -161,6 +166,12 @@
                   
                   if ($root.data('form.success')) {
                     $root.data('form.success').call(root, r, $root);
+                  }
+                  
+                  if ( typeof r.alert !== 'undefined' && r.alert != '')  // if we have alert request
+                  {
+                      alert(r.alert);
+                      return;
                   }
                   
                   if (r.success_msg)
