@@ -12,7 +12,7 @@ Class Subdir extends Controller {
 
     public function index()
     {
-        echo 'Default subfolder subdir controller works !!';
+        echo 'Subfolder subdir controller works !!';
     }
 }
 

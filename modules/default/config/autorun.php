@@ -3,7 +3,7 @@ defined('BASE') or exit('Access Denied!');
 
 /*
 | -------------------------------------------------------------------
-| AUTO-RUN MODULE
+| MODULE AUTO-RUN
 | -------------------------------------------------------------------
 | This file specifies which functions should be loaded by default.
 |

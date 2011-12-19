@@ -119,7 +119,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
 {   
     loader::config('../e_notifier/config');  // load extension config file.
     
-    if(core_class('Config')->item('send_errors') == FALSE)   // Capture switch.
+    if(core_class('Config')->item('send_email') == FALSE)   // Email switch.
     {
         return;
     }
@@ -136,7 +136,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
     $data['e']      =  $e;
     $data['type']   =  $type;
     $data['sql']    =  $sql;
-    $data['uniqid'] = $uniqid;
+    $data['uniqid'] =  $uniqid;
     
     loader::helper('ob/view');
     
@@ -156,7 +156,7 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
 
     @chmod($file_path, FILE_WRITE_MODE);
     
-    // Write All errors to html files and Send them via smtp in background..
+    // Write all errors as html files and Send them via smtp in background..
     //---------------------------------------------------------------------
     // Run SHELL COMMAND and Send Emails in Background.
     //----------------------------------------------------------

@@ -12,9 +12,11 @@ Class Doly extends Controller {
 
     public function index()
     {
-        echo 'MODULENAME: Default and doly controller works !!';
+        echo 'Default module controller works !!';
        
         echo br(2);
+        
+        log_me('debug', 'Default module example log message saved to /MODULES/default/core/logs/ folder !');
         
         echo anchor('default/subdir', 'Try Subfolder !');
     }

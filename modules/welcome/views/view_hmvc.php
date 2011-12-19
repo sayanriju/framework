@@ -9,8 +9,10 @@
     <tr>
         <td width="35%"><b>Example Code</b></td>
         <td>
-<pre>#### Welcome controller / hmvc function ####</pre>   
-         
+<pre>#### Welcome Controller ####</pre>   
+        
+<br />
+
 <pre>
 loader::helper('ob/request');
 
@@ -19,7 +21,22 @@ $data['response'] = request('welcome/test/1/2/3')->exec();</pre></td>
 
     <tr>
         <td><b>Response</b></td>
-        <td><pre>#### View hmvc file ####</pre><pre>echo $response;</pre><? echo $response;?></td>
+        <td></td>
+    </tr>
+    
+    <tr>
+                <td></td>
+        <td>
+            <pre>#### View hmvc file ####</pre>
+            
+            <br />
+            
+            <pre>echo $response;</pre>
+
+            <br />
+            
+            <? echo $response;?>
+        </td>
     </tr>
 
 </table>

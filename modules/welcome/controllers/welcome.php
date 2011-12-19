@@ -29,14 +29,14 @@ Class Welcome extends Controller {
     
     function test($arg1 = '', $arg2 = '', $arg3 = '')
     {
-        echo 'Test Function Response: '.$arg1 .' - '.$arg2. ' - '.$arg3;
+        echo '<pre>Response: '.$arg1 .' - '.$arg2. ' - '.$arg3.'</pre>';
     }
      
     function task($mode = '')
     {
         if(PHP_OS != 'Linux')
         {
-            exit('Task functionality can work just under the Linux Operating Systems.');
+            exit('Task functionality can work under the Linux platforms.');
         }
         
         loader::helper('ob/task');

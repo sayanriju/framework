@@ -1,7 +1,7 @@
 
 # OBULLO LICENSE AGREEMENT
 
-Copyright (c) 2009 - 2011 Ersin Guvenc (eguvenc@gmail.com) http://obullo.com
+Copyright (c) 2009 - 2011 http://obullo.com
 All rights reserved.
 
 This license is a legal agreement between you and Obullo.com for the use
@@ -32,7 +32,7 @@ the following conditions are met:
 
 6. Products derived from the Software may not be called "Obullo",
    nor may "Obullo" appear in their name, without prior written
-   permission from Ersin Guvenc.
+   permission from Obullo.com.
 
 
 INDEMNITY

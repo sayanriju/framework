@@ -1,8 +1,9 @@
 <?php
 defined('BASE') or exit('Access Denied!');
+
 /*
 | -------------------------------------------------------------------
-| AUTO-LOADER MODULE
+| MODULE AUTO-LOADER
 | -------------------------------------------------------------------
 | This file specifies which MODULE should be loaded by default.
 |

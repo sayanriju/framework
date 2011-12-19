@@ -39,7 +39,7 @@ go `http://obullo.com/user_guide/en/1.0.1/getting-started.html`.
 
 # LICENSE AGREEMENT
 
-Copyright (c) 2009 - 2011 Ersin Guvenc (eguvenc@gmail.com) http://obullo.com
+Copyright (c) 2009 - 2011 http://obullo.com
 All rights reserved.
 
 This license is a legal agreement between you and Obullo.com for the use

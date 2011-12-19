@@ -75,7 +75,7 @@ label { font-weight:bold; }
 
 <h1>Welcome to Obullo Validation Model !</h1> 
 
-<div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model (VM) with Ajax'); ?></div>
+<div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model with Ajax'); ?></div>
 
 <div>
 <? echo form_open('/test/vm/start/do_post.json', array('method' => 'POST', 'class' => 'hide-form'));?>

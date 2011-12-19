@@ -1,7 +1,7 @@
 <?php
   
 /**
-* A task_run function call this task file using
+* A task_run function call this task file
 * which is located in /e_notifier/helpers/my_error.php
 * 
 * Command Line Send Mail CLass
@@ -39,22 +39,22 @@ Class Send_Mail extends Controller
     {
         $cfg = core_class('Config');
         
-        if($cfg->item('send_errors'))
+        if($cfg->item('send_email'))
         {
             $smtp = lib('ob/email');
             $smtp->clear();
 
-            $config['protocol']  = $cfg->item('protocol');
+            $config['protocol']  = 'smtp';
             $config['charset']   = 'utf-8';
             $config['crlf']      = "\r\n";
             $config['newline']   = "\r\n";
             $config['wordwrap']  = FALSE;
             $config['mailtype']  = 'html';
 
-            $config['smtp_host'] = $cfg->item('smtp_host');
-            $config['smtp_user'] = $cfg->item('smtp_user');
-            $config['smtp_pass'] = $cfg->item('smtp_pass');
-            $config['smtp_port'] = $cfg->item('smtp_port');
+            $config['smtp_host']    = $cfg->item('smtp_host');
+            $config['smtp_user']    = $cfg->item('smtp_user');
+            $config['smtp_pass']    = $cfg->item('smtp_pass');
+            $config['smtp_port']    = $cfg->item('smtp_port');
             $config['smtp_timeout'] = $cfg->item('smtp_timeout');
 
             $smtp->init($config);
@@ -73,19 +73,19 @@ Class Send_Mail extends Controller
             $smtp->subject($cfg->item('subject'));
             $smtp->message($message);
 
-            // $email->attach('rest.txt');
+            // $smtp->attach('test.txt');
 
             $sent = $smtp->send();
             
             if($sent)
             {
-                log_me('debug', 'Ticket# '. $uniqid . ' error notify sent succesfully.');
+                log_me('debug', 'Ticket# '. $uniqid . ' error notification sent succesfully.');
                 
                 return TRUE;
             } 
             else
             {
-                log_me('debug', '!! WARNING Ticket# '. $uniqid . ' error notify could not send. Check your smtp 
+                log_me('debug', '!! WARNING Ticket# '. $uniqid . ' error notification could not send. Check your smtp 
                 settings.');
             }          
       
