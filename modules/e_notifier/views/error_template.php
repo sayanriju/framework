@@ -80,7 +80,7 @@ function Obullo_Error_Toggle(obj)
 
 <div style="clear:both"></div>
 
-<?php $agent = lib('agent'); ?>
+<?php $agent = lib('ob/agent'); ?>
 
 <table>
     <tr>

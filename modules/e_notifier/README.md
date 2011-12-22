@@ -27,7 +27,7 @@ when you work on local.
 
 ## application/config/extensions.php
 
-    if($config['env'] == 'LIVE') 
+    if(ENV == 'LIVE') 
     {
         $extensions['application']['e_notifier']['enabled'] = TRUE;
     } 

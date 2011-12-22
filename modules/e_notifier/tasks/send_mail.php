@@ -66,9 +66,10 @@ Class Send_Mail extends Controller
 
             loader::helper('ob/url');
             
+            $error_url = trim($cfg->item('domain_root'), '/') .'/e_notifier/display/ticket/'. $uniqid;
+            
             $message = 'An Error Was Encountered, follow this link ---> ';
-            $err_uri = trim($cfg->item('domain_root'), '/').'/e_notifier/display/ticket/'.$uniqid;
-            $message.= '<a href="'.$err_uri.'" target="_blank">'.$err_uri.'</a>';
+            $message.= '<a href="'.$error_url.'" target="_blank">'.$error_url.'</a>';
             
             $smtp->subject($cfg->item('subject'));
             $smtp->message($message);
@@ -98,5 +99,5 @@ Class Send_Mail extends Controller
 
 // END send_mail.php File
 
-/* End of file Bootstrap.php
+/* End of file send_mail.php
 /* Location: ./modules/e_notifier/tasks/send_mail.php */

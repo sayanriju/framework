@@ -1,15 +1,71 @@
 <?php
+
 /**
 |--------------------------------------------------------------------------
-| Obullo Framework (c) 2009 - 2011. 
+| APPLICATION ENVIRONMENT
 |--------------------------------------------------------------------------
 |
-| PHP5 MVC Based Minimalist Software for PHP 5.1.2 or newer
+| You can load different configurations depending on your
+| current environment. Setting the environment also influences
+| things like logging and error reporting.
 |
-| @version defined  in  .obullo/core/Controller.php
-| @see     license.txt
+| This can be set to anything, but default usage is:
 |
-*/ 
+|     o DEV   - Development
+|     o DEBUG - Debug Mode
+|     o TEST  - Testing
+|     o LIVE  - Production
+|
+| NOTE: If you change these, also change the error_reporting() code below
+|
+*/
+define('ENV', 'DEV');
+
+/**
+|--------------------------------------------------------------------------
+| Native PHP Error Handler (Default Off) 
+|--------------------------------------------------------------------------
+| For security reasons its default off.
+| Default Obullo error handle active also you don't want to use Obullo
+| development error handler you can *turn off it easily from 
+| 
+| "application/config.php" file.
+|
+*/              
+if (defined('ENV'))
+{
+    switch(ENV)
+    {
+        case 'DEV':
+            error_reporting(E_ALL | E_STRICT);
+            error_reporting(0);
+            break;
+        
+        case 'TEST':
+            error_reporting(E_ALL | E_STRICT);
+            error_reporting(0);
+            break;
+        
+        case 'DEBUG':
+            error_reporting(E_ALL | E_STRICT);
+            break;
+        
+        case 'LIVE':
+            error_reporting(0);
+            break;
+        
+        default:
+        exit('The application environment is not set correctly.');
+    }   
+}
+
+/**
+|--------------------------------------------------------------------------
+| DIRECTORY SEPERATOR
+|--------------------------------------------------------------------------
+| Friendly Directory Seperator Constant
+|
+*/
 define('DS',   DIRECTORY_SEPARATOR);
 
 /**
@@ -22,19 +78,6 @@ define('DS',   DIRECTORY_SEPARATOR);
 | 
 */
 date_default_timezone_set('America/Chicago');
-
- /**
-|--------------------------------------------------------------------------
-| Native PHP Error Handler (Default Off) 
-|--------------------------------------------------------------------------
-| For security reasons its default off.
-| Default Obullo error handle active also you don't want to use Obullo
-| development error handler you can *turn off it easily from 
-| application/config.php file.
-|
-*/                                   
-error_reporting(E_ALL | E_STRICT); 
-error_reporting(0);
 
 /**
 |---------------------------------------------------------------

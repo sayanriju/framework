@@ -20,6 +20,7 @@ Class Doly extends Controller {
         
         echo anchor('default/subdir', 'Try Subfolder !');
     }
+    
 }
 
 /* End of file doly.php */
