@@ -20,7 +20,7 @@ Class Start extends Controller {
         
         //------ HMVC CALL -----//
         
-        $response = request('/captcha/create')->exec();
+        $response    = request('/captcha/create')->exec();
         $data['cap'] = unserialize($response);
                 
         //------ HMVC CALL -----//
@@ -35,7 +35,7 @@ Class Start extends Controller {
         
         //------ HMVC CALL -----//
           
-        $response = request('/captcha/create')->exec();
+        $response    = request('/captcha/create')->exec();
         $data['cap'] = unserialize($response);
                 
         //------ HMVC CALL -----//
@@ -45,7 +45,7 @@ Class Start extends Controller {
     }
     
     function do_post()
-    {
+    {   
         loader::model('user', false);  // Include user model
         
         $user = new User();
@@ -73,7 +73,7 @@ Class Start extends Controller {
             
             //------ Hmvc call for none ajax requests -----//
         
-            $response = request('/captcha/create')->exec();
+            $response    = request('/captcha/create')->exec();
             $data['cap'] = unserialize($response);
         }
         
