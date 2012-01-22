@@ -19,7 +19,7 @@
 | NOTE: If you change these, also change the error_reporting() code below
 |
 */
-define('ENV', 'DEV');
+define('ENV', 'DEBUG');
 
 /**
 |--------------------------------------------------------------------------
@@ -38,7 +38,8 @@ if (defined('ENV'))
     {
         case 'DEV':
             error_reporting(E_ALL | E_STRICT);
-            error_reporting(0);
+            ini_set('display_errors', '1');
+            error_reporting(0); // Show errors using Obullo error handler
             break;
         
         case 'TEST':
@@ -48,6 +49,7 @@ if (defined('ENV'))
         
         case 'DEBUG':
             error_reporting(E_ALL | E_STRICT);
+            ini_set('display_errors', '1');
             break;
         
         case 'LIVE':
@@ -111,7 +113,7 @@ define('MODULES',  ROOT .'modules'. DS);
 | BASE      - The full server path to the "obullo" folder
 | APP       - The full server path to the "application" folder
 | MODULES   - The full server path to the "modules" folder
-| TASK_FILE - Set Task file constant We use this constant in task helper.
+| TASK_FILE - Set your task file name that we use it in task helper.
 */
 define('EXT',  '.php');
 define('FCPATH', __FILE__);

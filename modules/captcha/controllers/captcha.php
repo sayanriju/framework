@@ -53,12 +53,19 @@ Class Captcha extends Controller {
             echo json_encode(array('image' => $data['cap']['image']));
             return;
         }
-
-        echo serialize($data['cap']);  // we need return to string for HMVC
+        
+        // we need return to string
+        
+        echo json_encode(array(
+            'view' => view('view_captcha', $data['cap']),
+            'javascript' => view('view_javascript')
+            ));  
     }
 
+    // -------------------------------------------------------------------- 
+    
     /**
-    * Validate function
+    * Validator function
     *
     * return string
     */
@@ -75,7 +82,8 @@ Class Captcha extends Controller {
         {
            $validator->set_message('request','The security code you entered not valid, please try again.');
 
-           echo '0';
+           echo '0';  // wrong answer
+           
            return;
         }
 

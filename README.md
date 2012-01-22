@@ -5,10 +5,10 @@ The goal of Obullo is keep the framework maintainable, portable, easy and minima
 
 ## Features
 
-- Modular Controllers (Modules and Sub folders)
+- Modular Programming (Modules, SubModules and SubFolders)
 - Simple HMVC (Hierarchical Model View Controller)
-- Validation Model (VM) instead of using a complex structure such as ORM
-- Integrated Task Management and Command Line structures
+- Validation in Model (VM) instead of using a complex structure such as ORM
+- Task Management and CLI Support
 - Advanced Debugging and Error Notifiers
 - UTF8 Libraries
 - SSL Support, Ajax Support
@@ -20,11 +20,12 @@ The goal of Obullo is keep the framework maintainable, portable, easy and minima
 ## Installation
 
 - Open archive to your `/htdocs` folder.
-- Check your php.ini, `short_open_tag = ` should be `On`.
-- Check your phpinfo(); `PDO` and `Pdo_yourdriver` (pdo_mysql, pdo_pgsql etc..) must be installed on your host.
+- Check your php.ini, `short_open_tag = ` should be `On`, `display_errors = ` should be `On`..
+- Check your phpinfo(); `PDO` and `Pdo_yourdriver` (pdo_mysql, pdo_pgsql ..) must be installed on your host.
 - Open your browser and run Obullo e.g. `http://localhost/obullo`
 - Captcha module use the GD library, give the 777 permissions to `/modules/captcha/public/images/` folder.
-- You can change the configuration from `application/config/config.php` file.
+- You can change the configuration from `application/config/config.php` file. Set your application base url.
+- You can change the routes from `application/config/routes.php` file.
   
   
 ## Quick Start

@@ -16,7 +16,8 @@
 <pre>
 loader::helper('ob/request');
 
-$data['response'] = request('welcome/test/1/2/3')->exec();</pre></td>
+$data['response_a'] = request('welcome/test/1/2/3')->exec();
+$data['response_b'] = request('backend/hello/test/1/2/3')->exec();</pre></td>
     </tr>
 
     <tr>
@@ -31,11 +32,12 @@ $data['response'] = request('welcome/test/1/2/3')->exec();</pre></td>
             
             <br />
             
-            <pre>echo $response;</pre>
-
+            <pre>echo $response_a;</pre>
+            <pre>echo $response_b;</pre>
             <br />
             
-            <? echo $response;?>
+            <? echo $response_a;?>            
+            <? echo $response_b;?>
         </td>
     </tr>
 

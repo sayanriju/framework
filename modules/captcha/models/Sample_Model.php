@@ -17,7 +17,7 @@ Class Sample_Model extends VM
         $this->settings['fields']['captcha_answer'] = array(
           'label' => 'Security Image',
           'type'  => 'string',
-          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_request[post][/captcha/check/]'
+          'rules' => 'trim|required|integer|min_lenght[1]|max_length[5]|callback_request[post][captcha/check]'
         );
         
         //----- End Captcha Validation ----//

@@ -17,7 +17,7 @@ Class Display extends Controller {
     
     function ticket($error_id = '')
     {
-        if( file_exists(MODULES .'e_notifier'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT))
+        if( file_exists(MODULES .$GLOBALS['sub_path'].'e_notifier'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT))
         {
             echo view('html_errors/'.$error_id);
             
@@ -30,9 +30,9 @@ Class Display extends Controller {
     
     function delete($error_id = '')
     {
-        if( file_exists(MODULES .'e_notifier'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT))
+        if( file_exists(MODULES .$GLOBALS['sub_path'].'e_notifier'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT))
         {
-            unlink(MODULES .'e_notifier'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT);
+            unlink(MODULES .$GLOBALS['sub_path'].'e_notifier'. DS .'views'. DS .'html_errors'. DS .$error_id. EXT);
             
             echo '<font face="arial" size="3">File deleted !</font>';
             

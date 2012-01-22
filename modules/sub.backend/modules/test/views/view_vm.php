@@ -39,13 +39,13 @@ label { font-weight:bold; }
 <!-- body content -->
 <h1>Welcome to Obullo Validation Model !</h1> 
 
-<div style="padding: 10px 10px 10px 0;"><? echo anchor('/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/test/vm/start/ajax_example', 'Validation Model with Ajax'); ?></div>
+<div style="padding: 10px 10px 10px 0;"><? echo anchor('/backend/test/vm/start', 'Validation Model (No Ajax)'); ?> | <? echo anchor('/backend/test/vm/start/ajax_example', 'Validation Model with Ajax'); ?></div>
 
 
 <? echo form_msg($user); ?>
 
 <div>
-<? echo form_open('/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
+<? echo form_open('/backend/test/vm/start/do_post', array('method' => 'POST', 'class' => 'no-ajax'));?>
 <table width="100%">
     
     <tr>
