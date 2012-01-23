@@ -1,7 +1,7 @@
 <?php
 defined('CMD') or exit('Access Denied!');
 
-Class Hello extends Controller {
+Class Start extends Controller {
     
     function __construct()
     {   
@@ -16,10 +16,10 @@ Class Hello extends Controller {
         echo 'Hello World !'."\n";
         echo 'Argument 1: '.$arg1."\n";
         echo 'Argument 2: '.$arg2."\n";
-        echo 'The Hello Controller Index function successfully works !'."\n";
+        echo 'The Start Controller Index function successfully works !'."\n";
     }
     
 }
 
 /* End of file start.php */
-/* Location: .modules/welcome/tasks/welcome.php */
+/* Location: .modules/welcome/tasks/start/start.php */

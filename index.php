@@ -19,7 +19,7 @@
 | NOTE: If you change these, also change the error_reporting() code below
 |
 */
-define('ENV', 'DEBUG');
+define('ENV', 'DEV');
 
 /**
 |--------------------------------------------------------------------------
