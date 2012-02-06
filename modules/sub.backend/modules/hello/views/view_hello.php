@@ -1,6 +1,8 @@
 <?php
 view_var('head', css('backend.css'));
-view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files. 
+view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files.
+
+echo $undefined;        
 ?>
 
 <!-- body content -->

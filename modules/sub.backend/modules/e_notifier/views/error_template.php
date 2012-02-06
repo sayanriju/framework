@@ -3,8 +3,8 @@
 
 <style type="text/css">
 #exception_content {
-font-family: verdana;
-font-size:12;
+font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif;
+font-size:12px;
 width:99%;
 padding:5px;
 background-color: #F0F0F0;
@@ -23,28 +23,27 @@ line-height: none;
 #exception_content div.collapsed { display: none; }
 #exception_content div.arguments { }
 #exception_content div.arguments table { 
-font-family: verdana; 
-font-size:12; 
+font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif;
+font-size: 12px; 
 border-collapse: collapse; 
 border-spacing: 0; 
 background: #fff;  
 }
 #exception_content div.arguments table td { text-align: left; padding: 5px; border: 1px solid #ccc; }
-#exception_content div.arguments table td .object_name { color: blue; }
+#exception_content div.arguments table td span.object { color: blue; }
 #exception_content pre.source span.line { display: block; }
 #exception_content pre.source span.highlight { background: #E0E0E0; }
 #exception_content pre.source span.line span.number { color: none; }
 #exception_content pre.source span.line span.number { color: none; }
 
 body {
-font-family: verdana; 
-font-size:12; 
+font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif;
+font-size: 12px; 
 }
 </style>
 
 <script type="text/javascript">
-function Obullo_Element() 
-{
+function Obullo_Element() {
     var elements = new Array();
     for (var i = 0; i < arguments.length; i++) 
     {
@@ -58,8 +57,7 @@ function Obullo_Element()
     return elements;
 }
 
-function Obullo_Error_Toggle(obj)
-{
+function Obullo_Error_Toggle(obj) {
     var el = Obullo_Element(obj);
     if (el == null){
         return false;
@@ -73,18 +71,20 @@ function Obullo_Error_Toggle(obj)
 
 <div style="float:left"><h3>Ticket# : <?php echo $uniqid; ?></h3></div>
 <div style="float:right" id="del_msg">
-<form action="/e_notifier/display/delete/<?php echo $uniqid?>" method="POST" id="error_form" name="error_form">
-<input type="button" onclick="delete_file('<?=$uniqid?>');" value="Delete This File" />
-</form>
+<?php
+echo form_open(sub_module('e_notifier/display/delete/'.$uniqid), ' method="POST" id="error_form" name="error_form" ');
+echo form_button('del_error', 'Delete This File', ' onclick="delete_file(\''.$uniqid.'\');"');
+echo form_close();
+?>
 </div>
 
 <div style="clear:both"></div>
 
-<?php $agent = lib('ob/agent'); ?>
+<?php $agent = lib('ob/Agent'); ?>
 
 <table>
     <tr>
-        <td>PLATFORM</td>
+        <td width="10%">PLATFORM</td>
         <td><? echo $agent->platform(); ?></td>
     </tr>
     
@@ -106,12 +106,12 @@ function Obullo_Error_Toggle(obj)
     </tr>
     
     <tr>
-        <td>$_REQUESTS vars</td>
+        <td>$_REQUESTS</td>
         <td><? echo print_r($_REQUEST, true); ?></td>
     </tr>
     
     <tr>
-        <td>$_SERVER vars</td>
+        <td>$_SERVER</td>
         <td><? echo print_r($_SERVER, true); ?></td>
     </tr>
 </table>

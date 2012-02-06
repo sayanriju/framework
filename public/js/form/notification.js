@@ -2,7 +2,7 @@
 /**
  * Obullo JQuery Form Validation Plugin  (c) 2011.
  *
- * PHP5 MVC Based Minimalist Software.
+ * PHP5 HMVC Based Scalable Software.
  *
  * @package         obullo       
  * @author          obullo.com

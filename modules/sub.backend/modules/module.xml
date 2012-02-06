@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<!--
+    Document   : module.xml
+    Created on : January 29, 2012, 3:05 PM
+    Author     : Obullo
+    Description:
+        Module.xml file works like .htaccess, when your current
+        module begin to run, xml settings will be initialize to
+        which "sub.modules" contains this file.
+
+    Attributes for <extension> tags:
+    
+    name = ""      - Name of the extension.
+    enabled = ""   - Can take `yes` | `no` values. If value `yes` extension is enabled.
+    env  = ""      - Environments, enable for different environments e.g. env = "DEV,DEBUG".
+    path = "/"     - Working path default is forward slash "/".
+                     Change your extension `working path`, it can be located in a sub.module.
+                     Forexample you can move `e_notifier` extension to sub.backend 
+                     module then you need to set this attribute ( path = "/sub.backend/" )
+                     in module.xml which is located in your `/sub.backend/` folder.
+    root = ""      - Please not use, this is a hidden attribute that gives you full root path 
+                     of the extension.
+-->
+
+<root>
+    <extension name="e_notifier" enabled="yes" path="/sub.backend/">
+        <override>
+            <library>Exception</library>
+            <helper>error</helper>
+        </override>
+    </extension>
+</root>

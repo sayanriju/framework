@@ -15,6 +15,5 @@ defined('BASE') or exit('Access Denied!');
 
 $config['item']  = 'Welcome to Obullo :)';
 
-
 /* End of file config.php */
 /* Location: .modules/welcome/config/config.php */

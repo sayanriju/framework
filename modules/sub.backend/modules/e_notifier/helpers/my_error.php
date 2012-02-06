@@ -2,13 +2,13 @@
 defined('BASE') or exit('Access Denied!');
 
 /**
- * Obullo Framework (c) 2009.
+ * Obullo Framework (c) 2009 - 2012.
  *
- * PHP5 MVC Based Minimalist Software.
+ * PHP5 HMVC Based Scalable Software.
  * 
  * @package         obullo    
  * @author          obullo.com
- * @copyright       Ersin Guvenc (c) 2009.
+ * @copyright       Obullo Team.
  * @since           Version 1.0
  * @filesource
  * @license
@@ -41,15 +41,15 @@ function Obullo_Exception_Handler($e, $type = '')
         write_errors_and_send_email($e, $type, $sql = array());
     
         //---------------------------------------------------------------------------------
-        // CAPTURE ERRORS END
         
         if(defined('CMD'))  // If Command Line Request.
         {
-            echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";
+            echo $type .': '. $e->getMessage(). ' File: ' .error_secure_path($e->getFile()). ' Line: '. $e->getLine(). "\n";
             
             $cmd_type = (defined('TASK')) ? 'Task' : 'Cmd';
             
-            log_me('error', 'Php Error Type ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE);
+            log_me('error', 'Php Error ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.error_secure_path($e->getFile()).' '.$e->getLine(), true);
+            
             return;
         }
 
@@ -88,12 +88,12 @@ function Obullo_Exception_Handler($e, $type = '')
             include(APP .'core'. DS .'errors'. DS .'ob_disabled_error'. EXT);
         }
         
-        log_me('error', 'Php Error Type: '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE); 
+        log_me('error', 'Php Error: '.$type.'  --> '.$e->getMessage(). ' '.error_secure_path($e->getFile()).' '.$e->getLine(), true); 
          
     } 
     else  // Is It Exception ?
     {   
-        $exception = load_class('Exception');
+        $exception = lib('ob/Exception');
         
         if(is_object($exception)) 
         {           
@@ -117,19 +117,34 @@ function Obullo_Exception_Handler($e, $type = '')
 */
 function write_errors_and_send_email($e, $type = '', $sql = array())
 {   
-    loader::config('../e_notifier/config');  // load extension config file.
+    //---------------------------------------------------------------------
+    // Load extension config file from e_notifier/config folder.
+    //----------------------------------------------------------
     
-    if(core_class('Config')->item('send_email') == FALSE)   // Email switch.
+    ############
+    
+    $root = extension('root', 'e_notifier');
+    
+    ############
+    
+    loader::config('../e_notifier/config');  
+    
+    ############
+
+    $config = lib('ob/Config');
+    
+    if($config->item('send_email') == FALSE)   // Email switch.
     {
         return;
     }
-
-    $uniqid = md5($e->getFile() . $e->getLine() . $e->getMessage());
     
-    $file   = MODULES .$GLOBALS['sub_path'].'e_notifier'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
+    $uniqid  = md5(error_secure_path($e->getFile()) . $e->getLine() . $e->getMessage());  // unique error ID
+    $file_id = $root .'e_notifier'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
     
-    if( file_exists($file) )  // If we already have same file, we don't need capture this
-    {                         // error again foreach users !!   
+    if( file_exists($file_id) )  // If we have already same error file, we don't need to send it again.
+    {   
+        log_me('debug', '[ e_notifier ]: Email not send. The error file '.$uniqid.'.php already exist in /views/html_errors/ folder.');
+      
         return;
     }
     
@@ -139,34 +154,55 @@ function write_errors_and_send_email($e, $type = '', $sql = array())
     $data['uniqid'] =  $uniqid;
     
     loader::helper('ob/view');
+    loader::helper('ob/url');
+    loader::helper('ob/form');
     
     $message   = "<"."?php defined('BASE') or exit('Access Denied!'); ?".">\n\n";
     $message  .= view('../e_notifier/error_template', $data);
-    $file_path = MODULES .$GLOBALS['sub_path'].'e_notifier'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
     
+    $file_path = $root .'e_notifier'. DS .'views'. DS .'html_errors'. DS .$uniqid. EXT;
+    
+    if( ! is_really_writable($root .'e_notifier'. DS .'views'. DS .'html_errors'))
+    {
+        log_me('error', '[ e_notifier ]: Have not got write access to /views/html_errors/ path check your chmod settings.');
+               
+        return;
+    }
+
     if ( ! $fp = @fopen($file_path, FOPEN_WRITE_CREATE))
     {
         return FALSE;
     }
-
+    
     flock($fp, LOCK_EX);    
     fwrite($fp, $message);
     flock($fp, LOCK_UN);
     fclose($fp);
-
+    
     @chmod($file_path, FILE_WRITE_MODE);
     
     // Write all errors as html files and Send them via smtp in background..
     //---------------------------------------------------------------------
     // Run SHELL COMMAND and Send Emails in Background.
     //----------------------------------------------------------
-    
-    loader::helper('ob/task');
-    
-    task_run('e_notifier send_mail/send/'.$uniqid);
-    
-    //----------------------------------------------------------    
 
+    loader::helper('ob/task');
+
+    $sub_module = extension('path', 'e_notifier');
+    
+    if($sub_module != '')
+    {
+        $sub_module = substr($sub_module, 4); // substract sub.
+    }
+    
+    #############
+
+    task_run($sub_module.' e_notifier send_mail/send/'.$uniqid);
+
+    #############
+    
+    log_me('debug', '[ e_notifier ]: Error notify process completed.');
+    
 }
 
 // END my_error.php File

@@ -1,19 +1,19 @@
-Obullo: PHP5 Framework
+Obullo: PHP5 HMVC Scalable Framework
 =========================
 
-The goal of Obullo is keep the framework maintainable, portable, easy and minimal. 
+The goal of Obullo is keep the framework maintainable, portable, easy and scalable. 
 
 ## Features
 
-- Modular Programming (Modules, SubModules and SubFolders)
-- Simple HMVC (Hierarchical Model View Controller)
-- Validation in Model (VM) instead of using a complex structure such as ORM
-- Task Management and CLI Support
-- Advanced Debugging and Error Notifiers
-- UTF8 Libraries
-- SSL Support, Ajax Support
-- Nginx HTTP Server Support
-- Lightweight and Easy to Use, Orginally based CodeIgniter
+- Modular Programming (Modules, Extensions, SubModules and SubFolders).
+- Simple HMVC (Hierarchical Model View Controller).
+- Simple Validation in Model (VM) instead of ORM.
+- Task Management and CLI Support.
+- Advanced Debugging and Error Notifiers.
+- UTF8 Libraries.
+- SSL Support, Ajax Support.
+- Nginx HTTP Server Support.
+- Lightweight and Easy to Use, Orginally based CodeIgniter.
 - Well documented, It focuses on simplicity and best maintainability.
 
 

@@ -1,6 +1,5 @@
 <?php
 view_var('head', css('welcome.css'));
-view_var('head', js('welcome.js'));    
 view_var('meta', meta('keywords', 'obullo, php5, framework'));   // You should set some head tags in view files. 
 ?>
 

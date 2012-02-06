@@ -1,11 +1,12 @@
 <?php
   
 /**
-* A task_run function call this task file
-* which is located in /e_notifier/helpers/my_error.php
+* A task_run function call this task
+* file which is located in /e_notifier/helpers/my_error.php
 * 
 * Command Line Send Mail CLass
 */
+
 Class Send_Mail extends Controller 
 {
     function __construct()
@@ -18,13 +19,11 @@ Class Send_Mail extends Controller
         // bug in this class server will go unlimited loop while 
         // consume all the server memory.
         // 
-        // Please don't remove exception handler functions !!
+        // Please don't remove "restore handler" functions !!
         //-----------------------------------------------------------
         
         restore_error_handler();        // Reset exception handlers
         restore_exception_handler();
-        
-        loader::config('../e_notifier/config');  // Load module config file.
     }
     
     //------------------------------------------------------------
@@ -37,12 +36,23 @@ Class Send_Mail extends Controller
     */
     function send($uniqid)
     {
-        $cfg = core_class('Config');
+        loader::config('../e_notifier/config');  // Load module extension file.
+        
+        $cfg = lib('ob/Config');
         
         if($cfg->item('send_email'))
         {
-            $smtp = lib('ob/email');
-            $smtp->clear();
+            if($cfg->item('smtp_user') == '' OR $cfg->item('smtp_pass') == '')
+            {
+                log_me('debug', '[ e_notifier ]: Please set a smtp account for e_notifier extension.');
+                
+                return FALSE;
+            }
+            
+            //------------------------------------------------------------
+            
+            $email = lib('ob/Email');
+            $email->clear();
 
             $config['protocol']  = 'smtp';
             $config['charset']   = 'utf-8';
@@ -56,38 +66,39 @@ Class Send_Mail extends Controller
             $config['smtp_pass']    = $cfg->item('smtp_pass');
             $config['smtp_port']    = $cfg->item('smtp_port');
             $config['smtp_timeout'] = $cfg->item('smtp_timeout');
-
-            $smtp->init($config);
-            $smtp->from($cfg->item('from_email'), $cfg->item('from_name'));
-            $smtp->to($cfg->item('recipients'));
-
-            // $smtp->cc('another@another-example.com');
-            // $smtp->bcc('example@example.com');
-
-            loader::helper('ob/url');
             
-            $error_url = trim($cfg->item('domain_root'), '/') .'/e_notifier/display/ticket/'. $uniqid;
+            $email->init($config);
+            $email->from($cfg->item('from_email'), $cfg->item('from_name'));
+            $email->to($cfg->item('recipients'));
+            
+            $sub_module = extension('path', 'e_notifier');
+   
+            if($sub_module != '')
+            {
+                $sub_module = '/'.substr($sub_module, 4); // substract sub.
+            }
+            
+            $index_page = ($cfg->item('index_page') == '') ? '' : '/'. $cfg->item('index_page');
+            $error_url  = trim($cfg->item('domain_root'), '/').$index_page.$sub_module.'/e_notifier/display/ticket/'. $uniqid;
             
             $message = 'An Error Was Encountered, follow this link ---> ';
             $message.= '<a href="'.$error_url.'" target="_blank">'.$error_url.'</a>';
             
-            $smtp->subject($cfg->item('subject'));
-            $smtp->message($message);
-
-            // $smtp->attach('test.txt');
-
-            $sent = $smtp->send();
+            $email->subject($cfg->item('subject'));
+            $email->message($message);
+               
+            //------------------------------------------------------------
             
-            if($sent)
+            if($email->send())
             {
-                log_me('debug', 'Ticket# '. $uniqid . ' error notification sent succesfully.');
+                log_me('debug', '[ e_notifier ]: Ticket# '. $uniqid . ' sent succesfully.');
                 
                 return TRUE;
             } 
-            else
+            else    // Look at e_notifier/core/logs.
             {
-                log_me('debug', '!! WARNING Ticket# '. $uniqid . ' error notification could not send. Check your smtp 
-                settings.');
+                log_me('error', '[ e_notifier ]: Ticket# '. $uniqid . ' could not send. Check your smtp settings.');
+                log_me('error', '[ e_notifier ]: Details of #'.$uniqid.': ' .$email->print_debugger());
             }          
       
             return FALSE;

@@ -11,24 +11,23 @@
 |
 | This can be set to anything, but default usage is:
 |
-|     o DEV   - Development
-|     o DEBUG - Debug Mode
-|     o TEST  - Testing
-|     o LIVE  - Production
+|     o DEV   - Development ( Show Obullo Friendly Errors )
+|     o DEBUG - Debug Mode  ( Show Hidden Php Native Errors )
+|     o TEST  - Testing     ( Test mode, behaviours like DEV )
+|     o LIVE  - Production  ( Close all errors )
 |
 | NOTE: If you change these, also change the error_reporting() code below
 |
 */
-define('ENV', 'DEV');
+define('ENV', 'DEBUG');
 
 /**
 |--------------------------------------------------------------------------
 | Native PHP Error Handler (Default Off) 
 |--------------------------------------------------------------------------
 | For security reasons its default off.
-| Default Obullo error handle active also you don't want to use Obullo
+| But default `Obullo Error Handler` is active if you don't want to use Obullo
 | development error handler you can *turn off it easily from 
-| 
 | "application/config.php" file.
 |
 */              
@@ -39,7 +38,7 @@ if (defined('ENV'))
         case 'DEV':
             error_reporting(E_ALL | E_STRICT);
             ini_set('display_errors', '1');
-            error_reporting(0); // Show errors using Obullo error handler
+            error_reporting(0); // Show errors using Obullo Error Handler
             break;
         
         case 'TEST':
@@ -65,7 +64,7 @@ if (defined('ENV'))
 |--------------------------------------------------------------------------
 | DIRECTORY SEPERATOR
 |--------------------------------------------------------------------------
-| Friendly Directory Seperator Constant
+| Friendly Directory Seperator
 |
 */
 define('DS',   DIRECTORY_SEPARATOR);
@@ -83,37 +82,37 @@ date_default_timezone_set('America/Chicago');
 
 /**
 |---------------------------------------------------------------
-| FOLDER CONSTANTS
+| FOLDER CONSTANTS AND SUBMODULES
 |---------------------------------------------------------------
 |
-| If you want this front controller to use a different "application"
-| folder then the default one you can set its name here. The folder 
-| can also be renamed or relocated anywhere on your server.
-| It is same for "Modules" folder.
-| @see
-| User Guide: Chapters / General Topics / Managing Your Applications
+| If you want MANAGE MULTIPLE APPLICATIONS in one setup you
+| need to use "sub.modules", you can create your sub.modules using
+| "sub." prefix in modules/ folder. We did an example submodule
+| to you that called "sub.backend".
 |
 */
 define('ROOT',  realpath(dirname(__FILE__)) . DS);
 define('BASE', ROOT .'obullo'. DS);
 define('APP',  ROOT .'application'. DS);
-define('MODULES',  ROOT .'modules'. DS);
+define('MODULES',  ROOT . 'modules' . DS);
+define('SUB_MODULES', 'modules'. DS);
 
 /**
 |---------------------------------------------------------------
 | UNDERSTANDING CONSTANTS
 |---------------------------------------------------------------
-| DS        - The DIRECTORY SEPERATOR
-| EXT       - The file extension.  Typically ".php"
-| SELF      - The name of THIS file (typically "index.php")
-| FCPATH    - The full server path to THIS file
-| PHP_PATH  - The full server path to THIS file
-| FPATH     - The full server path without file
-| ROOT      - The root path of your server
-| BASE      - The full server path to the "obullo" folder
-| APP       - The full server path to the "application" folder
-| MODULES   - The full server path to the "modules" folder
-| TASK_FILE - Set your task file name that we use it in task helper.
+| DS          - The DIRECTORY SEPERATOR
+| EXT         - The file extension.  Typically ".php"
+| SELF        - The name of THIS file (typically "index.php")
+| FCPATH      - The full server path to THIS file
+| PHP_PATH    - The php path of your server
+| FPATH       - The full server path without file
+| ROOT        - The root path of your server
+| BASE        - The full server path to the "obullo" folder
+| APP         - The full server path to the "application" folder
+| MODULES     - The full server path to the "modules" folder
+| SUB_MODULES - The sub module "modules" folder path
+| TASK_FILE   - Set your task (CLI) file name that we use it in task helper.
 */
 define('EXT',  '.php');
 define('FCPATH', __FILE__);

@@ -1,18 +1,20 @@
 <?php
 
 /**
-* Custom Exception Class for e_notifier extension.
-* Capture all Exceptions and send them via email
+* Custom Exception Class for e_notifier
+* extension, capture all Exceptions and 
+* send them via email.
 *
-* @author Ersin Guvenc
+* @author Obullo Team.
 */
+
 Class MY_Exception extends OB_Exception
 {
     function __construct()
     {
         parent::__construct();
         
-        log_me('debug', 'MY_Exception class initialized !');
+        log_me('debug', 'MY_Exception Class Initialized');
     }
     
     /**
@@ -23,7 +25,7 @@ Class MY_Exception extends OB_Exception
     * @return string
     */
     public function write($e, $type = '')
-    {
+    {   
         $type = ($type != '') ? ucwords(strtolower($type)) : 'Exception Error';
         $sql  = array();
 
@@ -51,19 +53,19 @@ Class MY_Exception extends OB_Exception
 
         write_errors_and_send_email($e, $type, $sql);
         
-        //-------------------------------------------------------------------------------- 
         
         // Command Line Errors
         //-----------------------------------------------------------------------
         if(defined('CMD'))  // If Command Line Request. 
         {
-            echo $type .': '. $e->getMessage(). ' File: ' .$e->getFile(). ' Line: '. $e->getLine(). "\n";
+            echo $type .': '. $e->getMessage(). ' File: ' .error_secure_path($e->getFile()). ' Line: '. $e->getLine(). "\n";
             
             $cmd_type = (defined('TASK')) ? 'Task' : 'Cmd';
             
-            if(core_class('Config')->item('write_log'))
+            if(lib('ob/Config')->item('write_log'))
             {
-                log_me('error', 'Php Error Type ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE);
+                log_me('error', 'Php Error ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.error_secure_path($e->getFile()).' '.$e->getLine(), true);
+                log_me('error', '[ e_notifier ]: Php Error ('.$cmd_type.'): '.$type.'  --> '.$e->getMessage(). ' '.error_secure_path($e->getFile()).' '.$e->getLine(), true);
             }
             
             return;
@@ -75,15 +77,22 @@ Class MY_Exception extends OB_Exception
         $data['sql']  = $sql;
         $data['type'] = $type;
 
-        if(core_class('Config')->item('write_log'))
+        // Log Writing
+        //-----------------------------------------------------------------------
+        
+        if(lib('ob/Config')->item('write_log'))
         {
-            log_me('error', 'Php Error Type: '.$type.'  --> '.$e->getMessage(). ' '.$e->getFile().' '.$e->getLine(), TRUE);
+            log_me('error', 'Php Error: '.$type.'  --> '.$e->getMessage(). ' '.error_secure_path($e->getFile()).' '.$e->getLine(), true);
+            log_me('error', '[ e_notifier ]: Php Error: '.$type.'  --> '.$e->getMessage(). ' '.error_secure_path($e->getFile()).' '.$e->getLine(), true);
         }
 
-        if(config_item('error_reporting') > 0)
+        // Displaying Errors
+        //-----------------------------------------------------------------------
+        
+        if(lib('ob/Config')->item('error_reporting') > 0)
         {
             ob_start();
-            echo load_view(APP .'core'. DS .'errors'. DS, 'ob_exception', $data, true);
+            echo lib('ob/View')->load_view(APP .'core'. DS .'errors'. DS, 'ob_exception', $data, true);
             $buffer = ob_get_contents();
             ob_get_clean();  // don't close output buffering just clean it.
 

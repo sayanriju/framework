@@ -2,20 +2,30 @@ Creating Sub.Modules
 =========================
 
 Managing applications very easy in Obullo. You don't need to divide applications.
-Follow below the steps.
+Follow below the steps to creating sub modules.
 
 ## Creating Sub Module
-- Create folder called `sub.yourmodule` in the `modules` directory.
-- Copy `config` directory from `sub.backend` module and paste it to `sub.yourmodule` root.
-- Create `modules` directory and build your modules in here.
-- if want to keep log and cache files into submodules directory, duplicate the `core` folder from
-`default` module and paste it into `sub.yourmodules` directory.
+- Create your sub module, for example `sub.modulename` in the `modules` directory.
+- Copy `config` directory from `sub.backend` module and paste it to `sub.modulename` root.
+- Create a `modules` directory your modules will be in here.
+- if want to keep log and cache files in submodules directory, duplicate the `core` folder from
+`default` module and paste it into `sub.modulename` directory.
 - Give chmod -R (recursive) file write permission (777) to `modules/sub.yourmodule/core/` folder.
 
 ## Run
-- Call your sub module like this
-    `http://projectname/index.php/yoursubmodulename` (you don't need to `sub.` prefix in action)
-- Submodule name should be different from module names.
+- Submodules works like modules
+    `http://projectname/index.php/submodulename` (you don't need to `sub.` prefix in action)
+- Submodule names must be different from module names.
+- Running a module in sub.module.
+    `http://projectname/index.php/submodule/module/controller/method`
+
+
+## Segments
+- Submodules will not be affect uri segments.                                    
+    `http://projectname/index.php/submodule/module/controller/method/argument`
+                                     sub     0        1        2       3  
+- You can fetch a submodule using $this->uri->segment('sub'); function. If sub module not exist function 
+returns to FALSE.
 
 ## Tips
 - You can add sub.module route rules into `/sub.module/config/routes.php` file, database, autload, autorun,
